@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+button,
+input[type="button"] {
+  @apply w-full cursor-pointer;
+}
+
+.sidebar-btn {
+  @apply justify-start bg-transparent text-black shadow-none hover:backdrop-brightness-90;
+}
