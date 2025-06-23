@@ -12,6 +12,6 @@ Chronicler is the Note Taking app. That's all for now.
 
 - Search notes
 - Dark mode
+- User Auth / Integration with DB
 - AI summary per note
 - AI suggestions
-- Integration with database
