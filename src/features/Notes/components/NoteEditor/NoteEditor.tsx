@@ -1,9 +1,9 @@
 import { NoteTitleInput } from "./NoteTitleInput";
 import { NoteContentInput } from "./NoteContentInput";
-import { useNotesContext } from "@/providers/NotesProvider";
+import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 
-export function NoteSection(): React.ReactElement {
-  const { selectedNote } = useNotesContext();
+export function NoteEditor() {
+  const { selectedNote } = useSelectedNoteContext();
 
   if (!selectedNote) return <></>;
 

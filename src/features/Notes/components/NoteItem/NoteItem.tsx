@@ -1,19 +1,19 @@
-import { useNotesContext, type Note } from "@/providers/NotesProvider";
+import { useRef } from "react";
 import { NoteItemDropdownMenu } from "./NoteItemDropdownMenu";
-import { createRef } from "react";
+import type { Note } from "../../types";
+import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 
 interface Props {
   note: Note;
 }
 
-export function NoteItem(props: Props): React.ReactElement {
+export function NoteItem(props: Props) {
   const { note } = props;
-  const { selectedNote, setSelectedNote } = useNotesContext();
-  const dropdownMenuTriggerRef = createRef<HTMLButtonElement>();
+  const { selectedNote, setSelectedNote } = useSelectedNoteContext();
+  const dropdownMenuTriggerRef = useRef<HTMLButtonElement>(null);
 
   const active = selectedNote?.id === note.id ? "bg-accent" : "";
 
-  // TODO: test
   function handleClick(e: React.MouseEvent<HTMLDivElement>): void {
     if (e.target !== dropdownMenuTriggerRef.current) {
       setSelectedNote(note);

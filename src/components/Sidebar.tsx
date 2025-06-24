@@ -1,9 +1,9 @@
 import userSvg from "@/assets/user.svg";
 import { AddNoteBtn } from "@/features/Notes/components/AddNoteBtn";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { SearchNotesBar } from "@/features/Notes/components/SearchNotesBar";
 
-export function Sidebar(): React.ReactElement {
+export function Sidebar() {
   return (
     <div className="flex h-full w-[20%] flex-col gap-6 rounded-md border-1 border-(--border-color) bg-gray-100 p-4">
       <span className="ml-1 text-2xl text-gray-950">Chronicler</span>
@@ -12,7 +12,7 @@ export function Sidebar(): React.ReactElement {
         <h2 className="text-lg">Username</h2>
       </div>
       <div className="grid gap-3">
-        <Input type="text" className="bg-white" placeholder="Search note" />
+        <SearchNotesBar />
         <AddNoteBtn />
       </div>
       <div>

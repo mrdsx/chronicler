@@ -1,11 +1,11 @@
 import { NotesList } from "./NotesList";
-import { NoteSection } from "./NoteSection/NoteSection";
+import { NoteEditor } from "./NoteEditor/NoteEditor";
 
-export function NotesArea(): React.ReactElement {
+export function NotesArea() {
   return (
     <div className="flex w-full rounded-md border-1 border-(--border-color)">
       <NotesList />
-      <NoteSection />
+      <NoteEditor />
     </div>
   );
 }

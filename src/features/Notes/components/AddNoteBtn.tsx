@@ -1,10 +1,10 @@
-import { useNotesContext } from "@/providers/NotesProvider";
-import { useNotesActions } from "../hooks/useNotesActions";
+import { useNotes } from "../hooks/useNotes";
 import { Button } from "@/components/ui/button";
+import { useSelectedNoteContext } from "../providers/SelectedNoteContextProvider";
 
-export function AddNoteBtn(): React.ReactElement {
-  const { setSelectedNote } = useNotesContext();
-  const { createNote } = useNotesActions();
+export function AddNoteBtn() {
+  const { setSelectedNote } = useSelectedNoteContext();
+  const { createNote, selectNoteTitleInput } = useNotes();
 
   return (
     <Button
@@ -12,6 +12,7 @@ export function AddNoteBtn(): React.ReactElement {
       onClick={() => {
         const note = createNote("Untitled");
         setSelectedNote(note);
+        setTimeout(selectNoteTitleInput, 1);
       }}
     >
       + Add Note

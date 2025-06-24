@@ -1,5 +1,6 @@
-import { useNotesContext, type Note } from "@/providers/NotesProvider";
+import { useNotesContext } from "../providers/NotesContextProvider";
 import { v4 as uuidv4 } from "uuid";
+import type { Note } from "../types";
 
 type NotesActionsReturnType = {
   selectNoteTitleInput(): void;
@@ -7,7 +8,7 @@ type NotesActionsReturnType = {
   deleteNote(targetId: string): void;
 };
 
-export function useNotesActions(): NotesActionsReturnType {
+export function useNotes(): NotesActionsReturnType {
   const { noteTitleInputRef, notes, setNotes } = useNotesContext();
 
   function selectNoteTitleInput(): void {
