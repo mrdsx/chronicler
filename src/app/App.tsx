@@ -6,7 +6,7 @@ import "./App.css";
 export default function App() {
   return (
     <NotesProviders>
-      <div className="box-border flex h-[100vh] gap-2 bg-white p-2">
+      <div className="box-border flex h-[100vh] gap-2 bg-(--background) p-2">
         <Sidebar />
         <NotesArea />
       </div>

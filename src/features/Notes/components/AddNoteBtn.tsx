@@ -8,7 +8,7 @@ export function AddNoteBtn() {
 
   return (
     <Button
-      className="bg-indigo-700 hover:bg-indigo-600"
+      className="bg-indigo-700 text-white hover:bg-indigo-600"
       onClick={() => {
         const note = createNote("Untitled");
         setSelectedNote(note);

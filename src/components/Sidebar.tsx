@@ -1,28 +1,32 @@
-import userSvg from "@/assets/user.svg";
 import { AddNoteBtn } from "@/features/Notes/components/AddNoteBtn";
-import { Button } from "./ui/button";
 import { SearchNotesBar } from "@/features/Notes/components/SearchNotesBar";
+import { ToggleThemeBtn } from "./toggleThemeBtn";
+import { Button } from "./ui/button";
+import { CircleUserRound, Home, NotepadText } from "lucide-react";
 
 export function Sidebar() {
   return (
-    <div className="flex h-full w-[20%] flex-col gap-6 rounded-md border-1 border-(--border-color) bg-gray-100 p-4">
-      <span className="ml-1 text-2xl text-gray-950">Chronicler</span>
-      <div className="flex gap-2">
-        <img src={userSvg} alt="User image" className="size-8 rounded-4xl" />
+    <div className="flex h-full w-[20%] flex-col gap-6 rounded-md border-1 border-(--border-color) bg-(--sidebar) p-4">
+      <span className="ml-1 text-2xl">Chronicler</span>
+      <div className="flex items-center gap-2">
+        <CircleUserRound />
         <h2 className="text-lg">Username</h2>
       </div>
       <div className="grid gap-3">
         <SearchNotesBar />
         <AddNoteBtn />
       </div>
-      <div>
+      <div className="mb-auto">
         <Button variant="default" className="sidebar-btn">
+          <Home />
           Home
         </Button>
         <Button variant="ghost" className="sidebar-btn">
+          <NotepadText />
           Notes
         </Button>
       </div>
+      <ToggleThemeBtn />
     </div>
   );
 }

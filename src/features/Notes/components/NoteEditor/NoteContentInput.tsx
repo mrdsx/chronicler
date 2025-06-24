@@ -34,7 +34,7 @@ export function NoteContentInput() {
 
   return (
     <textarea
-      className="h-full resize-none outline-0"
+      className="h-full resize-none scroll-smooth outline-0"
       value={noteContentInputVal}
       onChange={handleChange}
       onBlur={handleBlur}

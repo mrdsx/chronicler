@@ -19,7 +19,7 @@ export function NoteItemDropdownMenu({ targetNote, triggerRef }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className="flex-0 rounded-lg hover:backdrop-brightness-90"
+        className="flex-0 rounded-lg hover:backdrop-brightness-90 dark:hover:backdrop-brightness-150"
         ref={triggerRef}
       >
         <EllipsisVertical size={20} />
@@ -27,11 +27,12 @@ export function NoteItemDropdownMenu({ targetNote, triggerRef }: Props) {
       <DropdownMenuContent>
         {dropdownMenuItems.map((item, index) => (
           <DropdownMenuItem
-            className="cursor-pointer"
+            className="flex cursor-pointer gap-2"
             variant={item.variant}
             onClick={item.onClick}
             key={item.title + index}
           >
+            {item.icon}
             {item.title}
           </DropdownMenuItem>
         ))}
