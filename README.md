@@ -28,7 +28,7 @@ Chronicler is the Note Taking app. That's all for now.
 
 ```bash
 git clone https://github.com/mrdsx/chronicler.git
-cd your-project
+cd chronicler
 ```
 
 ### 2. Install Dependencies and run the Dev Server
