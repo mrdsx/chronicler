@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { useNotesContext } from "@/features/Notes/providers/NotesContextProvider";
 import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 import { useEditNote } from "../../hooks/useEditNote";
+import { useNoteEditorRefsContext } from "../../providers/NoteEditorRefsContextProvider";
 
 export function NoteTitleInput() {
-  const { noteTitleInputRef } = useNotesContext();
+  const { noteTitleInputRef } = useNoteEditorRefsContext();
   const { selectedNote } = useSelectedNoteContext();
   const { editNoteTitle } = useEditNote();
 
-  const [noteTitleInputVal, setNoteTitleInputVal] = useState<string>("");
+  const [noteTitleInputVal, setNoteTitleInputVal] = useState<string>(
+    selectedNote!.title,
+  );
 
   useEffect(() => {
     if (selectedNote) setNoteTitleInputVal(selectedNote.title);

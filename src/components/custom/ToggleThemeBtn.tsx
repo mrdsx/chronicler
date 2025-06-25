@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Moon, Sun } from "lucide-react";
 
 export function ToggleThemeBtn() {
@@ -22,7 +22,7 @@ export function ToggleThemeBtn() {
   return (
     <Button
       variant="outline"
-      className="max-w-fit border-(--border-color)"
+      className="obr border-(--border-color)"
       onClick={handleClick}
     >
       {isDarkMode ? <Sun /> : <Moon />}

@@ -7,7 +7,6 @@ export interface Note {
 export type NotesContextType = {
   notes: Note[];
   setNotes(arg0: Note[]): void;
-  noteTitleInputRef: React.RefObject<HTMLInputElement | null> | null;
 };
 
 export type SelectedNoteContextType = {

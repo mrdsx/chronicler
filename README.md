@@ -41,3 +41,12 @@ npm run dev
 ### 3. Open project in your browser.
 
 Open [http://localhost:3000](http://localhost:3000/).
+
+## Tech Stack
+
+<div style="display: flex">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" alt="HTML" width="32" height="32">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS" width="32" height="32">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="React" width="32" height="32">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="32" height="32">
+</div>

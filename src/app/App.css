@@ -2,17 +2,21 @@
 
 :root {
   --border-color: #d5d6da;
+  --primary-content-color: #432dd7;
+  --accent-content-color: #372aac;
+  --home-primary-color: #e5e7eb;
 }
 
 .dark {
   --border-color: rgb(66, 66, 66);
+  --home-primary-color: var(--background);
 }
 
 button,
 input[type="button"] {
-  @apply w-full cursor-pointer;
+  @apply max-w-fit cursor-pointer;
 }
 
 .sidebar-btn {
-  @apply justify-start bg-transparent text-(--primary) shadow-none hover:backdrop-brightness-90;
+  @apply min-w-full justify-start text-(--primary) shadow-none hover:bg-(--sidebar-accent);
 }

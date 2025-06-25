@@ -25,7 +25,6 @@ export function NoteContentInput() {
   function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>): void {
     if (!selectedNote) return;
 
-    // TODO: new line on "Enter"
     if (e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey))) {
       e.preventDefault();
       editNoteContent(selectedNote, noteContentInputVal);

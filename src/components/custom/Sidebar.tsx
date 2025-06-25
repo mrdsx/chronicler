@@ -1,7 +1,7 @@
 import { AddNoteBtn } from "@/features/Notes/components/AddNoteBtn";
 import { SearchNotesBar } from "@/features/Notes/components/SearchNotesBar";
-import { ToggleThemeBtn } from "./toggleThemeBtn";
-import { Button } from "./ui/button";
+import { ToggleThemeBtn } from "./ToggleThemeBtn";
+import { Button } from "../ui/button";
 import { CircleUserRound, Home, NotepadText } from "lucide-react";
 
 export function Sidebar() {
@@ -17,7 +17,7 @@ export function Sidebar() {
         <AddNoteBtn />
       </div>
       <div className="mb-auto">
-        <Button variant="default" className="sidebar-btn">
+        <Button variant="ghost" className="sidebar-btn">
           <Home />
           Home
         </Button>

@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext, useRef } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import type { Note, NotesContextType } from "../types";
 import { LOCAL_STORAGE_KEYS } from "../constants";
 
@@ -14,7 +14,6 @@ export function NotesContextProvider({
   );
 
   const [notes, setNotes] = useState<Note[]>(localStorageNotes);
-  const noteTitleInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEYS.notes, JSON.stringify(notes));
@@ -23,7 +22,6 @@ export function NotesContextProvider({
   const contextValue = {
     notes,
     setNotes,
-    noteTitleInputRef,
   };
 
   return (
@@ -33,6 +31,6 @@ export function NotesContextProvider({
   );
 }
 
-export function useNotesContext(): NotesContextType {
+export function useNotesContext() {
   return useContext(NotesContext);
 }
