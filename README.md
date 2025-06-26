@@ -50,3 +50,13 @@ Open [http://localhost:3000](http://localhost:3000/).
   <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" alt="React" width="32" height="32">
   <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="32" height="32">
 </div>
+
+## Libraries
+
+- [React](https://react.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Radix](https://www.radix-ui.com/) ([ShadCN](https://ui.shadcn.com/) components)
+- [Lucide](https://lucide.dev/)
+- [React Router](https://reactrouter.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [uuid](https://www.npmjs.com/package/uuid)
