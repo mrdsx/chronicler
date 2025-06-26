@@ -1,15 +1,15 @@
 import { useNotes } from "../hooks/useNotes";
-import { Button } from "@/components/ui/button";
 import { useSelectedNoteContext } from "../providers/SelectedNoteContextProvider";
 import { CirclePlus } from "lucide-react";
+import { PrimaryButton } from "@/components/custom/PrimaryButton";
 
 export function AddNoteBtn() {
   const { setSelectedNote } = useSelectedNoteContext();
   const { createNote, selectNoteTitleInput } = useNotes();
 
   return (
-    <Button
-      className="min-w-full bg-indigo-700 text-white hover:bg-indigo-800"
+    <PrimaryButton
+      additionalStyles="min-w-full"
       onClick={() => {
         const newNote = createNote("Untitled");
         setSelectedNote(newNote);
@@ -18,6 +18,6 @@ export function AddNoteBtn() {
     >
       <CirclePlus />
       Add Note
-    </Button>
+    </PrimaryButton>
   );
 }

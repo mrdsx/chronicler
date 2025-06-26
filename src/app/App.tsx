@@ -1,20 +1,16 @@
-import { NotesProviders } from "@/providers/NotesProviders";
-import { Sidebar } from "@/components/custom/Sidebar";
-import { NotesArea } from "@/features/Notes/components/NotesArea";
-import { Home } from "@/components/pages/home-page/Home";
+import { Routes, Route } from "react-router-dom";
+import { Home, Login, SignUp, Notes } from "@/components/pages";
+import { ROUTES } from "@/routes";
 import "./App.css";
 
+// TODO: complete cheat sheet about deploying web app on GitHub Pages
 export default function App() {
-  const isHome = false;
-
-  return isHome ? (
-    <Home />
-  ) : (
-    <NotesProviders>
-      <div className="box-border flex h-[100vh] gap-2 bg-(--background) p-2">
-        <Sidebar />
-        <NotesArea />
-      </div>
-    </NotesProviders>
+  return (
+    <Routes>
+      <Route path={ROUTES.HOME} element={<Home />} />
+      <Route path={ROUTES.LOGIN} element={<Login />} />
+      <Route path={ROUTES.SIGNUP} element={<SignUp />} />
+      <Route path={ROUTES.NOTES} element={<Notes />} />
+    </Routes>
   );
 }

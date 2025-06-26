@@ -1,5 +1,5 @@
-import { SignUpButton } from "@/components/custom/SignUpButton";
-import { Button } from "@/components/ui/button";
+import { SignUpButton } from "@/features/Auth/components/SignUpButton";
+import { LoginButton } from "@/features/Auth/components/LoginButton";
 
 export function Header() {
   return (
@@ -11,8 +11,8 @@ export function Header() {
           </span>
         </a>
         <div className="flex items-center gap-2">
-          <Button variant="outline">Log in</Button>
-          <SignUpButton />
+          <LoginButton />
+          <SignUpButton primary />
         </div>
       </nav>
     </header>
