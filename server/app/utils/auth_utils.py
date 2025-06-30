@@ -1,10 +1,10 @@
 from fastapi import HTTPException
 
-from utils.validation import get_is_email_valid
+from utils.validation_utils import get_is_email_valid
 from db.users_db import get_user_by_username, get_user_by_email
 
 def validate_email_address(email: str):
-    is_email_valid, _msg = get_is_email_valid(email)
+    is_email_valid, msg = get_is_email_valid(email)
     if not is_email_valid:
         raise HTTPException(status_code=409, detail="Invalid email")
 

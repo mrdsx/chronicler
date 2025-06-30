@@ -1,10 +1,10 @@
-from fastapi import APIRouter, HTTPException
-from fastapi.security import HTTPBearer
+from fastapi import APIRouter, HTTPException, Security
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from models.user import AuthModel_SignUp, AuthModel_Login
-from services.auth import create_user, validate_signup_data
+from services.auth_services import create_user, validate_signup_data
 from constants import routes
-from auth import Auth
+from routes.auth_routes import Auth
 
 auth_handler = Auth()
 security = HTTPBearer()
@@ -43,3 +43,9 @@ async def login(user_details : AuthModel_Login):
         print('Failed to do something: ' + str(e))
         error_msg = 'Failed to login user'
         return error_msg
+
+@router.get('/secret')
+async def secret_data(credentials: HTTPAuthorizationCredentials = Security(security)):
+    token = credentials.credentials
+    return auth_handler.decode_token(token)
+    

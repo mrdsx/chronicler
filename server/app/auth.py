@@ -38,7 +38,7 @@ class Auth():
 
     def decode_token(self, token):
         try:
-            pub_key = load_ES256_from_jwk_env().public_key()  # use public key to decode
+            pub_key = load_ES256_from_jwk_env().public_key()
             decoded = jwt.decode(
                 token,
                 pub_key,

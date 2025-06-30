@@ -2,8 +2,8 @@ from fastapi import HTTPException
 
 from models.user import AuthModel_SignUp
 from db.users_db import save_user
-from utils.auth import validate_email_address, validate_password_length, validate_user_not_exists
-from auth import Auth
+from utils.auth_utils import validate_email_address, validate_password_length, validate_user_not_exists
+from services.auth_services import Auth
 
 auth_handler = Auth()
 
@@ -26,5 +26,6 @@ def create_user(signup_data: AuthModel_SignUp):
         "email": signup_data.email,
         "hashed_password": hashed_password,
     }
-    save_user(new_user)
+    # TODO: uncomment
+    # save_user(new_user)
     return new_user
