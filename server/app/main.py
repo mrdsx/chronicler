@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import uvicorn
 
-from routes.auth_routes import router as auth_router
+from routes import auth_router
 
 app = FastAPI()
 

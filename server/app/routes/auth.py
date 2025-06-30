@@ -1,16 +1,16 @@
-from fastapi import APIRouter, HTTPException, Security
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import APIRouter, HTTPException
+from fastapi.security import HTTPBearer
 
 from models import AuthModel_SignUp, AuthModel_Login
 from auth import Auth
-from services.auth_services import create_user, validate_signup_data
+from services import create_user, validate_signup_data
 from constants import routes
 
 auth_handler = Auth()
 security = HTTPBearer()
-router = APIRouter(prefix=routes.AUTH)
+auth_router = APIRouter(prefix=routes.AUTH)
 
-@router.post("/signup")
+@auth_router.post("/signup")
 async def signup(signup_data: AuthModel_SignUp):
     validate_signup_data(signup_data)
     user = create_user(signup_data)
@@ -23,13 +23,13 @@ async def signup(signup_data: AuthModel_SignUp):
         "refresh_token": refresh_token
     }
 
-@router.post('/login')
+@auth_router.post('/login')
 async def login(user_details : AuthModel_Login):
     try:
         # TODO: implement a database to hold user email and hash password
         # user = users_db.get(user_details.email)
         # if user is None:
-        #       return HTTPException(status_code=401, detail='Invalid email')
+        #       return HTTPException(status_code=401, detail='Wrong email or password')
         hashed_password = auth_handler.encode_password(user_details.password)
         if user_details.email is None:
             return HTTPException(status_code=401, detail='Invalid email')
@@ -43,9 +43,3 @@ async def login(user_details : AuthModel_Login):
         print('Failed to do something: ' + str(e))
         error_msg = 'Failed to login user'
         return error_msg
-
-@router.post('/secret')
-async def secret_data(credentials: HTTPAuthorizationCredentials = Security(security)):
-    token = credentials.credentials
-    if auth_handler.decode_token(token):
-        return 'Top Secret data only authorized users can access this info'
