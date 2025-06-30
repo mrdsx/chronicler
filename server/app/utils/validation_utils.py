@@ -1,6 +1,6 @@
 from email_validator import validate_email, EmailNotValidError
 
-def get_is_email_valid(email):
+def get_is_email_valid(email: str):
     try:
         email_info = validate_email(email, check_deliverability=True)
         email = email_info.normalized
