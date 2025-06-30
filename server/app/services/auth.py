@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 
-from models import AuthModel_SignUp
-from db import save_user
-from utils import validate_email_address, validate_password_length, validate_user_not_exists
+from models.user import AuthModel_SignUp
+from db.users_db import save_user
+from utils.auth import validate_email_address, validate_password_length, validate_user_not_exists
 from auth import Auth
 
 auth_handler = Auth()
