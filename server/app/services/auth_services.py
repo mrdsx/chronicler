@@ -3,7 +3,7 @@ from fastapi import HTTPException
 from models.user import AuthModel_SignUp
 from db.users_db import save_user
 from utils.auth_utils import validate_email_address, validate_password_length, validate_user_not_exists
-from services.auth_services import Auth
+from auth import Auth
 
 auth_handler = Auth()
 
@@ -18,14 +18,3 @@ def validate_signup_data(signup_data: AuthModel_SignUp):
 
     if signup_data.password != signup_data.confirm_password:
         raise HTTPException(status_code=400, detail="New password and confirm password does not match")
-
-def create_user(signup_data: AuthModel_SignUp):
-    hashed_password = auth_handler.encode_password(signup_data.password)
-    new_user = {
-        "username": signup_data.username,
-        "email": signup_data.email,
-        "hashed_password": hashed_password,
-    }
-    # TODO: uncomment
-    # save_user(new_user)
-    return new_user
