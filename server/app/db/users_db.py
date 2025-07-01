@@ -1,23 +1,15 @@
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-from models.user import UserSchema
+from models.users_models import DB_User_Model, Base
+from schemas.user_schemas import UserSchema
 
-engine = create_engine('sqlite:///app/db/users.db')
-
-Base = declarative_base()
-
-class DB_User_Model(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True)
-    username = Column(String, unique=True, nullable=False)
-    email = Column(String, unique=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
+DATABASE_URL = "sqlite:///app/db/users.db"
+engine = create_engine(DATABASE_URL)
 
 Base.metadata.create_all(engine)
 
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(engine)
 session = Session()
 
 def save_user(user: DB_User_Model):
