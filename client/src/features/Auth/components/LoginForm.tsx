@@ -9,6 +9,7 @@ import { PrimaryButton } from "@/components/custom/PrimaryButton";
 import type { LoginFormInputInt } from "../types";
 import { ROUTES } from "@/routes";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export function LoginForm({
   className,
@@ -27,7 +28,7 @@ export function LoginForm({
     const data = await res.json();
 
     if (!res.ok) {
-      console.error(data.detail);
+      toast.error(data.detail);
       return;
     }
 
