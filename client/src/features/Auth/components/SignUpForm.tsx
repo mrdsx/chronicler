@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import type { SignUpFormInputInt } from "../types";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/routes";
+import { toast } from "sonner";
 
 export function SignUpForm({
   className,
@@ -28,7 +29,7 @@ export function SignUpForm({
     const data = await res.json();
 
     if (!res.ok) {
-      console.log(data.detail[0].msg || data.detail);
+      toast.error(data.detail);
       return;
     }
 
