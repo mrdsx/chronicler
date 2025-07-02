@@ -7,6 +7,8 @@ import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { PrimaryButton } from "@/components/custom/PrimaryButton";
 import { useForm } from "react-hook-form";
 import type { SignUpFormInputInt } from "../types";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/routes";
 
 export function SignUpForm({
   className,
@@ -14,7 +16,9 @@ export function SignUpForm({
 }: React.ComponentProps<"div">) {
   const { register, handleSubmit: submitHandler } =
     useForm<SignUpFormInputInt>();
+  const navigate = useNavigate();
 
+  // TODO: refactor
   async function handleSubmit(signUpData: SignUpFormInputInt): Promise<void> {
     const res = await fetch("http://127.0.0.1:3000/api/auth/signup", {
       method: "POST",
@@ -24,11 +28,12 @@ export function SignUpForm({
     const data = await res.json();
 
     if (!res.ok) {
-      console.log(data.detail[0].msg);
+      console.log(data.detail[0].msg || data.detail);
       return;
     }
 
-    console.log(data);
+    localStorage.setItem("access_token", data.access_token);
+    navigate(ROUTES.MAIN);
   }
 
   return (

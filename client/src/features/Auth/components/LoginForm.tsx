@@ -7,15 +7,32 @@ import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { useForm } from "react-hook-form";
 import { PrimaryButton } from "@/components/custom/PrimaryButton";
 import type { LoginFormInputInt } from "../types";
+import { ROUTES } from "@/routes";
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm<LoginFormInputInt>();
 
-  function onSubmit(data: LoginFormInputInt): void {
-    console.log("Login input:", data);
+  // TODO: refactor
+  async function onSubmit(loginFormData: LoginFormInputInt): Promise<void> {
+    const res = await fetch("http://127.0.0.1:3000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(loginFormData),
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error(data.detail);
+      return;
+    }
+
+    localStorage.setItem("access_token", data.access_token);
+    navigate(ROUTES.MAIN);
   }
 
   return (
