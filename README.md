@@ -44,7 +44,7 @@ ES256_KID=
 ES256_KEY=
 ```
 
-Read [this](https://dc1888.medium.com/build-simple-authentication-api-using-fast-api-with-es256-encryption-in-10-mins-f8c0113937a) article and go to **Step 2: Create and validate ES256 JWT token.** to find out how to setup .env variables for server.
+Open [this](https://dc1888.medium.com/build-simple-authentication-api-using-fast-api-with-es256-encryption-in-10-mins-f8c0113937a) article and go to **Step 2: Create and validate ES256 JWT token.** to find out how to setup .env variables for server.
 
 ### 3. Install Dependencies for Client
 
