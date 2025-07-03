@@ -32,33 +32,49 @@ git clone https://github.com/mrdsx/chronicler.git
 cd chronicler
 ```
 
-### 2. Install Dependencies for Client
+### 2. Setup environment variables
+
+Create .env file in folder 'server' with following keys:
+
+```env
+SECRET_KEY=
+JWT_ALGO=
+ES256_KID=
+
+ES256_KEY=
+```
+
+Read [this](https://dc1888.medium.com/build-simple-authentication-api-using-fast-api-with-es256-encryption-in-10-mins-f8c0113937a) article and go to **Step 2: Create and validate ES256 JWT token.** to find out how to setup .env variables for server.
+
+### 3. Install Dependencies for Client
 
 ```bash
 cd client
 npm install
 ```
 
-### 3. Run Client
+### 4. Run Client
 
 ```bash
 npm run dev
 ```
 
-### 4. Install Dependencies for Server
+### 5. Install Dependencies for Server
+
+Open another console and go to server folder.
 
 ```bash
-cd ../server
+cd server
 pip install -r requirements.txt
 ```
 
-### 5. Run Server
+### 6. Run Server
 
 ```bash
 python app/main.py
 ```
 
-### 6. Open project in your browser.
+### 7. Open project in your browser.
 
 Open [http://localhost:3000](http://localhost:3000/).
 
