@@ -11,7 +11,7 @@ export function NoteItem({ note }: NoteItemProps) {
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
   const dropdownMenuTriggerRef = useRef<HTMLButtonElement>(null);
 
-  const active = selectedNote?.id === note.id ? "bg-accent" : "";
+  const active = selectedNote?.id === note.id ? "bg-secondary" : "";
 
   function handleClick(e: React.MouseEvent<HTMLDivElement>): void {
     if (e.target !== dropdownMenuTriggerRef.current) {
@@ -21,7 +21,7 @@ export function NoteItem({ note }: NoteItemProps) {
 
   return (
     <div
-      className={`${active} hover:bg-accent flex cursor-pointer px-4 py-2 duration-100 ease-linear`}
+      className={`${active} hover:bg-secondary flex cursor-pointer px-4 py-2 duration-100 ease-linear`}
       onClick={handleClick}
     >
       <h3 className="w-full truncate text-start text-lg">{note.title}</h3>

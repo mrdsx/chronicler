@@ -16,5 +16,5 @@ input[type="button"] {
 }
 
 .sidebar-btn {
-  @apply min-w-full justify-start text-(--primary) shadow-none hover:bg-(--sidebar-accent);
+  @apply min-w-full justify-start shadow-none hover:bg-(--sidebar-accent);
 }
