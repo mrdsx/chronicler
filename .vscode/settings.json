@@ -1,5 +1,5 @@
 {
   "json.schemas": [],
   "python.defaultInterpreterPath": ".venv/Scripts/python",
-  "cSpell.words": ["pycache", "sonner"]
+  "cSpell.words": ["fastapi", "pycache", "sonner"]
 }

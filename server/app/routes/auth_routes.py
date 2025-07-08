@@ -25,11 +25,11 @@ async def signup(signup_data: AuthSchema_SignUp):
     }
 
 @router.post("/login")
-async def login(user_details : AuthSchema_Login):
-    validate_login_data(user_details)
+async def login(login_data : AuthSchema_Login):
+    validate_login_data(login_data)
     
-    access_token = auth_handler.encode_token(user_details.email)
-    refresh_token = auth_handler.encode_refresh_token(user_details.email)
+    access_token = auth_handler.encode_token(login_data.email)
+    refresh_token = auth_handler.encode_refresh_token(login_data.email)
     return {"access_token": access_token, "refresh_token": refresh_token}
 
 @router.get("/secret")
