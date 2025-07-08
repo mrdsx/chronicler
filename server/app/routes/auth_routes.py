@@ -11,7 +11,7 @@ auth_handler = Auth()
 security = HTTPBearer()
 router = APIRouter(prefix=routes.AUTH)
 
-@router.post("/signup")
+@router.post("/register")
 async def signup(signup_data: AuthSchema_SignUp):
     validate_signup_data(signup_data)
     user = create_user(signup_data)
