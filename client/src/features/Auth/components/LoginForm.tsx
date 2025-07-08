@@ -1,9 +1,14 @@
 import { cn } from "@/lib/utils";
-import { Card, CardContent, Input, Label } from "../../../components/ui";
-import { SignUpButton } from "./SignUpButton";
+import {
+  Button,
+  Card,
+  CardContent,
+  Input,
+  Label,
+} from "../../../components/ui";
+import { SignUpBtn } from "./SignUpBtn";
 import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { useForm } from "react-hook-form";
-import { PrimaryButton } from "@/components/custom/PrimaryButton";
 import type { LoginFormInputInt } from "../types";
 import { ROUTES } from "@/routes";
 import { useNavigate } from "react-router-dom";
@@ -67,12 +72,12 @@ export function LoginForm({
                   {...register("password")}
                 />
               </div>
-              <PrimaryButton type="submit" additionalStyles="min-w-full">
-                Log in
-              </PrimaryButton>
+              <Button className="min-w-full" type="submit">
+                Log In
+              </Button>
               <div className="text-center text-sm">
                 Don't have an account?{" "}
-                <SignUpButton link additionalStyles="py-0 px-0 h-full" />
+                <SignUpBtn className="p-0" variant="link" size="sm" />
               </div>
             </div>
           </form>

@@ -22,7 +22,7 @@ export function ToggleThemeBtn() {
   return (
     <Button
       variant="outline"
-      className="obr border-(--border-color)"
+      className="border-(--border-color)"
       onClick={handleClick}
     >
       {isDarkMode ? <Sun /> : <Moon />}

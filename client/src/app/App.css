@@ -2,14 +2,12 @@
 
 :root {
   --border-color: #d5d6da;
-  --primary-content-color: #432dd7;
-  --accent-content-color: #372aac;
-  --home-primary-color: #e5e7eb;
+  --home-background: #e5e7eb;
 }
 
 .dark {
   --border-color: rgb(66, 66, 66);
-  --home-primary-color: var(--background);
+  --home-background: var(--background);
 }
 
 button,
