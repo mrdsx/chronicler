@@ -1,8 +1,8 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import type { Note, NotesContextType } from "../types";
 import { LOCAL_STORAGE_KEYS } from "../constants";
 
-const NotesContext = createContext<NotesContextType>({} as NotesContextType);
+export const NotesContext = createContext<NotesContextType | null>(null);
 
 export function NotesContextProvider({
   children,
@@ -29,8 +29,4 @@ export function NotesContextProvider({
       {children}
     </NotesContext.Provider>
   );
-}
-
-export function useNotesContext() {
-  return useContext(NotesContext);
 }

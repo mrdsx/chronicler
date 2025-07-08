@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../../../components/custom/PrimaryButton";
 import { ROUTES } from "@/routes";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui";
 
 const BTN_CONTENT = "Sign up";
 
+// TODO: replace props "primary", "link" with "variant"
 export function SignUpButton({
   primary,
   link,

@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/input";
-import { useSearchNotesContext } from "../providers/SearchNotesContextProvider";
+import { Input } from "@/components/ui";
+import { useSearchNotesContext } from "../hooks/context";
 
 export function SearchNotesBar() {
   const { setSearchQuery } = useSearchNotesContext();

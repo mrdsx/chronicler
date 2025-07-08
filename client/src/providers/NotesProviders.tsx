@@ -1,7 +1,9 @@
-import { NoteEditorRefsContextProvider } from "@/features/Notes/providers/NoteEditorRefsContextProvider";
-import { NotesContextProvider } from "@/features/Notes/providers/NotesContextProvider";
-import { SearchNotesContextProvider } from "@/features/Notes/providers/SearchNotesContextProvider";
-import { SelectedNoteContextProvider } from "@/features/Notes/providers/SelectedNoteContextProvider";
+import {
+  NoteEditorRefsContextProvider,
+  NotesContextProvider,
+  SearchNotesContextProvider,
+  SelectedNoteContextProvider,
+} from "../features/Notes/providers";
 
 export function NotesProviders({ children }: { children: React.ReactNode }) {
   return (

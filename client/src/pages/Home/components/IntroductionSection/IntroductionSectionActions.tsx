@@ -1,5 +1,5 @@
-import { SignUpButton } from "@/features/Auth/components/SignUpButton";
-import { Button } from "@/components/ui/button";
+import { SignUpButton } from "@/features/Auth/components";
+import { Button } from "@/components/ui";
 
 export function IntroductionSectionActions() {
   return (

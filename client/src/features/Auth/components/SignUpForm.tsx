@@ -1,7 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Card, CardContent } from "../../../components/ui/card";
-import { Input } from "../../../components/ui/input";
-import { Label } from "../../../components/ui/label";
+import { Card, CardContent, Input, Label } from "../../../components/ui";
 import { LoginButton } from "./LoginButton";
 import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { PrimaryButton } from "@/components/custom/PrimaryButton";

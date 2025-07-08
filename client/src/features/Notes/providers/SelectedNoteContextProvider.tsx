@@ -1,9 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import type { Note, SelectedNoteContextType } from "../types";
 
-const SelectedNoteContext = createContext<SelectedNoteContextType>(
-  {} as SelectedNoteContextType,
-);
+export const SelectedNoteContext =
+  createContext<SelectedNoteContextType | null>(null);
 
 export function SelectedNoteContextProvider({
   children,
@@ -17,8 +16,4 @@ export function SelectedNoteContextProvider({
       {children}
     </SelectedNoteContext.Provider>
   );
-}
-
-export function useSelectedNoteContext() {
-  return useContext(SelectedNoteContext);
 }

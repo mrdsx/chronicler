@@ -1,6 +1,6 @@
+import { useSelectedNoteContext } from "../../hooks/context";
 import { useNotes } from "../../hooks/useNotes";
 import type { Note } from "../../types";
-import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 import { Copy, Pencil, Trash2 } from "lucide-react";
 
 interface DropdownMenuItem {
@@ -28,6 +28,7 @@ export function useDropdownMenuItems(targetNote: Note): DropdownMenuItem[] {
 
   // if user deletes selected note
   // we deselect it to hide its content
+  // otherwise user will see the content of deleted note
   function handleDelete(): void {
     deleteNote(targetNote.id);
     if (selectedNote?.id === targetNote.id) {

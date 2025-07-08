@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useEditNote } from "../../hooks/useEditNote";
-import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
+import { useSelectedNoteContext } from "../../hooks/context";
 
 export function NoteContentInput() {
   const { selectedNote } = useSelectedNoteContext();
