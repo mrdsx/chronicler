@@ -1,4 +1,4 @@
-import { SignUpForm } from "@/features/Auth/components/SignUpForm";
+import { SignUpForm } from "@/features/Auth/components";
 import { Toaster } from "sonner";
 
 export function SignUp() {

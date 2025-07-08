@@ -1,5 +1,4 @@
-import { SignUpButton } from "@/features/Auth/components/SignUpButton";
-import { LoginButton } from "@/features/Auth/components/LoginButton";
+import { LoginButton, SignUpButton } from "@/features/Auth/components";
 import { ROUTES } from "@/routes";
 
 export function Header() {

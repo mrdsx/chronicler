@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const BTN_CONTENT = "Log in";
 
+// TODO: replace props "primary", "link" with "variant"
 export function LoginButton({
   primary,
   link,

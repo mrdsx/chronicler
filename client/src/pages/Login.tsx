@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features/Auth/components/LoginForm";
+import { LoginForm } from "@/features/Auth/components";
 import { Toaster } from "sonner";
 
 export function Login() {

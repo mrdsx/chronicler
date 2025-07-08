@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const BTN_CONTENT = "Sign up";
 
+// TODO: replace props "primary", "link" with "variant"
 export function SignUpButton({
   primary,
   link,
