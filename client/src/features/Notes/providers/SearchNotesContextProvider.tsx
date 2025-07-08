@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, type PropsWithChildren } from "react";
 import type { SearchNotesContextType } from "../types";
 
 export const SearchNotesContext = createContext<SearchNotesContextType | null>(
@@ -7,9 +7,7 @@ export const SearchNotesContext = createContext<SearchNotesContextType | null>(
 
 export function SearchNotesContextProvider({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: PropsWithChildren) {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (

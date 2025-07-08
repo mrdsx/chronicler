@@ -1,4 +1,4 @@
-import { createContext, useRef } from "react";
+import { createContext, useRef, type PropsWithChildren } from "react";
 import type { NoteEditorRefsContextType } from "../types";
 
 export const NoteEditorRefsContext =
@@ -6,9 +6,7 @@ export const NoteEditorRefsContext =
 
 export function NoteEditorRefsContextProvider({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: PropsWithChildren) {
   const noteTitleInputRef = useRef<HTMLInputElement>(null);
 
   return (

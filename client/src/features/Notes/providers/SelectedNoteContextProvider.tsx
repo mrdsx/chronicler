@@ -1,14 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, type PropsWithChildren } from "react";
 import type { Note, SelectedNoteContextType } from "../types";
 
 export const SelectedNoteContext =
   createContext<SelectedNoteContextType | null>(null);
 
-export function SelectedNoteContextProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SelectedNoteContextProvider({ children }: PropsWithChildren) {
   const [selectedNote, setSelectedNote] = useState<Note | null>(null);
 
   return (

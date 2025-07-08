@@ -3,7 +3,11 @@ import { NoteItemDropdownMenu } from "./NoteItemDropdownMenu";
 import type { Note } from "../../types";
 import { useSelectedNoteContext } from "../../hooks/context";
 
-export function NoteItem({ note }: { note: Note }) {
+interface NoteItemProps {
+  note: Note;
+}
+
+export function NoteItem({ note }: NoteItemProps) {
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
   const dropdownMenuTriggerRef = useRef<HTMLButtonElement>(null);
 
