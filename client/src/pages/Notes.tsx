@@ -1,6 +1,5 @@
-import { NotesArea } from "@/features/Notes/components/NotesArea";
+import { NotesArea, Sidebar } from "@/features/Notes/components";
 import { NotesProviders } from "@/providers/NotesProviders";
-import { Sidebar } from "../features/Notes/components/Sidebar";
 
 export function Notes() {
   return (

@@ -28,6 +28,7 @@ export function useDropdownMenuItems(targetNote: Note): DropdownMenuItem[] {
 
   // if user deletes selected note
   // we deselect it to hide its content
+  // otherwise user will see the content of deleted note
   function handleDelete(): void {
     deleteNote(targetNote.id);
     if (selectedNote?.id === targetNote.id) {
