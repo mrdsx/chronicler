@@ -1,6 +1,6 @@
 import { AddNoteBtn, SearchNotesBar } from "@/features/Notes/components";
 import { ToggleThemeBtn } from "../../../components/custom/ToggleThemeBtn";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../../components/ui";
 import { CircleUserRound, Home, NotepadText } from "lucide-react";
 
 export function Sidebar() {
