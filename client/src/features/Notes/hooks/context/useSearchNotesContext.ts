@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SearchNotesContext } from "../../providers/SearchNotesContextProvider";
+import { SearchNotesContext } from "../../providers";
 
 export function useSearchNotesContext() {
   const context = useContext(SearchNotesContext);

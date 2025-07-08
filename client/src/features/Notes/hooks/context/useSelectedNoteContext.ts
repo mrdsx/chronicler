@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
+import { SelectedNoteContext } from "../../providers";
 
 export function useSelectedNoteContext() {
   const context = useContext(SelectedNoteContext);

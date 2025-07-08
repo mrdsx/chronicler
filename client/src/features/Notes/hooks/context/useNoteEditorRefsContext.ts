@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NoteEditorRefsContext } from "../../providers/NoteEditorRefsContextProvider";
+import { NoteEditorRefsContext } from "../../providers";
 
 export function useNoteEditorRefsContext() {
   const context = useContext(NoteEditorRefsContext);
