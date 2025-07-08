@@ -31,8 +31,3 @@ async def login(login_data : AuthSchema_Login):
     access_token = auth_handler.encode_token(login_data.email)
     refresh_token = auth_handler.encode_refresh_token(login_data.email)
     return {"access_token": access_token, "refresh_token": refresh_token}
-
-@router.get("/secret")
-async def secret_data(credentials: HTTPAuthorizationCredentials = Security(security)):
-    token = credentials.credentials
-    return auth_handler.decode_token(token)
