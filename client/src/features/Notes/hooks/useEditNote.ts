@@ -1,5 +1,5 @@
-import { useNotesContext } from "../providers/NotesContextProvider";
 import type { Note } from "../types";
+import { useNotesContext } from "./context";
 
 interface EditNoteReturnType {
   editNoteTitle(targetNote: Note, newNoteTitle: string): void;

@@ -1,8 +1,8 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext } from "react";
 import type { SearchNotesContextType } from "../types";
 
-const SearchNotesContext = createContext<SearchNotesContextType>(
-  {} as SearchNotesContextType,
+export const SearchNotesContext = createContext<SearchNotesContextType | null>(
+  null,
 );
 
 export function SearchNotesContextProvider({
@@ -17,8 +17,4 @@ export function SearchNotesContextProvider({
       {children}
     </SearchNotesContext.Provider>
   );
-}
-
-export function useSearchNotesContext() {
-  return useContext(SearchNotesContext);
 }

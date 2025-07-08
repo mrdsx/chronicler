@@ -1,7 +1,7 @@
 import { useNotes } from "../hooks/useNotes";
-import { useSelectedNoteContext } from "../providers/SelectedNoteContextProvider";
 import { CirclePlus } from "lucide-react";
 import { PrimaryButton } from "@/components/custom/PrimaryButton";
+import { useSelectedNoteContext } from "../hooks/context";
 
 export function AddNoteBtn() {
   const { setSelectedNote } = useSelectedNoteContext();

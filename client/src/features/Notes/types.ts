@@ -1,20 +1,32 @@
-export interface Note {
+interface Note {
   id: string;
   title: string;
   content: string;
 }
 
-export type NotesContextType = {
+type NoteEditorRefsContextType = {
+  noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
+};
+
+type NotesContextType = {
   notes: Note[];
   setNotes(arg0: Note[]): void;
 };
 
-export type SelectedNoteContextType = {
+type SelectedNoteContextType = {
   selectedNote: Note | null;
   setSelectedNote(note: Note | null): void;
 };
 
-export type SearchNotesContextType = {
+type SearchNotesContextType = {
   searchQuery: string;
   setSearchQuery(query: string): void;
+};
+
+export type {
+  Note,
+  NoteEditorRefsContextType,
+  NotesContextType,
+  SelectedNoteContextType,
+  SearchNotesContextType,
 };

@@ -1,6 +1,5 @@
-import { useNotesContext } from "@/features/Notes/providers/NotesContextProvider";
 import { NoteItem } from "./NoteItem/NoteItem";
-import { useSearchNotesContext } from "../providers/SearchNotesContextProvider";
+import { useNotesContext, useSearchNotesContext } from "../hooks/context";
 
 export function NotesList() {
   const { notes } = useNotesContext();

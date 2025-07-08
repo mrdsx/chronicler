@@ -1,6 +1,6 @@
+import { useSelectedNoteContext } from "../../hooks/context";
 import { useNotes } from "../../hooks/useNotes";
 import type { Note } from "../../types";
-import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 import { Copy, Pencil, Trash2 } from "lucide-react";
 
 interface DropdownMenuItem {

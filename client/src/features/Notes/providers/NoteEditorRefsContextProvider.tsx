@@ -1,12 +1,8 @@
-import { createContext, useContext, useRef } from "react";
+import { createContext, useRef } from "react";
+import type { NoteEditorRefsContextType } from "../types";
 
-type NoteEditorRefsContextType = {
-  noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
-};
-
-const NoteEditorRefsContext = createContext<NoteEditorRefsContextType>(
-  {} as NoteEditorRefsContextType,
-);
+export const NoteEditorRefsContext =
+  createContext<NoteEditorRefsContextType | null>(null);
 
 export function NoteEditorRefsContextProvider({
   children,
@@ -20,8 +16,4 @@ export function NoteEditorRefsContextProvider({
       {children}
     </NoteEditorRefsContext.Provider>
   );
-}
-
-export function useNoteEditorRefsContext() {
-  return useContext(NoteEditorRefsContext);
 }

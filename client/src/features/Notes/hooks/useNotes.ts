@@ -1,7 +1,6 @@
-import { useNotesContext } from "../providers/NotesContextProvider";
 import { v4 as uuidv4 } from "uuid";
 import type { Note } from "../types";
-import { useNoteEditorRefsContext } from "../providers/NoteEditorRefsContextProvider";
+import { useNoteEditorRefsContext, useNotesContext } from "../hooks/context";
 
 type NotesActionsReturnType = {
   selectNoteTitleInput(): void;

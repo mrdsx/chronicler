@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
 import { useEditNote } from "../../hooks/useEditNote";
-import { useNoteEditorRefsContext } from "../../providers/NoteEditorRefsContextProvider";
+import {
+  useNoteEditorRefsContext,
+  useSelectedNoteContext,
+} from "../../hooks/context";
 
 export function NoteTitleInput() {
   const { noteTitleInputRef } = useNoteEditorRefsContext();

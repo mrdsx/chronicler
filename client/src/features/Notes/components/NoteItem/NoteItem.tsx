@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { NoteItemDropdownMenu } from "./NoteItemDropdownMenu";
 import type { Note } from "../../types";
-import { useSelectedNoteContext } from "../../providers/SelectedNoteContextProvider";
+import { useSelectedNoteContext } from "../../hooks/context";
 
 export function NoteItem({ note }: { note: Note }) {
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
