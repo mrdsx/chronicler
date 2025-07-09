@@ -1,7 +1,7 @@
 import type { UseFormRegister } from "react-hook-form";
 
 export interface AuthFormInputProps {
-  register: UseFormRegister<LoginFormInputInt & SignUpFormInputInt>;
+  register: UseFormRegister<LoginFormInputInt | SignUpFormInputInt>;
 }
 
 export interface LoginFormInputInt {
