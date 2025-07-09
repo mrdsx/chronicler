@@ -1,5 +1,5 @@
 import { LoginBtn } from "./LoginBtn";
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "./LoginForm/LoginForm";
 import { SignUpBtn } from "./SignUpBtn";
 import { SignUpForm } from "./SignUpForm";
 
