@@ -3,7 +3,7 @@ import {
   NotesContextProvider,
   SearchNotesContextProvider,
   SelectedNoteContextProvider,
-} from "../features/Notes/providers";
+} from ".";
 
 export function NotesProvider({ children }: React.PropsWithChildren) {
   return (

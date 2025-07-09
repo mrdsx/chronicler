@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NotesArea, Sidebar } from "@/features/Notes/components";
-import { NotesProvider } from "@/providers/NotesProvider";
+import { NotesProvider } from "@/features/Notes/providers/NotesProvider";
 
 export function Notes() {
   const accessToken = localStorage.getItem("access_token");
