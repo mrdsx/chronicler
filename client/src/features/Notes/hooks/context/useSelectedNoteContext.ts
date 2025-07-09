@@ -5,7 +5,7 @@ export function useSelectedNoteContext() {
   const context = useContext(SelectedNoteContext);
   if (context === null) {
     throw new Error(
-      "useSelectedNoteContext hook must be used inside provider!",
+      "useSelectedNoteContext must be used inside SelectedNoteContextProvider!",
     );
   }
 
