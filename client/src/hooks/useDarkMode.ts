@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 
-interface DarkModeState {
-  enabled: boolean;
-  setDarkMode(isEnabled: boolean): void;
+export interface ThemeState {
+  isDarkMode: boolean;
+  setIsDarkMode(isEnabled: boolean): void;
 }
 
-export function useDarkMode(): DarkModeState {
-  const [enabled, setDarkMode] = useState<boolean>(() => {
+export function useTheme(): ThemeState {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     return JSON.parse(localStorage.getItem("isDarkMode") || "false");
   });
 
   useEffect(() => {
-    document.body.classList.toggle("dark", enabled);
-    localStorage.setItem("isDarkMode", JSON.stringify(enabled));
-  }, [enabled]);
+    document.body.classList.toggle("dark", isDarkMode);
+    localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
-  return { enabled, setDarkMode };
+  return { isDarkMode, setIsDarkMode };
 }

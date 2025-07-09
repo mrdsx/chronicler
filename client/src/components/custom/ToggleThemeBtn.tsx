@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
 import { Button } from "../ui";
 import { Moon, Sun } from "lucide-react";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 export function ToggleThemeBtn() {
-  const localStorageIsDark = JSON.parse(
-    localStorage.getItem("isDarkMode") || "false",
-  );
-
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(localStorageIsDark);
-  if (isDarkMode) document.body.classList.add("dark");
-
-  useEffect(() => {
-    localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
+  const { isDarkMode, setIsDarkMode } = useThemeContext();
 
   function handleClick(): void {
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark", isDarkMode);
     setIsDarkMode(!isDarkMode);
   }
 
