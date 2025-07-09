@@ -1,12 +1,7 @@
 import { Input, Label } from "@/components/ui";
-import type { UseFormRegister } from "react-hook-form";
-import type { SignUpFormInputInt } from "../../types";
+import type { AuthFormInputProps } from "../../types";
 
-interface ConfirmPasswordInputProps {
-  register: UseFormRegister<SignUpFormInputInt>;
-}
-
-export function ConfirmPasswordInput({ register }: ConfirmPasswordInputProps) {
+export function ConfirmPasswordInput({ register }: AuthFormInputProps) {
   return (
     <div className="grid gap-3">
       <Label htmlFor="confirm-password">Confirm password</Label>

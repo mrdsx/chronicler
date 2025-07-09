@@ -1,12 +1,7 @@
 import { Input, Label } from "@/components/ui";
-import type { UseFormRegister } from "react-hook-form";
-import type { SignUpFormInputInt } from "../../types";
+import type { AuthFormInputProps } from "../../types";
 
-interface UsernameInputProps {
-  register: UseFormRegister<SignUpFormInputInt>;
-}
-
-export function UsernameInput({ register }: UsernameInputProps) {
+export function UsernameInput({ register }: AuthFormInputProps) {
   return (
     <div className="grid gap-3">
       <Label htmlFor="username">Username</Label>

@@ -1,12 +1,7 @@
 import { Input, Label } from "@/components/ui";
-import type { UseFormRegister } from "react-hook-form";
-import type { LoginFormInputInt } from "../../types";
+import type { AuthFormInputProps } from "../../types";
 
-interface PasswordInputProps {
-  register: UseFormRegister<LoginFormInputInt>;
-}
-
-export function PasswordInput({ register }: PasswordInputProps) {
+export function PasswordInput({ register }: AuthFormInputProps) {
   return (
     <div className="grid gap-3">
       <div className="flex items-center gap-10">

@@ -1,13 +1,7 @@
 import { Input, Label } from "@/components/ui";
-import type { UseFormRegister } from "react-hook-form";
-import type { LoginFormInputInt } from "../../types";
+import type { AuthFormInputProps } from "../../types";
 
-// TODO: move type in types.ts
-interface EmailInputProps {
-  register: UseFormRegister<LoginFormInputInt>;
-}
-
-export function EmailInput({ register }: EmailInputProps) {
+export function EmailInput({ register }: AuthFormInputProps) {
   return (
     <div className="grid gap-3">
       <Label htmlFor="email">Email</Label>
