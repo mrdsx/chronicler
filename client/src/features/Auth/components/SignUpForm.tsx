@@ -7,12 +7,12 @@ import {
   Label,
 } from "../../../components/ui";
 import { LoginBtn } from "./LoginBtn";
-import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { useForm } from "react-hook-form";
 import type { SignUpFormInputInt } from "../types";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/routes";
 import { toast } from "sonner";
+import { AuthFormBackground } from "@/components/custom/AuthFormBackground";
 
 export function SignUpForm({
   className,
@@ -44,13 +44,7 @@ export function SignUpForm({
     <div className={cn("grid gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <div className="bg-muted relative hidden md:block">
-            <img
-              src={AuthCardImage}
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+          <AuthFormBackground />
           <form
             className="w-90 p-6 md:p-8"
             onSubmit={submitHandler(handleSubmit)}

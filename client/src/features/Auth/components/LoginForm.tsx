@@ -7,12 +7,12 @@ import {
   Label,
 } from "../../../components/ui";
 import { SignUpBtn } from "./SignUpBtn";
-import AuthCardImage from "../../../assets/auth_card_image.jpg";
 import { useForm } from "react-hook-form";
 import type { LoginFormInputInt } from "../types";
 import { ROUTES } from "@/routes";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { AuthFormBackground } from "@/components/custom/AuthFormBackground";
 
 export function LoginForm({
   className,
@@ -81,13 +81,7 @@ export function LoginForm({
               </div>
             </div>
           </form>
-          <div className="bg-muted relative hidden md:block">
-            <img
-              src={AuthCardImage}
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+          <AuthFormBackground />
         </CardContent>
       </Card>
     </div>
