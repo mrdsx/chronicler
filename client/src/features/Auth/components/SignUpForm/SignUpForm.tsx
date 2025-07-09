@@ -1,5 +1,5 @@
 import { Card, CardContent } from "../../../../components/ui";
-import { AuthFormBackground } from "@/components/custom/AuthFormBackground";
+import { FormBackground } from "@/features/Auth/components/AuthForm/FormBackground";
 import { SignUpFormInner } from "./SignUpFormInner";
 
 export function SignUpForm() {
@@ -7,7 +7,7 @@ export function SignUpForm() {
     <div className="grid gap-6">
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <AuthFormBackground />
+          <FormBackground />
           <SignUpFormInner />
         </CardContent>
       </Card>

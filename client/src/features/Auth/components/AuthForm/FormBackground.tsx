@@ -1,6 +1,6 @@
-import AuthFormImage from "../../assets/auth_background.jpg";
+import AuthFormImage from "../../../../assets/auth_background.jpg";
 
-export function AuthFormBackground() {
+export function FormBackground() {
   return (
     <div className="bg-muted relative hidden md:block">
       <img
