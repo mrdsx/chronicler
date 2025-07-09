@@ -1,4 +1,4 @@
-import { Logo } from "../../../../components/custom/Logo";
+import { Logo } from "../../../../components/Logo";
 import { UserInfo } from "./UserInfo";
 import { NoteActions } from "./NoteActions";
 import { Navigation } from "./Navigation";
