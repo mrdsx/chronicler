@@ -1,18 +1,16 @@
 import { Button } from "@/components/ui";
-import type { LoginFormInputInt } from "../../types";
+import type { AuthFormInputInt, LoginFormInputInt } from "../../types";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { ROUTES } from "@/routes";
 import { FormHeader } from "./FormHeader";
-import { EmailInput } from "./EmailInput";
-import { PasswordInput } from "./PasswordInput";
+import { EmailInput, PasswordInput } from "../AuthForm";
 import { FormFooter } from "./FormFooter";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
-  const { register, handleSubmit: submitHandler } =
-    useForm<LoginFormInputInt>();
+  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>();
 
   // TODO: refactor
   async function handleSubmit(loginFormData: LoginFormInputInt): Promise<void> {

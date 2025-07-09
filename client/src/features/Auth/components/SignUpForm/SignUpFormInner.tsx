@@ -1,20 +1,21 @@
 import { useForm } from "react-hook-form";
-import type { SignUpFormInputInt } from "../../types";
+import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { ROUTES } from "@/routes";
 import { Button } from "@/components/ui";
 import { FormHeader } from "./FormHeader";
-import { UsernameInput } from "./UsernameInput";
-import { EmailInput } from "./EmailInput";
-import { PasswordInput } from "./PasswordInput";
-import { ConfirmPasswordInput } from "./ConfirmPasswordInput";
+import {
+  UsernameInput,
+  EmailInput,
+  PasswordInput,
+  ConfirmPasswordInput,
+} from "../AuthForm";
 import { FormFooter } from "./FormFooter";
 
 export function SignUpFormInner() {
-  const { register, handleSubmit: submitHandler } =
-    useForm<SignUpFormInputInt>();
   const navigate = useNavigate();
+  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>();
 
   // TODO: refactor
   async function handleSubmit(signUpData: SignUpFormInputInt): Promise<void> {

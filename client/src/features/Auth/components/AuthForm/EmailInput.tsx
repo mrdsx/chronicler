@@ -1,7 +1,7 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputProps } from "../../types";
+import type { AuthFormInputInt, AuthFormInputProps } from "../../types";
 
-export function EmailInput({ register }: AuthFormInputProps) {
+export function EmailInput({ register }: AuthFormInputProps<AuthFormInputInt>) {
   return (
     <div className="grid gap-3">
       <Label htmlFor="email">Email</Label>
@@ -12,6 +12,7 @@ export function EmailInput({ register }: AuthFormInputProps) {
         required
         {...register("email")}
       />
+      <input type="text" />
     </div>
   );
 }
