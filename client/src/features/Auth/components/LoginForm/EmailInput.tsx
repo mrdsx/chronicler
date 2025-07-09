@@ -1,8 +1,8 @@
-import { Input } from "@/components/ui";
-import { Label } from "@radix-ui/react-label";
+import { Input, Label } from "@/components/ui";
 import type { UseFormRegister } from "react-hook-form";
 import type { LoginFormInputInt } from "../../types";
 
+// TODO: move type in types.ts
 interface EmailInputProps {
   register: UseFormRegister<LoginFormInputInt>;
 }
