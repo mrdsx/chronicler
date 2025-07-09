@@ -1,4 +1,4 @@
-import { useTheme, type ThemeState } from "@/hooks/useTheme";
+import { useTheme, type ThemeState } from "@/features/Theme/useTheme";
 import { createContext, useContext } from "react";
 
 const ThemeContext = createContext<ThemeState | null>(null);

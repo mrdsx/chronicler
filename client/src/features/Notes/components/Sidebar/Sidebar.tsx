@@ -2,7 +2,7 @@ import { Logo } from "../../../../components/custom/Logo";
 import { UserInfo } from "./UserInfo";
 import { NoteActions } from "./NoteActions";
 import { Navigation } from "./Navigation";
-import { ToggleThemeBtn } from "../../../../components/custom/ToggleThemeBtn";
+import { ToggleThemeBtn } from "../../../../features/Theme/ToggleThemeBtn";
 
 export function Sidebar() {
   return (

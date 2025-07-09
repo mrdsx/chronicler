@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home, Login, SignUp, Notes } from "@/pages";
 import { ROUTES } from "@/routes";
-import { ThemeContextProvider } from "@/providers/ThemeProvider";
+import { ThemeContextProvider } from "@/features/Theme/ThemeProvider";
 import "./App.css";
 
 export default function App() {
