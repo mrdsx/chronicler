@@ -5,7 +5,7 @@ import {
   SelectedNoteContextProvider,
 } from "../features/Notes/providers";
 
-export function NotesProviders({ children }: React.PropsWithChildren) {
+export function NotesProvider({ children }: React.PropsWithChildren) {
   return (
     <NoteEditorRefsContextProvider>
       <SearchNotesContextProvider>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NotesArea, Sidebar } from "@/features/Notes/components";
-import { NotesProviders } from "@/providers/NotesProviders";
+import { NotesProvider } from "@/providers/NotesProvider";
 
 export function Notes() {
   const accessToken = localStorage.getItem("access_token");
@@ -27,11 +27,11 @@ export function Notes() {
   }, []);
 
   return (
-    <NotesProviders>
+    <NotesProvider>
       <div className="box-border flex h-[100vh] gap-2 bg-(--background) p-2">
         <Sidebar />
         <NotesArea />
       </div>
-    </NotesProviders>
+    </NotesProvider>
   );
 }
