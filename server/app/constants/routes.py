@@ -1,2 +1,2 @@
-API = "/api"
-AUTH = f"{API}/auth"
+API: str = "/api"
+AUTH: str = f"{API}/auth"
