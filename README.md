@@ -10,7 +10,7 @@ Chronicler is the Note Taking app. That's all for now.
 - Search notes
 - Dark mode
 - Integration with DB (In Progress)
-- AI fearures (TODO) 
+- AI features (TODO)
 
 ## Installation guide
 
@@ -30,7 +30,7 @@ cd chronicler
 
 ### 2. Setup environment variables
 
-Create .env file in folder 'server' with following keys:
+Clone [this](https://github.com/mrdsx/jwt-key-generator) repository and run run.py. The script will create two files and you need to copy `.env` and paste it inside 'server' folder to be able to run the server. File `.env` should have variables like this:
 
 ```env
 SECRET_KEY=
@@ -39,8 +39,6 @@ ES256_KID=
 
 ES256_KEY=
 ```
-
-Open [this](https://dc1888.medium.com/build-simple-authentication-api-using-fast-api-with-es256-encryption-in-10-mins-f8c0113937a) article and go to **Step 2: Create and validate ES256 JWT token.** to find out how to setup .env variables for server.
 
 ### 3. Install Dependencies for Client
 
