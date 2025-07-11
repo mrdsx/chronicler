@@ -12,27 +12,39 @@ import {
   ConfirmPasswordInput,
 } from "../AuthForm";
 import { FormFooter } from "./FormFooter";
+import { useState } from "react";
+import { LoaderCircle } from "lucide-react";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();
   const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>();
 
+  const [isDisabled, setIsDisabled] = useState(false);
+
   // TODO: refactor
   async function handleSubmit(signUpData: SignUpFormInputInt): Promise<void> {
-    const res = await fetch("http://127.0.0.1:3000/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signUpData),
-    });
-    const data = await res.json();
+    try {
+      setIsDisabled(true);
+      const res = await fetch("http://127.0.0.1:3000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(signUpData),
+      });
+      const data = await res.json();
 
-    if (!res.ok) {
-      toast.error(data.detail);
-      return;
+      if (!res.ok) {
+        toast.error(data.detail);
+        return;
+      }
+
+      localStorage.setItem("access_token", data.access_token);
+      navigate(ROUTES.MAIN);
+    } catch (error) {
+      console.error("Sign up failed:", error);
+      toast.error("Failed to create an account. Please try again.");
+    } finally {
+      setIsDisabled(false);
     }
-
-    localStorage.setItem("access_token", data.access_token);
-    navigate(ROUTES.MAIN);
   }
 
   return (
@@ -43,7 +55,17 @@ export function SignUpFormInner() {
         <EmailInput register={register} />
         <PasswordInput register={register} />
         <ConfirmPasswordInput register={register} />
-        <Button className="min-w-full">Create an account</Button>
+        <Button
+          className="min-w-full"
+          disabled={isDisabled}
+          aria-busy={isDisabled}
+        >
+          {isDisabled ? (
+            <LoaderCircle className="animate-spin" />
+          ) : (
+            "Create an account"
+          )}
+        </Button>
         <FormFooter />
       </div>
     </form>
