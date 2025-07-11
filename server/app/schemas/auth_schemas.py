@@ -1,4 +1,10 @@
+from typing import TypedDict
 from pydantic import BaseModel
+
+class AuthSchema_Tokens(TypedDict):
+    access_token: str
+    refresh_token: str
+
 
 class AuthSchema_SignUp(BaseModel):
     username: str
