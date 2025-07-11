@@ -12,7 +12,6 @@ export function EmailInput({ register }: AuthFormInputProps<AuthFormInputInt>) {
         required
         {...register("email")}
       />
-      <input type="text" />
     </div>
   );
 }
