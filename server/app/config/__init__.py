@@ -1,5 +1,5 @@
-from pydantic_settings import BaseSettings
 from decouple import config
+from pydantic_settings import BaseSettings
 
 class AuthSettings(BaseSettings):
     JWT_SECRET_KEY: str = config('SECRET_KEY')

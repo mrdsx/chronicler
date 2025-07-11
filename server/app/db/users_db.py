@@ -20,12 +20,14 @@ def save_user(user: DB_User_Model) -> None:
     session.add(new_user)
     session.commit()
 
+
 def get_user_by_username(username: str) -> Optional[UserSchema]:
     try:
         db_user = session.query(DB_User_Model).filter(DB_User_Model.username == username).first()
         return UserSchema.model_validate(db_user).model_dump()
     except BaseException:
         return None
+
 
 def get_user_by_email(email: str) -> Optional[UserSchema]:
     try:

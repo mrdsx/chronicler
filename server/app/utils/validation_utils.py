@@ -1,5 +1,5 @@
-from email_validator import validate_email, EmailNotValidError
 from auth import Auth
+from email_validator import validate_email, EmailNotValidError
 
 auth_handler = Auth()
 
@@ -10,6 +10,7 @@ def get_is_email_valid(email: str) -> tuple[bool, str]:
         return True, email
     except EmailNotValidError as e:
         return False, str(e)
+
 
 def get_is_login_data_valid(email: str, input_password: str, db_password: str):
     if email is None:

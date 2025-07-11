@@ -1,6 +1,6 @@
-from schemas.auth_schemas import AuthSchema_SignUp
-from db.users_db import save_user
 from auth import Auth
+from db.users_db import save_user
+from schemas.auth_schemas import AuthSchema_SignUp
 
 auth_handler = Auth()
 

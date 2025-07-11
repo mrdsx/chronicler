@@ -3,6 +3,7 @@ from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
+
 class DB_User_Model(Base):
     __tablename__ = "users"
 
