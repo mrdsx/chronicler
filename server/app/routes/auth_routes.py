@@ -1,11 +1,11 @@
 from fastapi import APIRouter
 from fastapi.security import HTTPBearer
 
-from schemas.auth_schemas import AuthSchema_SignUp, AuthSchema_Login, AuthSchema_Tokens
+from auth import Auth
+from constants import routes
 from services.auth_services import validate_login_data, validate_signup_data
 from services.users_services import create_user
-from constants import routes
-from auth import Auth
+from schemas.auth_schemas import AuthSchema_SignUp, AuthSchema_Login, AuthSchema_Tokens
 
 auth_handler = Auth()
 security = HTTPBearer()
