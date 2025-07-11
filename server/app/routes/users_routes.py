@@ -6,7 +6,7 @@ from typing import Optional
 from auth import Auth
 from constants import routes
 from db.users_db import get_user_by_email
-from schemas.user_schemas import UserSchema
+from schemas.user_schemas import UserSchemaWithId
 
 auth_handler = Auth()
 security = HTTPBearer()
@@ -15,7 +15,7 @@ router = APIRouter(prefix=routes.API)
 @router.get("/users")
 async def get_user_info(
     credentials: HTTPAuthorizationCredentials = Security(security)
-) -> Optional[UserSchema]:
+) -> Optional[UserSchemaWithId]:
     try:
         token = credentials.credentials
         payload = auth_handler.decode_token(token)

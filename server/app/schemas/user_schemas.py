@@ -1,10 +1,12 @@
 from pydantic import BaseModel
 
 class UserSchema(BaseModel):
-    id: int
     username: str
     email: str
     hashed_password: str
+
+class UserSchemaWithId(UserSchema):
+    id: int
 
     class Config:
         from_attributes=True
