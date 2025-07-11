@@ -1,4 +1,4 @@
-import { httpClient } from "../../../api/client";
+import { apiClient } from "../../../api/client";
 import type { LoginFormInputInt } from "@/features/Auth/types";
 import type { AccessTokensResponse } from "./types";
 import { isErrorResponse } from "@/api";
@@ -8,7 +8,7 @@ type ReturnType = AccessTokensResponse;
 export async function loginUser(
   loginFormData: LoginFormInputInt,
 ): Promise<ReturnType> {
-  const res = await httpClient("/auth/login", {
+  const res = await apiClient("/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(loginFormData),
