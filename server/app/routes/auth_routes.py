@@ -1,5 +1,5 @@
-from fastapi import APIRouter, Security
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import APIRouter
+from fastapi.security import HTTPBearer
 
 from schemas.auth_schemas import AuthSchema_SignUp, AuthSchema_Login
 from services.auth_services import validate_login_data, validate_signup_data
