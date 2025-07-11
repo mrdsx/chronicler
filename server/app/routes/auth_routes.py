@@ -30,4 +30,7 @@ async def login(login_data : AuthSchema_Login):
     
     access_token = auth_handler.encode_token(login_data.email)
     refresh_token = auth_handler.encode_refresh_token(login_data.email)
-    return {"access_token": access_token, "refresh_token": refresh_token}
+    return {
+        "access_token": access_token,
+        "refresh_token": refresh_token
+    }
