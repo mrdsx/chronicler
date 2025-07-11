@@ -30,7 +30,7 @@ cd chronicler
 
 ### 2. Setup environment variables
 
-Clone [this](https://github.com/mrdsx/jwt-key-generator) repository and run run.py. The script will create two files and you need to copy `.env` and paste it inside 'server' folder to be able to run the server. File `.env` should have variables like this:
+Clone [this](https://github.com/mrdsx/jwt-key-generator) repository in separate folder, install all dependencies by running `pip install -r requirements.txt` and run run.py. The script will create two files and you need to copy `.env` and paste it inside 'server' folder to be able to run the server. File `.env` should have variables like this:
 
 ```env
 SECRET_KEY=
@@ -93,3 +93,4 @@ Open [http://localhost:3000](http://localhost:3000/).
 - [React Router](https://reactrouter.com/)
 - [React Hook Form](https://react-hook-form.com/)
 - [uuid](https://www.npmjs.com/package/uuid)
+- [TanStack Query](https://tanstack.com/query/latest)
