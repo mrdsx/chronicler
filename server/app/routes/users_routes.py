@@ -12,9 +12,10 @@ auth_handler = Auth()
 security = HTTPBearer()
 router = APIRouter(prefix=routes.API)
 
+
 @router.get("/users")
 async def get_user_info(
-    credentials: HTTPAuthorizationCredentials = Security(security)
+    credentials: HTTPAuthorizationCredentials = Security(security),
 ) -> Optional[UserSchemaWithId]:
     try:
         token = credentials.credentials

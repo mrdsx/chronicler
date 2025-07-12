@@ -13,17 +13,24 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(engine)
 session = Session()
 
+
 def save_user(user: DB_User_Model) -> None:
-    new_user = DB_User_Model(username=user["username"],
-                             email=user["email"],
-                             hashed_password=user["hashed_password"])
+    new_user = DB_User_Model(
+        username=user["username"],
+        email=user["email"],
+        hashed_password=user["hashed_password"],
+    )
     session.add(new_user)
     session.commit()
 
 
 def get_user_by_username(username: str) -> Optional[UserSchemaWithId]:
     try:
-        db_user = session.query(DB_User_Model).filter(DB_User_Model.username == username).first()
+        db_user = (
+            session.query(DB_User_Model)
+            .filter(DB_User_Model.username == username)
+            .first()
+        )
         return UserSchemaWithId.model_validate(db_user).model_dump()
     except BaseException:
         return None
@@ -31,7 +38,9 @@ def get_user_by_username(username: str) -> Optional[UserSchemaWithId]:
 
 def get_user_by_email(email: str) -> Optional[UserSchemaWithId]:
     try:
-        db_user = session.query(DB_User_Model).filter(DB_User_Model.email == email).first()
+        db_user = (
+            session.query(DB_User_Model).filter(DB_User_Model.email == email).first()
+        )
         return UserSchemaWithId.model_validate(db_user).model_dump()
     except BaseException:
         return None

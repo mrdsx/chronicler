@@ -4,6 +4,7 @@ from schemas.auth_schemas import AuthSchema_SignUp
 
 auth_handler = Auth()
 
+
 def create_user(signup_data: AuthSchema_SignUp):
     hashed_password = auth_handler.encode_password(signup_data.password)
     new_user = {

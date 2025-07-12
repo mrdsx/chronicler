@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import TypedDict
 
+
 class AuthSchema_Tokens(TypedDict):
     access_token: str
     refresh_token: str

@@ -8,10 +8,7 @@ from routes.users_routes import router as users_router
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-    "localhost:3000"
-]
+origins = ["http://localhost:3000", "localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,13 +18,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 def root():
     return {
         "api": "Chronicler Backend",
         "status": "running",
-        "timestamp": str(datetime.now()) + "Z"
+        "timestamp": str(datetime.now()) + "Z",
     }
+
 
 app.include_router(auth_router)
 app.include_router(users_router)
