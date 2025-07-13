@@ -24,13 +24,15 @@ export async function loginUser(
   return data;
 }
 
-export async function registerUser(signUpFormData: SignUpFormInputInt) {
+export async function registerUser(
+  signUpFormData: SignUpFormInputInt,
+): Promise<AccessTokensResponse> {
   const res = await apiClient("/auth/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(signUpFormData),
   });
-  const data = await res.json();
+  const data: AccessTokensResponse = await res.json();
 
   if (isErrorResponse(data)) throw new Error(data.detail);
 
