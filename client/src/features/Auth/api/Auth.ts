@@ -25,7 +25,7 @@ export async function registerUser(
   const requestOptions = getRequestOptions(signUpFormData, "POST");
 
   return await apiClient(
-    AUTH_ENDPOINTS.signup,
+    AUTH_ENDPOINTS.register,
     requestOptions,
     "An unexpected error occurred while signing up",
   );
