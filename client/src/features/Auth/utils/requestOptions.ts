@@ -1,7 +1,4 @@
-export function getApiRequestJsonOptions(
-  data: any,
-  method?: string,
-): RequestInit {
+export function getRequestOptions(data: any, method?: string): RequestInit {
   return {
     method,
     headers: { "Content-Type": "application/json" },

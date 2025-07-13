@@ -5,16 +5,16 @@ import type {
 import { apiClient } from "@/api";
 import type { AccessTokensResponse } from "./types";
 import { AUTH_ENDPOINTS } from "./constants";
-import { getApiRequestJsonOptions } from "../utils/apiRequestOptions";
+import { getRequestOptions } from "../utils/requestOptions";
 
 export async function loginUser(
   loginFormData: LoginFormInputInt,
 ): Promise<AccessTokensResponse> {
-  const apiRequestOptions = getApiRequestJsonOptions(loginFormData, "POST");
+  const requestOptions = getRequestOptions(loginFormData, "POST");
 
   return await apiClient(
     AUTH_ENDPOINTS.login,
-    apiRequestOptions,
+    requestOptions,
     "An unexpected error occurred while logging in",
   );
 }
@@ -22,11 +22,11 @@ export async function loginUser(
 export async function registerUser(
   signUpFormData: SignUpFormInputInt,
 ): Promise<AccessTokensResponse> {
-  const apiRequestOptions = getApiRequestJsonOptions(signUpFormData, "POST");
+  const requestOptions = getRequestOptions(signUpFormData, "POST");
 
   return await apiClient(
     AUTH_ENDPOINTS.signup,
-    apiRequestOptions,
+    requestOptions,
     "An unexpected error occurred while signing up",
   );
 }
