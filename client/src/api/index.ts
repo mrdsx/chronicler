@@ -1,3 +1,3 @@
-export * from "./client";
-export * from "./types";
-export * from "./utils";
+export { apiClient } from "./client";
+export { type ErrorResponse } from "./types";
+export { isErrorResponse } from "./utils";
