@@ -1,6 +1,4 @@
-import { Home } from "./Home/Home";
-import { Login } from "./Login";
-import { SignUp } from "./SignUp";
-import { Notes } from "./Notes";
-
-export { Home, Login, SignUp, Notes };
+export { Home } from "./Home/Home";
+export { Login } from "./Login";
+export { SignUp } from "./SignUp";
+export { Notes } from "./Notes";
