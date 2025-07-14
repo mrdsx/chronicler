@@ -1,7 +1,5 @@
-import { AddNoteBtn } from "./AddNoteBtn";
-import { NotesArea } from "./NotesArea";
-import { NotesList } from "./NotesList";
-import { SearchNotesBar } from "./SearchNotesBar";
-import { Sidebar } from "./Sidebar/Sidebar";
-
-export { AddNoteBtn, NotesArea, NotesList, SearchNotesBar, Sidebar };
+export { AddNoteBtn } from "./AddNoteBtn";
+export { NotesArea } from "./NotesArea";
+export { NotesList } from "./NotesList";
+export { SearchNotesBar } from "./SearchNotesBar";
+export { Sidebar } from "./Sidebar/Sidebar";
