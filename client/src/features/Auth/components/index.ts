@@ -1,6 +1,4 @@
-import { LoginBtn } from "./LoginBtn";
-import { LoginForm } from "./LoginForm/LoginForm";
-import { SignUpBtn } from "./SignUpBtn";
-import { SignUpForm } from "./SignUpForm/SignUpForm";
-
-export { LoginBtn, LoginForm, SignUpBtn, SignUpForm };
+export { LoginBtn } from "./LoginBtn";
+export { LoginForm } from "./LoginForm/LoginForm";
+export { SignUpBtn } from "./SignUpBtn";
+export { SignUpForm } from "./SignUpForm/SignUpForm";
