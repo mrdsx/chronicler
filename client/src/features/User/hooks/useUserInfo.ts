@@ -14,7 +14,5 @@ export async function useUserInfo() {
     return;
   }
 
-  console.log(data.username);
-
   return data;
 }
