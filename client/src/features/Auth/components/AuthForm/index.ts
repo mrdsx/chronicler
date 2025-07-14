@@ -1,6 +1,4 @@
-import { ConfirmPasswordInput } from "./ConfirmPasswordInput";
-import { EmailInput } from "./EmailInput";
-import { PasswordInput } from "./PasswordInput";
-import { UsernameInput } from "./UsernameInput";
-
-export { ConfirmPasswordInput, EmailInput, PasswordInput, UsernameInput };
+export { ConfirmPasswordInput } from "./ConfirmPasswordInput";
+export { EmailInput } from "./EmailInput";
+export { PasswordInput } from "./PasswordInput";
+export { UsernameInput } from "./UsernameInput";
