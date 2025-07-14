@@ -1,7 +1,5 @@
-import { Button, buttonVariants } from "./button";
-import { Card, CardContent } from "./card";
-import { Input } from "./input";
-import { Label } from "./label";
-import { Toaster } from "./sonner";
-
-export { Button, buttonVariants, Card, CardContent, Input, Label, Toaster };
+export { Button, buttonVariants } from "./button";
+export { Card, CardContent } from "./card";
+export { Input } from "./input";
+export { Label } from "./label";
+export { Toaster } from "./sonner";
