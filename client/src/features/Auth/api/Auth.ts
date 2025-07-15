@@ -7,24 +7,20 @@ import type { AccessTokensResponse } from "./types";
 import { AUTH_ENDPOINTS } from "./constants";
 import { getRequestOptions } from "../utils/requestOptions";
 
-export async function loginUser(
-  loginFormData: LoginFormInputInt,
-): Promise<AccessTokensResponse> {
+export async function loginUser(loginFormData: LoginFormInputInt) {
   const requestOptions = getRequestOptions(loginFormData, "POST");
 
-  return await apiClient(
+  return await apiClient<AccessTokensResponse>(
     AUTH_ENDPOINTS.login,
     requestOptions,
     "An unexpected error occurred while logging in",
   );
 }
 
-export async function registerUser(
-  signUpFormData: SignUpFormInputInt,
-): Promise<AccessTokensResponse> {
+export async function registerUser(signUpFormData: SignUpFormInputInt) {
   const requestOptions = getRequestOptions(signUpFormData, "POST");
 
-  return await apiClient(
+  return await apiClient<AccessTokensResponse>(
     AUTH_ENDPOINTS.register,
     requestOptions,
     "An unexpected error occurred while signing up",
