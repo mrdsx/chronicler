@@ -13,6 +13,7 @@ export function UserInfo() {
   const { data, isError, isPending } = useQuery({
     queryKey: ["user"],
     queryFn: getUserInfo,
+    retry: false,
   });
 
   useEffect(() => {
