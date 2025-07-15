@@ -1,23 +1,12 @@
-import { Header } from "./Header";
-import {
+export { Header } from "./Header/Header";
+export {
   FeatureCard,
   FeaturesSection,
   FeaturesSectionTitle,
   FeaturesSectionContent,
 } from "./FeaturesSection";
-import {
+export {
   IntroductionSection,
   IntroductionSectionTitle,
   IntroductionSectionActions,
 } from "./IntroductionSection";
-
-export {
-  FeatureCard,
-  FeaturesSection,
-  FeaturesSectionContent,
-  FeaturesSectionTitle,
-  Header,
-  IntroductionSection,
-  IntroductionSectionActions,
-  IntroductionSectionTitle,
-};
