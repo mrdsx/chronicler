@@ -4,7 +4,7 @@ import { SkeletonLoader } from "./SkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useUserInfo } from "@/features/User/useUserInfo";
+import { useUserInfo } from "@/features/User/hooks/useUserInfo";
 
 export function UserInfo() {
   const { getUserInfo } = useUserInfo();
