@@ -1,5 +1,6 @@
 import { apiClient } from "@/api";
 import { toast } from "sonner";
+import type { User } from "./types";
 
 export function useUserInfo() {
   async function getUserInfo() {
@@ -12,7 +13,7 @@ export function useUserInfo() {
         },
       };
 
-      return await apiClient("/users", options, "Failed to fetch user");
+      return await apiClient<User>("/users", options, "Failed to fetch user");
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
