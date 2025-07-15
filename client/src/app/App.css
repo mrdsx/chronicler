@@ -18,3 +18,7 @@ input[type="button"] {
 .sidebar-btn {
   @apply min-w-full justify-start shadow-none hover:bg-(--sidebar-accent);
 }
+
+.skeleton-loader {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600;
+}
