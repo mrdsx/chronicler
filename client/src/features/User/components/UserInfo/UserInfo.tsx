@@ -10,7 +10,11 @@ export function UserInfo() {
   const { getUserInfo } = useUserInfo();
   const navigate = useNavigate();
 
-  const { data, isError, isPending } = useQuery({
+  const {
+    data: user,
+    isError,
+    isPending,
+  } = useQuery({
     queryKey: ["user"],
     queryFn: getUserInfo,
     retry: false,
@@ -22,14 +26,14 @@ export function UserInfo() {
     }
   }, [isError]);
 
-  if (isPending || !data) {
+  if (isPending || !user) {
     return <SkeletonLoader />;
   }
 
   return (
     <div className="flex items-center gap-2">
       <CircleUserRound />
-      <h2 className="text-lg">{data.username}</h2>
+      <h2 className="text-lg">{user.username}</h2>
     </div>
   );
 }
