@@ -2,16 +2,15 @@ import type {
   LoginFormInputInt,
   SignUpFormInputInt,
 } from "@/features/Auth/types";
-import { apiClient } from "@/api";
+import { apiClient, ENDPOINTS } from "@/api";
 import type { AccessTokensResponse } from "./types";
-import { AUTH_ENDPOINTS } from "./constants";
 import { getRequestOptions } from "../utils/requestOptions";
 
 export async function loginUser(loginFormData: LoginFormInputInt) {
   const requestOptions = getRequestOptions(loginFormData, "POST");
 
   return await apiClient<AccessTokensResponse>(
-    AUTH_ENDPOINTS.login,
+    ENDPOINTS.AUTH.login,
     requestOptions,
     "An unexpected error occurred while logging in",
   );
@@ -21,7 +20,7 @@ export async function registerUser(signUpFormData: SignUpFormInputInt) {
   const requestOptions = getRequestOptions(signUpFormData, "POST");
 
   return await apiClient<AccessTokensResponse>(
-    AUTH_ENDPOINTS.register,
+    ENDPOINTS.AUTH.register,
     requestOptions,
     "An unexpected error occurred while signing up",
   );
