@@ -1,18 +1,24 @@
-export async function useUserInfo() {
-  const accessToken = localStorage.getItem("access_token");
+import { apiClient } from "@/api";
+import { toast } from "sonner";
 
-  const res = await fetch("http://127.0.0.1:3000/api/users", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const data = await res.json();
+export function useUserInfo() {
+  async function getUserInfo() {
+    try {
+      const accessToken = localStorage.getItem("access_token");
+      const options = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
 
-  if (!res.ok) {
-    console.log(data.detail);
-    return;
+      return await apiClient("/users", options, "Failed to fetch user");
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
+    }
   }
 
-  return data;
+  return { getUserInfo };
 }
