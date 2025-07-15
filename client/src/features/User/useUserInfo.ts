@@ -15,6 +15,7 @@ export function useUserInfo() {
       return await apiClient("/users", options, "Failed to fetch user");
     } catch (error) {
       if (error instanceof Error) {
+        console.error(error.message);
         toast.error(error.message);
       }
     }
