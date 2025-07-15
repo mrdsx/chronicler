@@ -1,8 +1,9 @@
 import { API_BASE_URL } from "./constants";
+import type { Path } from "./types";
 import { isErrorResponse } from "./utils";
 
 export async function apiClient<TResponse extends Record<string, any>>(
-  path: string,
+  path: Path,
   options?: RequestInit,
   errorMsg?: string,
 ): Promise<TResponse> {
