@@ -1,10 +1,10 @@
 import { CircleUserRound } from "lucide-react";
 
-export function UserInfo() {
+export function UserInfo({ username }: { username?: string }) {
   return (
     <div className="flex items-center gap-2">
       <CircleUserRound />
-      <h2 className="text-lg">Username</h2>
+      <h2 className="text-lg">{username}</h2>
     </div>
   );
 }
