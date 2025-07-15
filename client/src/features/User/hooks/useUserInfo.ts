@@ -1,4 +1,4 @@
-import { apiClient } from "@/api";
+import { apiClient, ENDPOINTS } from "@/api";
 import type { User } from "../types";
 
 export function useUserInfo() {
@@ -12,7 +12,11 @@ export function useUserInfo() {
         },
       };
 
-      return await apiClient<User>("/users", options, "Failed to fetch user");
+      return await apiClient<User>(
+        ENDPOINTS.USERS.me,
+        options,
+        "Failed to fetch user",
+      );
     } catch (error) {
       if (error instanceof Error) {
         console.error(error);
