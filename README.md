@@ -2,7 +2,11 @@
 
 Chronicler is the Note Taking app. That's all for now.
 
+Light mode:
 ![Chronicler UI](./assets/chronicler-ui.png)
+
+Dark mode:
+![Chronicler UI with Dark Mode](./assets/chronicler-ui-dark.png)
 
 ## Features:
 
