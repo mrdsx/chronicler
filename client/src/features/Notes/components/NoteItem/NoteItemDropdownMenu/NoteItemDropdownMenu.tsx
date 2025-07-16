@@ -1,12 +1,13 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui";
 import { EllipsisVertical } from "lucide-react";
-import { useDropdownMenuItems } from "./useDropdownMenuItems";
-import type { Note } from "../../types";
+import type { Note } from "../../../types";
+import { CloneNoteBtn } from "./CloneNoteBtn";
+import { DeleteNoteBtn } from "./DeleteNoteBtn";
+import { RenameNoteBtn } from "./RenameNoteBtn";
 
 interface NoteItemDropdownMenuProps {
   targetNote: Note;
@@ -17,8 +18,6 @@ export function NoteItemDropdownMenu({
   targetNote,
   triggerRef,
 }: NoteItemDropdownMenuProps) {
-  const dropdownMenuItems = useDropdownMenuItems(targetNote);
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -28,17 +27,9 @@ export function NoteItemDropdownMenu({
         <EllipsisVertical size={20} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {dropdownMenuItems.map((item, index) => (
-          <DropdownMenuItem
-            className="flex cursor-pointer gap-2"
-            variant={item.variant}
-            onClick={item.onClick}
-            key={item.title + index}
-          >
-            {item.icon}
-            {item.title}
-          </DropdownMenuItem>
-        ))}
+        <CloneNoteBtn targetNote={targetNote} />
+        <RenameNoteBtn targetNote={targetNote} />
+        <DeleteNoteBtn targetNote={targetNote} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
