@@ -16,10 +16,7 @@ export function CloneNoteBtn({ targetNote }: { targetNote: Note }) {
   }
 
   return (
-    <DropdownMenuItem
-      className="flex cursor-pointer gap-2"
-      onClick={handleClick}
-    >
+    <DropdownMenuItem onClick={handleClick}>
       <Copy />
       Clone
     </DropdownMenuItem>

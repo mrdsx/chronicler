@@ -18,11 +18,7 @@ export function DeleteNoteBtn({ targetNote }: { targetNote: Note }) {
   }
 
   return (
-    <DropdownMenuItem
-      className="flex cursor-pointer gap-2"
-      variant="destructive"
-      onClick={handleClick}
-    >
+    <DropdownMenuItem variant="destructive" onClick={handleClick}>
       <Trash2 />
       Delete
     </DropdownMenuItem>

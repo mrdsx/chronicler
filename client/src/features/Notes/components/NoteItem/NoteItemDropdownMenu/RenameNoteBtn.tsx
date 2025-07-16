@@ -14,10 +14,7 @@ export function RenameNoteBtn({ targetNote }: { targetNote: Note }) {
   }
 
   return (
-    <DropdownMenuItem
-      className="flex cursor-pointer gap-2"
-      onClick={handleClick}
-    >
+    <DropdownMenuItem onClick={handleClick}>
       <Edit />
       Rename
     </DropdownMenuItem>
