@@ -2,7 +2,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui";
+} from "@/components/ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
 import type { Note } from "../../../types";
 import { CloneNoteBtn } from "./CloneNoteBtn";

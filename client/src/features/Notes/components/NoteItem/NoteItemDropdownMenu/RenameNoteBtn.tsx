@@ -1,4 +1,4 @@
-import { DropdownMenuItem } from "@/components/ui";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { useSelectedNoteContext } from "@/features/Notes/hooks/context";
 import { useNotes } from "@/features/Notes/hooks/useNotes";
 import type { Note } from "@/features/Notes/types";
