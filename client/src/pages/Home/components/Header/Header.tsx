@@ -1,7 +1,7 @@
 import { Logo } from "@/components/Logo";
 import { useUserInfo } from "@/features/User/hooks/useUserInfo";
 import { useQuery } from "@tanstack/react-query";
-import { HeaderActions } from "./HeaderActions";
+import { AccountActions } from "./AccountActions";
 
 export function Header() {
   const { getUserInfo } = useUserInfo();
@@ -19,7 +19,7 @@ export function Header() {
         {isPending ? (
           <div className="skeleton-loader h-7 w-30 rounded-md"></div>
         ) : (
-          <HeaderActions user={user} />
+          <AccountActions user={user} />
         )}
       </nav>
     </header>
