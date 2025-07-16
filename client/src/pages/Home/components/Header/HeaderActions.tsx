@@ -6,7 +6,7 @@ export function HeaderActions({ user }: { user: User | undefined }) {
   return (
     <div className="flex gap-2">
       {user ? (
-        <Button variant="outline">Account</Button>
+        <Button>Account</Button>
       ) : (
         <>
           <LoginBtn variant="outline" />
