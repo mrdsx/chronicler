@@ -7,7 +7,7 @@ export function NotesList() {
 
   return (
     <div className="w-[30%] border-r-1 border-r-(--border-color)">
-      <h2 className="p-2 pl-4 text-xl">Notes</h2>
+      <h2 className="pt-3 pb-2 pl-4 text-xl">Notes</h2>
       {notes.map((note) => {
         return (
           note.title.toLowerCase().includes(searchQuery) && (
