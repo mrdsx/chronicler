@@ -9,7 +9,7 @@ import { NotesBtn } from "./NotesBtn";
 import { ProfileBtn } from "./ProfileBtn";
 import { SettingsBtn } from "./SettingsBtn";
 import { LogOutBtn } from "./LogOutBtn";
-import { CircleUserRound } from "lucide-react";
+import { UserInfo } from "../../UserInfo/UserInfo";
 
 export function AccountActionsDropdownMenu({ username }: { username: string }) {
   return (
@@ -18,10 +18,7 @@ export function AccountActionsDropdownMenu({ username }: { username: string }) {
         <Button>Account</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="end">
-        <div className="flex gap-2 p-1">
-          <CircleUserRound />
-          {username}
-        </div>
+        <UserInfo className="p-1" username={username} />
         <DropdownMenuSeparator />
         <NotesBtn />
         <ProfileBtn />
