@@ -50,7 +50,7 @@ export function SignUpFormInner() {
         <FormHeader />
         <UsernameInput register={register} error={errors.username} />
         <EmailInput register={register} error={errors.email} />
-        <PasswordInput register={register} />
+        <PasswordInput register={register} error={errors.password} />
         <ConfirmPasswordInput register={register} />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
