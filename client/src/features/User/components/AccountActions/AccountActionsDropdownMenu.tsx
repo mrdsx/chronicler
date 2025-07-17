@@ -14,7 +14,7 @@ import {
   User,
 } from "lucide-react";
 
-export function AccountDropdownMenu({ username }: { username: string }) {
+export function AccountActionsDropdownMenu({ username }: { username: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

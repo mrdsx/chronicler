@@ -1,4 +1,4 @@
-import { AccountDropdownMenu } from "./AccountDropdownMenu";
+import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu";
 import { LoginBtn, SignUpBtn } from "@/features/Auth/components";
 import { useQuery } from "@tanstack/react-query";
 import { useUserInfo } from "../../hooks/useUserInfo";
@@ -20,7 +20,7 @@ export function AccountActions() {
   return (
     <div className="flex gap-2">
       {user ? (
-        <AccountDropdownMenu {...user} />
+        <AccountActionsDropdownMenu {...user} />
       ) : (
         <>
           <LoginBtn variant="outline" />
