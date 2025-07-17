@@ -6,8 +6,6 @@ export function UsernameInput({
   register,
   error,
 }: AuthFormInputProps<SignUpFormInputInt>) {
-  console.log(error);
-
   return (
     <div>
       <Label htmlFor="username">Username</Label>
