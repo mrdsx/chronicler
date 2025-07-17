@@ -4,7 +4,7 @@ import { SkeletonLoader } from "./SkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useUserInfo } from "@/features/User/hooks/useUserInfo";
+import { useUserData } from "@/features/User/hooks/useUserData";
 import { cn } from "@/lib/utils";
 
 interface UserInfoProps {
@@ -15,7 +15,7 @@ export function UserInfo({
   username,
   className,
 }: React.ComponentProps<"div"> & UserInfoProps) {
-  const { getUserInfo } = useUserInfo();
+  const { getUserData } = useUserData();
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
@@ -26,7 +26,7 @@ export function UserInfo({
     isPending,
   } = useQuery({
     queryKey: ["user"],
-    queryFn: getUserInfo,
+    queryFn: getUserData,
     retry: false,
     enabled: usernamePropNotProvided,
   });

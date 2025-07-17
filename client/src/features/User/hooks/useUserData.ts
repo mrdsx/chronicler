@@ -1,8 +1,8 @@
 import { apiClient, ENDPOINTS } from "@/api";
 import type { User } from "../types";
 
-export function useUserInfo() {
-  async function getUserInfo() {
+export function useUserData() {
+  async function getUserData() {
     try {
       const accessToken = localStorage.getItem("access_token");
       if (accessToken === null) return null;
@@ -27,5 +27,5 @@ export function useUserInfo() {
     }
   }
 
-  return { getUserInfo };
+  return { getUserData };
 }

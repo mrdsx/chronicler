@@ -1,15 +1,15 @@
 import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu/AccountActionsDropdownMenu";
 import { LoginBtn, SignUpBtn } from "@/features/Auth/components";
 import { useQuery } from "@tanstack/react-query";
-import { useUserInfo } from "../../hooks/useUserInfo";
+import { useUserData } from "../../hooks/useUserData";
 import { AccountActionsSkeletonLoader } from "./AccountActionsSkeletonLoader";
 
 export function AccountActions() {
-  const { getUserInfo } = useUserInfo();
+  const { getUserData } = useUserData();
 
   const { data: user, isPending } = useQuery({
     queryKey: ["user"],
-    queryFn: getUserInfo,
+    queryFn: getUserData,
     retry: false,
   });
 
