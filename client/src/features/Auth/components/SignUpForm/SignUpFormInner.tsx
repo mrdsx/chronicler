@@ -49,7 +49,7 @@ export function SignUpFormInner() {
       <div className="flex flex-col gap-4">
         <FormHeader />
         <UsernameInput register={register} error={errors.username} />
-        <EmailInput register={register} />
+        <EmailInput register={register} error={errors.email} />
         <PasswordInput register={register} />
         <ConfirmPasswordInput register={register} />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
