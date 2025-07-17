@@ -5,10 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { NotesBtn } from "./NotesBtn";
-import { ProfileBtn } from "./ProfileBtn";
-import { SettingsBtn } from "./SettingsBtn";
-import { LogOutBtn } from "./LogOutBtn";
+import { LogOutBtn, NotesBtn, ProfileBtn, SettingsBtn } from ".";
 import { UserInfo } from "../../UserInfo/UserInfo";
 
 export function AccountActionsDropdownMenu({ username }: { username: string }) {
