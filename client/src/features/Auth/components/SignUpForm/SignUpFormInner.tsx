@@ -22,7 +22,7 @@ export function SignUpFormInner() {
     register,
     handleSubmit: submitHandler,
     formState: { errors },
-  } = useForm<AuthFormInputInt>();
+  } = useForm<AuthFormInputInt>({ mode: "onBlur" });
 
   const { mutate, isPending } = useMutation<
     AccessTokensResponse,
