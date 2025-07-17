@@ -11,6 +11,7 @@ import { LoaderCircle } from "lucide-react";
 import { loginUser } from "@/features/Auth/api/Auth";
 import { useMutation } from "@tanstack/react-query";
 import type { AccessTokensResponse } from "../../api/types";
+import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export function LoginFormInner() {
   >({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      localStorage.setItem("access_token", data.access_token);
+      setUserAccessToken(data.access_token);
       navigate(ROUTES.MAIN);
     },
     onError: (error) => {

@@ -15,6 +15,7 @@ import { FormFooter } from "./FormFooter";
 import { LoaderCircle } from "lucide-react";
 import { registerUser, type AccessTokensResponse } from "../../api";
 import { useMutation } from "@tanstack/react-query";
+import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export function SignUpFormInner() {
   >({
     mutationFn: registerUser,
     onSuccess: (data) => {
-      localStorage.setItem("access_token", data.access_token);
+      setUserAccessToken(data.access_token);
       navigate(ROUTES.MAIN);
     },
     onError: (error) => {
