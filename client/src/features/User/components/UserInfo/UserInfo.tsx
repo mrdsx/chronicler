@@ -44,7 +44,7 @@ export function UserInfo({
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <CircleUserRound />
-      <h2 className="text-lg">{user.username ?? username}</h2>
+      <h2>{user.username ?? username}</h2>
     </div>
   );
 }
