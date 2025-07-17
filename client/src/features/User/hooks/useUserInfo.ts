@@ -5,6 +5,8 @@ export function useUserInfo() {
   async function getUserInfo() {
     try {
       const accessToken = localStorage.getItem("access_token");
+      if (accessToken === null) return null;
+
       const options = {
         method: "GET",
         headers: {
