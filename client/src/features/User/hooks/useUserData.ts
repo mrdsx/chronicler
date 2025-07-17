@@ -1,7 +1,7 @@
 import { apiClient, ENDPOINTS } from "@/api";
-import type { User } from "../types";
+import type { User, UserData } from "../types";
 
-export function useUserData() {
+export function useUserData(): UserData {
   async function getUserData() {
     try {
       const accessToken = localStorage.getItem("access_token");
