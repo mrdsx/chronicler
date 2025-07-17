@@ -1,7 +1,7 @@
+import { AccountActions } from "../../../../features/User/components/AccountActions/AccountActions";
 import { Logo } from "@/components/Logo";
 import { useUserInfo } from "@/features/User/hooks/useUserInfo";
 import { useQuery } from "@tanstack/react-query";
-import { AccountActions } from "./AccountActions";
 
 export function Header() {
   const { getUserInfo } = useUserInfo();
