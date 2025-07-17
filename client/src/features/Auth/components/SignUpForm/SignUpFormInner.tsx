@@ -18,7 +18,11 @@ import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();
-  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>();
+  const {
+    register,
+    handleSubmit: submitHandler,
+    formState: { errors },
+  } = useForm<AuthFormInputInt>();
 
   const { mutate, isPending } = useMutation<
     AccessTokensResponse,
@@ -44,7 +48,7 @@ export function SignUpFormInner() {
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-4">
         <FormHeader />
-        <UsernameInput register={register} />
+        <UsernameInput register={register} error={errors.username} />
         <EmailInput register={register} />
         <PasswordInput register={register} />
         <ConfirmPasswordInput register={register} />
