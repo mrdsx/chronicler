@@ -16,3 +16,29 @@ export const usernameOptions: RegisterOptions<AuthFormInputInt, "username"> = {
     message: "Username can only contain letters, numbers, and underscores",
   },
 };
+
+export const emailOptions: RegisterOptions<AuthFormInputInt, "email"> = {
+  required: "Email is required",
+  pattern: {
+    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    message: "Enter a valid email address",
+  },
+};
+
+export const passwordOptions: RegisterOptions<AuthFormInputInt, "password"> = {
+  required: "Password is required",
+  minLength: {
+    value: 8,
+    message: "Password must be at least 8 characters",
+  },
+  validate: {
+    hasUpper: (val: string) =>
+      /[A-Z]/.test(val) || "Password must contain an uppercase letter",
+    hasLower: (val: string) =>
+      /[a-z]/.test(val) || "Password must contain a lowercase letter",
+    hasNumber: (val: string) =>
+      /\d/.test(val) || "Password must contain a number",
+    hasSymbol: (val: string) =>
+      /[!@#$%^&*]/.test(val) || "Password must contain a special character",
+  },
+};
