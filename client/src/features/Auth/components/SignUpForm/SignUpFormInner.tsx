@@ -5,16 +5,16 @@ import { toast } from "sonner";
 import { ROUTES } from "@/routes";
 import { FormHeader } from "./FormHeader";
 import {
-  UsernameInput,
+  ConfirmPasswordInput,
   EmailInput,
   PasswordInput,
-  ConfirmPasswordInput,
+  SubmitBtn,
+  UsernameInput,
 } from "../AuthForm";
 import { FormFooter } from "./FormFooter";
 import { registerUser, type AccessTokensResponse } from "../../api";
 import { useMutation } from "@tanstack/react-query";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
-import { SubmitBtn } from "../AuthForm/SubmitBtn";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();

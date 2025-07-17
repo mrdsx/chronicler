@@ -5,12 +5,11 @@ import { toast } from "sonner";
 import { ROUTES } from "@/routes";
 import { FormHeader } from "./FormHeader";
 import { FormFooter } from "./FormFooter";
-import { EmailInput, PasswordInput } from "../AuthForm";
+import { EmailInput, PasswordInput, SubmitBtn } from "../AuthForm";
 import { loginUser } from "@/features/Auth/api/Auth";
 import { useMutation } from "@tanstack/react-query";
 import type { AccessTokensResponse } from "../../api/types";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
-import { SubmitBtn } from "../AuthForm/SubmitBtn";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
