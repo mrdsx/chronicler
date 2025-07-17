@@ -2,7 +2,7 @@ import { apiClient, ENDPOINTS } from "@/api";
 import type { User, UserData } from "../types";
 
 export function useUserData(): UserData {
-  async function getUserData() {
+  async function getUserData(): Promise<User | null> {
     try {
       const accessToken = localStorage.getItem("access_token");
       if (accessToken === null) return null;
