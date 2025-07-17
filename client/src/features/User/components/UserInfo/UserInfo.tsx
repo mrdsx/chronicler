@@ -1,6 +1,6 @@
 import { CircleUserRound } from "lucide-react";
 import { ROUTES } from "@/routes";
-import { SkeletonLoader } from "./SkeletonLoader";
+import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -38,7 +38,7 @@ export function UserInfo({
   }, [isError]);
 
   if (isPending || !user) {
-    return <SkeletonLoader />;
+    return <UserInfoSkeletonLoader />;
   }
 
   return (

@@ -1,4 +1,4 @@
-export function SkeletonLoader() {
+export function UserInfoSkeletonLoader() {
   return (
     <div className="flex items-center gap-2">
       <div className="skeleton-loader size-6 min-w-6 rounded-full"></div>
