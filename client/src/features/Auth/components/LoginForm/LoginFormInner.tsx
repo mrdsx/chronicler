@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui";
 import type { AuthFormInputInt, LoginFormInputInt } from "../../types";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +6,11 @@ import { ROUTES } from "@/routes";
 import { FormHeader } from "./FormHeader";
 import { FormFooter } from "./FormFooter";
 import { EmailInput, PasswordInput } from "../AuthForm";
-import { LoaderCircle } from "lucide-react";
 import { loginUser } from "@/features/Auth/api/Auth";
 import { useMutation } from "@tanstack/react-query";
 import type { AccessTokensResponse } from "../../api/types";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { SubmitBtn } from "../AuthForm/SubmitBtn";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
@@ -43,14 +42,7 @@ export function LoginFormInner() {
         <FormHeader />
         <EmailInput register={register} />
         <PasswordInput register={register} />
-        <Button
-          className="min-w-full"
-          type="submit"
-          disabled={isPending}
-          aria-busy={isPending}
-        >
-          {isPending ? <LoaderCircle className="animate-spin" /> : "Login"}
-        </Button>
+        <SubmitBtn isPending={isPending}>Login</SubmitBtn>
         <FormFooter />
       </div>
     </form>

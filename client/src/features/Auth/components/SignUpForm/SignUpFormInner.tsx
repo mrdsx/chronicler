@@ -3,7 +3,6 @@ import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { ROUTES } from "@/routes";
-import { Button } from "@/components/ui";
 import { FormHeader } from "./FormHeader";
 import {
   UsernameInput,
@@ -12,10 +11,10 @@ import {
   ConfirmPasswordInput,
 } from "../AuthForm";
 import { FormFooter } from "./FormFooter";
-import { LoaderCircle } from "lucide-react";
 import { registerUser, type AccessTokensResponse } from "../../api";
 import { useMutation } from "@tanstack/react-query";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { SubmitBtn } from "../AuthForm/SubmitBtn";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();
@@ -49,17 +48,7 @@ export function SignUpFormInner() {
         <EmailInput register={register} />
         <PasswordInput register={register} />
         <ConfirmPasswordInput register={register} />
-        <Button
-          className="min-w-full"
-          disabled={isPending}
-          aria-busy={isPending}
-        >
-          {isPending ? (
-            <LoaderCircle className="animate-spin" />
-          ) : (
-            "Create an account"
-          )}
-        </Button>
+        <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
       </div>
     </form>
