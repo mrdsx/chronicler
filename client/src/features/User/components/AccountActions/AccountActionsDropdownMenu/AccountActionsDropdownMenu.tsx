@@ -3,16 +3,13 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import {
-  CircleUserRound,
-  LogOut,
-  NotepadText,
-  Settings,
-  User,
-} from "lucide-react";
+import { NotesBtn } from "./NotesBtn";
+import { ProfileBtn } from "./ProfileBtn";
+import { SettingsBtn } from "./SettingsBtn";
+import { LogOutBtn } from "./LogOutBtn";
+import { CircleUserRound } from "lucide-react";
 
 export function AccountActionsDropdownMenu({ username }: { username: string }) {
   return (
@@ -26,23 +23,11 @@ export function AccountActionsDropdownMenu({ username }: { username: string }) {
           {username}
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <NotepadText />
-          Notes
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <User />
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Settings />
-          Settings
-        </DropdownMenuItem>
+        <NotesBtn />
+        <ProfileBtn />
+        <SettingsBtn />
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive">
-          <LogOut />
-          Logout
-        </DropdownMenuItem>
+        <LogOutBtn />
       </DropdownMenuContent>
     </DropdownMenu>
   );
