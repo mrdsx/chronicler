@@ -5,10 +5,20 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useUserInfo } from "@/features/User/hooks/useUserInfo";
+import { cn } from "@/lib/utils";
 
-export function UserInfo() {
+interface UserInfoProps {
+  username?: string;
+}
+
+export function UserInfo({
+  username,
+  className,
+}: React.ComponentProps<"div"> & UserInfoProps) {
   const { getUserInfo } = useUserInfo();
   const navigate = useNavigate();
+
+  const usernamePropNotProvided = username === undefined;
 
   const {
     data: user,
@@ -18,6 +28,7 @@ export function UserInfo() {
     queryKey: ["user"],
     queryFn: getUserInfo,
     retry: false,
+    enabled: usernamePropNotProvided,
   });
 
   useEffect(() => {
@@ -31,9 +42,9 @@ export function UserInfo() {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={cn("flex items-center gap-2", className)}>
       <CircleUserRound />
-      <h2 className="text-lg">{user.username}</h2>
+      <h2 className="text-lg">{user.username ?? username}</h2>
     </div>
   );
 }
