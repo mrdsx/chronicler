@@ -20,7 +20,7 @@ export function AccountActions() {
   return (
     <div className="flex gap-2">
       {user ? (
-        <AccountActionsDropdownMenu {...user} />
+        <AccountActionsDropdownMenu username={user.username} />
       ) : (
         <>
           <LoginBtn variant="outline" />
