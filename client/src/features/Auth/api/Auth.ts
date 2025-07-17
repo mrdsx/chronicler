@@ -10,7 +10,7 @@ export async function loginUser(loginFormData: LoginFormInputInt) {
   const requestOptions = getRequestOptions(loginFormData, "POST");
 
   return await apiClient<AccessTokensResponse>(
-    ENDPOINTS.AUTH.login,
+    ENDPOINTS.auth.login,
     requestOptions,
     "An unexpected error occurred while logging in",
   );
@@ -20,7 +20,7 @@ export async function registerUser(signUpFormData: SignUpFormInputInt) {
   const requestOptions = getRequestOptions(signUpFormData, "POST");
 
   return await apiClient<AccessTokensResponse>(
-    ENDPOINTS.AUTH.register,
+    ENDPOINTS.auth.register,
     requestOptions,
     "An unexpected error occurred while signing up",
   );

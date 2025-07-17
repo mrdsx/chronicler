@@ -16,7 +16,7 @@ export function useUserData(): UserData {
       };
 
       return await apiClient<User>(
-        ENDPOINTS.USERS.me,
+        ENDPOINTS.users.me,
         options,
         "Failed to fetch user",
       );

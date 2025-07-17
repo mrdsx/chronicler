@@ -1,11 +1,11 @@
 export const API_BASE_URL = "http://127.0.0.1:3000/api";
 
 export const ENDPOINTS = {
-  AUTH: {
+  auth: {
     login: "/auth/login",
     register: "/auth/register",
   },
-  USERS: {
+  users: {
     me: "/users",
   },
 } as const;
