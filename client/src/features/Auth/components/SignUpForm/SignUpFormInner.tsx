@@ -1,8 +1,5 @@
 import { useForm } from "react-hook-form";
 import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import { ROUTES } from "@/routes";
 import { FormHeader } from "./FormHeader";
 import {
   ConfirmPasswordInput,
@@ -12,39 +9,21 @@ import {
   UsernameInput,
 } from "../AuthForm";
 import { FormFooter } from "./FormFooter";
-import { registerUser, type AccessTokensResponse } from "../../api";
-import { useMutation } from "@tanstack/react-query";
-import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 import {
   confirmPasswordOptions,
   emailOptions,
   passwordOptions,
   usernameOptions,
 } from "../../constants/signUpFormRegisterOptions";
+import { useSignUpFormMutation } from "../../hooks/useAuthMutations";
 
 export function SignUpFormInner() {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit: submitHandler,
     formState: { errors },
   } = useForm<AuthFormInputInt>({ mode: "onBlur" });
-
-  const { mutate, isPending } = useMutation<
-    AccessTokensResponse,
-    Error,
-    SignUpFormInputInt
-  >({
-    mutationFn: registerUser,
-    onSuccess: (data) => {
-      setUserAccessToken(data.access_token);
-      navigate(ROUTES.MAIN);
-    },
-    onError: (error) => {
-      console.error(error);
-      toast.error(error.message);
-    },
-  });
+  const { mutate, isPending } = useSignUpFormMutation();
 
   function handleSubmit(loginFormData: SignUpFormInputInt) {
     mutate(loginFormData);
