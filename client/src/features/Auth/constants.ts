@@ -41,4 +41,7 @@ export const SIGNUP_FORM_VALIDATION_OPTIONS = {
         /\W|_/g.test(val) || "Password must contain a special symbol",
     },
   },
+  confirmPassword: {
+    required: "Please confirm your password",
+  },
 } satisfies Record<string, RegisterOptions<AuthFormInputInt>>;
