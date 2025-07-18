@@ -15,6 +15,7 @@ import { FormFooter } from "./FormFooter";
 import { registerUser, type AccessTokensResponse } from "../../api";
 import { useMutation } from "@tanstack/react-query";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { SIGNUP_FORM_VALIDATION_OPTIONS } from "../../constants";
 
 export function SignUpFormInner() {
   const navigate = useNavigate();
@@ -48,10 +49,26 @@ export function SignUpFormInner() {
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-4">
         <FormHeader />
-        <UsernameInput register={register} error={errors.username} />
-        <EmailInput register={register} error={errors.email} />
-        <PasswordInput register={register} error={errors.password} />
-        <ConfirmPasswordInput register={register} />
+        <UsernameInput
+          register={register}
+          error={errors.username}
+          registerOptions={SIGNUP_FORM_VALIDATION_OPTIONS.username}
+        />
+        <EmailInput
+          register={register}
+          error={errors.email}
+          registerOptions={SIGNUP_FORM_VALIDATION_OPTIONS.email}
+        />
+        <PasswordInput
+          register={register}
+          error={errors.password}
+          registerOptions={SIGNUP_FORM_VALIDATION_OPTIONS.password}
+        />
+        <ConfirmPasswordInput
+          register={register}
+          error={errors.confirm_password}
+          registerOptions={SIGNUP_FORM_VALIDATION_OPTIONS.confirmPassword}
+        />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
       </div>
