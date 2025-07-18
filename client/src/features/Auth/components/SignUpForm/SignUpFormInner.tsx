@@ -1,5 +1,9 @@
 import { useForm } from "react-hook-form";
-import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
+import type {
+  AuthFormInputInt,
+  AuthFormInputObject,
+  SignUpFormInputInt,
+} from "../../types";
 import { FormHeader } from "./FormHeader";
 import {
   ConfirmPasswordInput,
@@ -17,6 +21,17 @@ import {
 } from "../../constants/signUpFormRegisterOptions";
 import { useSignUpFormMutation } from "../../hooks/useAuthMutations";
 
+const inputs: AuthFormInputObject[] = [
+  { Component: UsernameInput, name: "username", options: usernameOptions },
+  { Component: EmailInput, name: "email", options: emailOptions },
+  { Component: PasswordInput, name: "password", options: passwordOptions },
+  {
+    Component: ConfirmPasswordInput,
+    name: "confirm_password",
+    options: confirmPasswordOptions,
+  },
+];
+
 export function SignUpFormInner() {
   const {
     register,
@@ -33,26 +48,14 @@ export function SignUpFormInner() {
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-4">
         <FormHeader />
-        <UsernameInput
-          register={register}
-          error={errors.username}
-          registerOptions={usernameOptions}
-        />
-        <EmailInput
-          register={register}
-          error={errors.email}
-          registerOptions={emailOptions}
-        />
-        <PasswordInput
-          register={register}
-          error={errors.password}
-          registerOptions={passwordOptions}
-        />
-        <ConfirmPasswordInput
-          register={register}
-          error={errors.confirm_password}
-          registerOptions={confirmPasswordOptions}
-        />
+        {inputs.map(({ Component, name, options }) => (
+          <Component
+            key={name}
+            register={register}
+            error={errors[name]}
+            registerOptions={options}
+          />
+        ))}
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
       </div>
