@@ -1,0 +1,3 @@
+.sidebar-btn {
+  @apply min-w-full justify-start shadow-none hover:bg-(--sidebar-accent);
+}

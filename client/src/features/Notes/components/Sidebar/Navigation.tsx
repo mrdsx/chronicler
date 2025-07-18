@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui";
 import { Home, NotepadText } from "lucide-react";
+import "./Sidebar.css";
 
 export function Navigation() {
   return (
