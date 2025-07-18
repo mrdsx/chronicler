@@ -1,4 +1,9 @@
-import type { FieldError, FieldValues, UseFormRegister } from "react-hook-form";
+import type {
+  FieldError,
+  FieldValues,
+  RegisterOptions,
+  UseFormRegister,
+} from "react-hook-form";
 
 export interface AuthFormInputInt {
   username: string;
@@ -10,6 +15,7 @@ export interface AuthFormInputInt {
 export interface AuthFormInputProps<T extends FieldValues> {
   register: UseFormRegister<T>;
   error?: FieldError;
+  registerOptions?: RegisterOptions<AuthFormInputInt>;
 }
 
 export interface LoginFormInputInt
