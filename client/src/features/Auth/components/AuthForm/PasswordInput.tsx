@@ -1,10 +1,10 @@
 import { Input, Label } from "@/components/ui";
 import type { AuthFormInputInt, AuthFormInputProps } from "../../types";
-import { SIGNUP_FORM_VALIDATION_OPTIONS } from "../../constants";
 
 export function PasswordInput({
   register,
   error,
+  registerOptions,
 }: AuthFormInputProps<AuthFormInputInt>) {
   return (
     <div>
@@ -14,7 +14,7 @@ export function PasswordInput({
         id="password"
         type="password"
         required
-        {...register("password", SIGNUP_FORM_VALIDATION_OPTIONS.password)}
+        {...register("password", registerOptions)}
       />
       {error && <p className="text-sm text-red-500">{error.message}</p>}
     </div>

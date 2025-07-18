@@ -1,10 +1,10 @@
 import { Input, Label } from "@/components/ui";
 import type { AuthFormInputProps, SignUpFormInputInt } from "../../types";
-import { SIGNUP_FORM_VALIDATION_OPTIONS } from "../../constants";
 
 export function UsernameInput({
   register,
   error,
+  registerOptions,
 }: AuthFormInputProps<SignUpFormInputInt>) {
   return (
     <div>
@@ -13,7 +13,7 @@ export function UsernameInput({
         className="mt-3 mb-1"
         id="username"
         required
-        {...register("username", SIGNUP_FORM_VALIDATION_OPTIONS.username)}
+        {...register("username", registerOptions)}
       />
       {error && <p className="text-sm text-red-500">{error.message}</p>}
     </div>
