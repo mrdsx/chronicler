@@ -8,9 +8,10 @@ export function ConfirmPasswordInput({
   registerOptions,
 }: AuthFormInputProps<SignUpFormInputInt>) {
   return (
-    <div className="grid gap-3">
+    <div>
       <Label htmlFor="confirm-password">Confirm password</Label>
       <Input
+        className="mt-3 mb-1"
         id="confirm-password"
         type="password"
         required
