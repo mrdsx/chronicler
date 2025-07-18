@@ -1,4 +1,4 @@
-export { Header } from "./Header/Header";
+export { Header } from "./Header";
 export {
   FeatureCard,
   FeaturesSection,

@@ -1,4 +1,4 @@
-import { AccountActions } from "../../../../features/User/components/AccountActions/AccountActions";
+import { AccountActions } from "../../../features/User/components/AccountActions/AccountActions";
 import { Logo } from "@/components/Logo";
 
 export function Header() {
