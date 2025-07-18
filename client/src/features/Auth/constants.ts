@@ -38,7 +38,7 @@ export const passwordOptions: RegisterOptions<AuthFormInputInt, "password"> = {
       /[a-z]/.test(val) || "Password must contain a lowercase letter",
     hasNumber: (val: string) =>
       /\d/.test(val) || "Password must contain a number",
-    hasSymbol: (val: string) =>
-      /[!@#$%^&*]/.test(val) || "Password must contain a special character",
+    hasSymbols: (val: string) =>
+      /\W|_/g.test(val) || "Password must contain a special symbol",
   },
 };
