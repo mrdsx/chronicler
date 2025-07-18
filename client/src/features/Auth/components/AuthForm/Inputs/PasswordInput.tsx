@@ -1,5 +1,6 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputInt, AuthFormInputProps } from "../../types";
+import type { AuthFormInputInt, AuthFormInputProps } from "../../../types";
+import "./AuthFormInput.css";
 
 export function PasswordInput({
   register,
@@ -10,13 +11,13 @@ export function PasswordInput({
     <div>
       <Label htmlFor="password">Password</Label>
       <Input
-        className="mt-3 mb-1"
+        className="auth-form-input"
         id="password"
         type="password"
         required
         {...register("password", registerOptions)}
       />
-      {error && <p className="text-sm text-red-500">{error.message}</p>}
+      {error && <p className="auth-form-input__error-msg">{error.message}</p>}
     </div>
   );
 }

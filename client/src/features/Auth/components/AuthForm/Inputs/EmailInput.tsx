@@ -1,5 +1,6 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputInt, AuthFormInputProps } from "../../types";
+import type { AuthFormInputInt, AuthFormInputProps } from "../../../types";
+import "./AuthFormInput.css";
 
 export function EmailInput({
   register,
@@ -10,14 +11,14 @@ export function EmailInput({
     <div>
       <Label htmlFor="email">Email</Label>
       <Input
-        className="mt-3 mb-1"
+        className="auth-form-input"
         id="email"
         type="email"
         placeholder="m@example.com"
         required
         {...register("email", registerOptions)}
       />
-      {error && <p className="text-sm text-red-500">{error.message}</p>}
+      {error && <p className="auth-form-input__error-msg">{error.message}</p>}
     </div>
   );
 }

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.auth-form-input {
+  @apply mt-3 mb-1;
+}
+
+.auth-form-input__error-msg {
+  @apply text-sm text-red-500;
+}
