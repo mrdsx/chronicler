@@ -1,6 +1,6 @@
 import { Input, Label } from "@/components/ui";
 import type { AuthFormInputInt, AuthFormInputProps } from "../../types";
-import { emailOptions } from "../../constants";
+import { SIGNUP_FORM_VALIDATION_OPTIONS } from "../../constants";
 
 export function EmailInput({
   register,
@@ -15,7 +15,7 @@ export function EmailInput({
         type="email"
         placeholder="m@example.com"
         required
-        {...register("email", emailOptions)}
+        {...register("email", SIGNUP_FORM_VALIDATION_OPTIONS.email)}
       />
       {error && <p className="text-sm text-red-500">{error.message}</p>}
     </div>
