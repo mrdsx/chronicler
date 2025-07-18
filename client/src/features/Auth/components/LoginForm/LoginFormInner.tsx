@@ -13,7 +13,9 @@ import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
-  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>();
+  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>({
+    mode: "onBlur",
+  });
 
   const { mutate, isPending } = useMutation<
     AccessTokensResponse,
