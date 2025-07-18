@@ -10,10 +10,18 @@ import { loginUser } from "@/features/Auth/api/Auth";
 import { useMutation } from "@tanstack/react-query";
 import type { AccessTokensResponse } from "../../api/types";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import {
+  emailOptions,
+  passwordOptions,
+} from "../../constants/loginFormRegisterOptions";
 
 export function LoginFormInner() {
   const navigate = useNavigate();
-  const { register, handleSubmit: submitHandler } = useForm<AuthFormInputInt>({
+  const {
+    register,
+    handleSubmit: submitHandler,
+    formState: { errors },
+  } = useForm<AuthFormInputInt>({
     mode: "onBlur",
   });
 
@@ -41,8 +49,16 @@ export function LoginFormInner() {
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-6">
         <FormHeader />
-        <EmailInput register={register} />
-        <PasswordInput register={register} />
+        <EmailInput
+          register={register}
+          error={errors.email}
+          registerOptions={emailOptions}
+        />
+        <PasswordInput
+          register={register}
+          error={errors.password}
+          registerOptions={passwordOptions}
+        />
         <SubmitBtn isPending={isPending}>Login</SubmitBtn>
         <FormFooter />
       </div>
