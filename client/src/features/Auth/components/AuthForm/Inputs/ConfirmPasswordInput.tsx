@@ -1,5 +1,5 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputProps, SignUpFormInputInt } from "../../types";
+import type { AuthFormInputProps, SignUpFormInputInt } from "../../../types";
 
 // TODO: extract error msg and Input styles
 export function ConfirmPasswordInput({
