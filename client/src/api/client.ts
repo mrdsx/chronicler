@@ -12,7 +12,8 @@ export async function apiClient<TResponse extends Record<string, any>>(
 
   if (isErrorResponse(data)) throw new Error(data.detail);
 
-  if (!res.ok) throw new Error(errorMsg || "Unexpected error");
+  if (!res.ok)
+    throw new Error(errorMsg || "An error occurred while fetching data");
 
   return data;
 }
