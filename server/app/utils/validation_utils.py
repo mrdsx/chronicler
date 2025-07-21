@@ -27,3 +27,9 @@ def get_is_login_data_valid(
     if not auth_handler.verify_password(input_password, db_password):
         return False
     return True
+
+
+def get_is_password_valid(password: str) -> re.Match[str] | None:
+    # lower- and uppercase letters, numbers, special characters OR underscores
+    regex = re.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$")  # type: ignore
+    return regex.match(password)

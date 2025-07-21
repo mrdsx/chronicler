@@ -5,6 +5,7 @@ from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
 from utils.validation_utils import (
     get_is_email_valid,
     get_is_login_data_valid,
+    get_is_password_valid,
     get_is_username_valid,
 )
 
@@ -21,13 +22,12 @@ def validate_login_data(login_data: AuthSchema_Login) -> None:
         raise HTTPException(status_code=401, detail="Wrong email or password")
 
 
-# TODO: add password symbols validation (lower- and uppercase letters, numbers, special characters)
 def validate_signup_data(signup_data: AuthSchema_SignUp) -> None:
     validate_username(signup_data.username)
     validate_email_address(signup_data.email)
     validate_user_not_exists(signup_data.username, signup_data.email)
 
-    validate_password_length(signup_data.password)
+    validate_password(signup_data.password)
     validate_password_and_confirm_password(
         signup_data.password, signup_data.confirm_password
     )
@@ -65,9 +65,14 @@ def validate_user_not_exists(username: str, email: str) -> None:
         )
 
 
-def validate_password_length(password: str) -> None:
+def validate_password(password: str) -> None:
     if len(password) < 8:
         raise HTTPException(status_code=422, detail="Password is too short")
+    if not get_is_password_valid(password):
+        raise HTTPException(
+            status_code=422,
+            detail="Password must contain letters, numbers, and special characters",
+        )
 
 
 def validate_password_and_confirm_password(
