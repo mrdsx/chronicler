@@ -26,6 +26,7 @@ export function SignUpFormInner() {
     register,
     handleSubmit: submitHandler,
     formState: { errors },
+    watch,
   } = useForm<AuthFormInputInt>({ mode: "onBlur" });
   const { mutate, isPending } = useSignUpFormMutation();
 
@@ -55,7 +56,12 @@ export function SignUpFormInner() {
         <ConfirmPasswordInput
           register={register}
           error={errors.confirm_password}
-          registerOptions={confirmPasswordOptions}
+          registerOptions={{
+            ...confirmPasswordOptions,
+            validate: (value) =>
+              value === watch("password") ||
+              "Password and confirm password do not match",
+          }}
         />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
