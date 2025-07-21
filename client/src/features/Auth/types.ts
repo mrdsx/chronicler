@@ -5,12 +5,6 @@ import type {
   UseFormRegister,
 } from "react-hook-form";
 
-export interface AuthFormInputObject {
-  Component: React.ComponentType<AuthFormInputProps<AuthFormInputInt>>;
-  name: keyof AuthFormInputInt;
-  options: RegisterOptions<AuthFormInputInt, AuthFormInputObject["name"]>;
-}
-
 export interface AuthFormInputInt {
   username: string;
   email: string;

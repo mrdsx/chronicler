@@ -1,9 +1,5 @@
 import { useForm } from "react-hook-form";
-import type {
-  AuthFormInputInt,
-  AuthFormInputObject,
-  SignUpFormInputInt,
-} from "../../types";
+import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
 import { FormHeader } from "./FormHeader";
 import {
   ConfirmPasswordInput,
