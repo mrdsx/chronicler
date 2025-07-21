@@ -19,7 +19,9 @@ def get_is_email_valid(email: str) -> tuple[bool, str]:
         return False, str(e)
 
 
-def get_is_login_data_valid(email: str, input_password: str, db_password: str) -> bool:
+def get_is_login_data_valid(
+    email: str | None, input_password: str, db_password: str
+) -> bool:
     if email is None:
         return False
     if not auth_handler.verify_password(input_password, db_password):
