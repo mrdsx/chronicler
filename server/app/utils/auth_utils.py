@@ -31,14 +31,14 @@ def validate_signup_data(signup_data: AuthSchema_SignUp) -> None:
 def validate_username(username: str) -> None:
     if len(username) < 3:
         raise HTTPException(
-            status_code=409, detail="Username must be at least 3 characters long"
+            status_code=422, detail="Username must be at least 3 characters long"
         )
 
 
 def validate_email_address(email: str) -> None:
     is_email_valid, msg = get_is_email_valid(email)
     if not is_email_valid:
-        raise HTTPException(status_code=409, detail="Invalid email")
+        raise HTTPException(status_code=422, detail="Invalid email")
 
 
 def validate_user_not_exists(username: str, email: str) -> None:
@@ -53,7 +53,7 @@ def validate_user_not_exists(username: str, email: str) -> None:
 
 def validate_password_length(password: str) -> None:
     if len(password) < 8:
-        raise HTTPException(status_code=400, detail="Password is too short")
+        raise HTTPException(status_code=422, detail="Password is too short")
 
 
 def validate_password_and_confirm_password(
@@ -61,5 +61,5 @@ def validate_password_and_confirm_password(
 ) -> None:
     if password != confirm_password:
         raise HTTPException(
-            status_code=400, detail="New password and confirm password does not match"
+            status_code=422, detail="New password and confirm password does not match"
         )
