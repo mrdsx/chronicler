@@ -1,8 +1,3 @@
-import type {
-  FieldErrors,
-  UseFormRegister,
-  UseFormWatch,
-} from "react-hook-form";
 import {
   confirmPasswordOptions,
   emailOptions,
@@ -15,19 +10,13 @@ import {
   PasswordInput,
   UsernameInput,
 } from "../AuthForm";
-import type { AuthFormInputInt } from "../../types";
-
-interface SignUpFormFieldsProps {
-  register: UseFormRegister<AuthFormInputInt>;
-  errors: FieldErrors<AuthFormInputInt>;
-  watch: UseFormWatch<AuthFormInputInt>;
-}
+import type { AuthFormFieldsProps, SignUpFormInputInt } from "../../types";
 
 export function SignUpFormFields({
   register,
   errors,
   watch,
-}: SignUpFormFieldsProps) {
+}: AuthFormFieldsProps<SignUpFormInputInt>) {
   return (
     <>
       <UsernameInput

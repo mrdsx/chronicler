@@ -1,8 +1,10 @@
 import type {
   FieldError,
+  FieldErrors,
   FieldValues,
   RegisterOptions,
   UseFormRegister,
+  UseFormWatch,
 } from "react-hook-form";
 
 export interface AuthFormInputInt {
@@ -10,6 +12,12 @@ export interface AuthFormInputInt {
   email: string;
   password: string;
   confirm_password: string;
+}
+
+export interface AuthFormFieldsProps<T extends FieldValues> {
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
+  watch: UseFormWatch<T>;
 }
 
 export interface AuthFormInputProps<T extends FieldValues> {
