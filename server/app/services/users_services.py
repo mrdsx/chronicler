@@ -1,11 +1,12 @@
 from auth import Auth
 from db.users_db import save_user
 from schemas.auth_schemas import AuthSchema_SignUp
+from schemas.user_schemas import UserSchema
 
 auth_handler = Auth()
 
 
-def create_user(signup_data: AuthSchema_SignUp):
+def create_user(signup_data: AuthSchema_SignUp) -> UserSchema:
     hashed_password = auth_handler.encode_password(signup_data.password)
     new_user = {
         "username": signup_data.username,
