@@ -1,4 +1,5 @@
 from auth import Auth
+from constants import PASSWORD_REGEX, USERNAME_REGEX
 from email_validator import validate_email, EmailNotValidError
 import re
 
@@ -6,7 +7,7 @@ auth_handler = Auth()
 
 
 def get_is_username_valid(username: str) -> re.Match[str] | None:
-    regex = re.compile("^[a-zA-Z0-9_]+$")
+    regex = re.compile(USERNAME_REGEX)
     return regex.match(username)
 
 
@@ -30,6 +31,5 @@ def get_is_login_data_valid(
 
 
 def get_is_password_valid(password: str) -> re.Match[str] | None:
-    # lower- and uppercase letters, numbers, special characters OR underscores
-    regex = re.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$")  # type: ignore
+    regex = re.compile(PASSWORD_REGEX)
     return regex.match(password)

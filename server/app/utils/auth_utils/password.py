@@ -1,10 +1,11 @@
 from fastapi import HTTPException
 
+from constants import MIN_PASSWORD_LENGTH
 from validators import get_is_password_valid
 
 
 def validate_password(password: str) -> None:
-    if len(password) < 8:
+    if len(password) < MIN_PASSWORD_LENGTH:
         raise HTTPException(status_code=422, detail="Password is too short")
     if not get_is_password_valid(password):
         raise HTTPException(
