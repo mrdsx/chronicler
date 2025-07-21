@@ -2,7 +2,11 @@ from fastapi import HTTPException
 
 from db.users_db import get_user_by_username, get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
-from utils.validation_utils import get_is_email_valid, get_is_login_data_valid
+from utils.validation_utils import (
+    get_is_email_valid,
+    get_is_login_data_valid,
+    get_is_username_valid,
+)
 
 
 def validate_login_data(login_data: AuthSchema_Login) -> None:
@@ -12,7 +16,8 @@ def validate_login_data(login_data: AuthSchema_Login) -> None:
 
     email = login_data.email
     password = login_data.password
-    if not get_is_login_data_valid(email, password, db_user["hashed_password"]):
+    print(db_user)
+    if not get_is_login_data_valid(email, password, db_user["hashed_password"]):  # type: ignore
         raise HTTPException(status_code=401, detail="Wrong email or password")
 
 
@@ -33,10 +38,19 @@ def validate_username(username: str) -> None:
         raise HTTPException(
             status_code=422, detail="Username must be at least 3 characters long"
         )
+    if len(username) >= 20:
+        raise HTTPException(
+            status_code=422, detail="Username must be at most 20 characters long"
+        )
+    if not get_is_username_valid(username):
+        raise HTTPException(
+            status_code=422,
+            detail="Username can only contain letters, numbers, and underscores",
+        )
 
 
 def validate_email_address(email: str) -> None:
-    is_email_valid, msg = get_is_email_valid(email)
+    is_email_valid, _msg = get_is_email_valid(email)
     if not is_email_valid:
         raise HTTPException(status_code=422, detail="Invalid email")
 

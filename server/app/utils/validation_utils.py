@@ -1,7 +1,13 @@
 from auth import Auth
 from email_validator import validate_email, EmailNotValidError
+import re
 
 auth_handler = Auth()
+
+
+def get_is_username_valid(username: str) -> re.Match[str] | None:
+    regex = re.compile("^[a-zA-Z0-9_]+$")
+    return regex.match(username)
 
 
 def get_is_email_valid(email: str) -> tuple[bool, str]:
