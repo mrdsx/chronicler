@@ -21,17 +21,6 @@ import {
 } from "../../constants/signUpFormRegisterOptions";
 import { useSignUpFormMutation } from "../../hooks/useAuthMutations";
 
-const inputs: AuthFormInputObject[] = [
-  { Component: UsernameInput, name: "username", options: usernameOptions },
-  { Component: EmailInput, name: "email", options: emailOptions },
-  { Component: PasswordInput, name: "password", options: passwordOptions },
-  {
-    Component: ConfirmPasswordInput,
-    name: "confirm_password",
-    options: confirmPasswordOptions,
-  },
-];
-
 export function SignUpFormInner() {
   const {
     register,
@@ -48,14 +37,26 @@ export function SignUpFormInner() {
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-4">
         <FormHeader />
-        {inputs.map(({ Component, name, options }) => (
-          <Component
-            key={name}
-            register={register}
-            error={errors[name]}
-            registerOptions={options}
-          />
-        ))}
+        <UsernameInput
+          register={register}
+          error={errors.username}
+          registerOptions={usernameOptions}
+        />
+        <EmailInput
+          register={register}
+          error={errors.email}
+          registerOptions={emailOptions}
+        />
+        <PasswordInput
+          register={register}
+          error={errors.password}
+          registerOptions={passwordOptions}
+        />
+        <ConfirmPasswordInput
+          register={register}
+          error={errors.confirm_password}
+          registerOptions={confirmPasswordOptions}
+        />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
         <FormFooter />
       </div>
