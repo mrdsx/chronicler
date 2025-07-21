@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 
-from constants import MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH
-from validators import get_is_username_valid
+from .constants import MAX_USERNAME_LENGTH, MIN_USERNAME_LENGTH
+from .validators import get_is_username_valid
 
 
 def validate_username(username: str) -> None:

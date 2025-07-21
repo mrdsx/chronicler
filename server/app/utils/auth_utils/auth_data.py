@@ -2,14 +2,14 @@ from fastapi import HTTPException
 
 from db.users_db import get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
-from utils.auth_utils.email import validate_email_address
-from utils.auth_utils.password import (
+from .email import validate_email_address
+from .password import (
     validate_password,
     validate_password_and_confirm_password,
 )
-from utils.auth_utils.user import validate_user_not_exists
-from utils.auth_utils.username import validate_username
-from utils.auth_utils.validators import get_is_login_data_valid
+from .user import validate_user_not_exists
+from .username import validate_username
+from .validators import get_is_login_data_valid
 
 
 def validate_login_data(login_data: AuthSchema_Login) -> None:

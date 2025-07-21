@@ -1,5 +1,5 @@
 from auth import Auth
-from constants import PASSWORD_REGEX, USERNAME_REGEX
+from .constants import PASSWORD_REGEX, USERNAME_REGEX
 from email_validator import validate_email, EmailNotValidError
 import re
 

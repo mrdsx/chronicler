@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 
-from validators import get_is_email_valid
+from .validators import get_is_email_valid
 
 
 def validate_email_address(email: str) -> None:
