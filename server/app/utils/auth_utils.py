@@ -55,9 +55,6 @@ def validate_password_length(password: str) -> None:
     if len(password) < 8:
         raise HTTPException(status_code=400, detail="Password is too short")
 
-    if len(password) > 128:
-        raise HTTPException(status_code=400, detail="Password is too long")
-
 
 def validate_password_and_confirm_password(
     password: str, confirm_password: str
