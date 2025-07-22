@@ -13,7 +13,7 @@ security = HTTPBearer()
 router = APIRouter(prefix=routes.API)
 
 
-@router.get("/users")
+@router.get("/users/me")
 async def get_user_info(
     credentials: HTTPAuthorizationCredentials = Security(security),
 ) -> Optional[UserSchemaWithId]:

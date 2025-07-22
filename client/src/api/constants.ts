@@ -8,6 +8,6 @@ export const ENDPOINTS = {
     register: "/auth/register",
   },
   users: {
-    me: "/users",
+    me: "/users/me",
   },
 } satisfies Endpoints;
