@@ -6,11 +6,7 @@ export function SearchNotesBar() {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const inputVal = e.target.value;
-    if (inputVal.trim().length > 0) {
-      setSearchQuery(inputVal.toLocaleLowerCase());
-    } else {
-      setSearchQuery("");
-    }
+    setSearchQuery(inputVal.toLocaleLowerCase());
   }
 
   return (
