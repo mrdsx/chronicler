@@ -16,7 +16,7 @@ router = APIRouter(prefix=endpoints.API)
 last_note_id = len(mock_notes)
 
 
-@router.get("/notes")
+@router.get("/notes", response_model=dict[str, NoteSchema])
 def get_notes():
     return mock_notes
 
@@ -39,7 +39,7 @@ def create_note(note: NoteSchema):
     return note
 
 
-@router.patch("/notes/{note_id}")
+@router.patch("/notes/{note_id}", response_model=NoteSchema)
 def update_note(note_id: str, note: PartialNoteSchema):
     validate_note_exists(note_id)
     validate_note_title(note.title)
