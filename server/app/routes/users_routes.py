@@ -3,14 +3,14 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWTError
 from typing import Optional
 
-from app import routes
+import endpoints
 from auth import Auth
 from db.users_db import get_user_by_email
 from schemas.user_schemas import UserSchemaWithId
 
 auth_handler = Auth()
 security = HTTPBearer()
-router = APIRouter(prefix=routes.API)
+router = APIRouter(prefix=endpoints.API)
 
 
 @router.get("/users/me")
