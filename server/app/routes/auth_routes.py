@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from fastapi.security import HTTPBearer
 
 from auth import Auth
 from constants import routes
@@ -8,7 +7,6 @@ from services.users_services import create_user
 from utils.auth_utils.auth_data import validate_login_data, validate_signup_data
 
 auth_handler = Auth()
-security = HTTPBearer()
 router = APIRouter(prefix=routes.AUTH)
 
 
