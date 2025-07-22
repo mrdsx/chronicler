@@ -1,27 +1,18 @@
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter
 
 import endpoints
 from auth import Auth
 from schemas.notes_schemas import NoteSchema, PartialNoteSchema
+from utils.notes_utils.notes import (
+    mock_notes,
+    validate_note_exists,
+    validate_note_title,
+)
 
 auth_handler = Auth()
 router = APIRouter(prefix=endpoints.API)
 
 
-mock_notes = {
-    "1": {
-        "title": "Welcome Note",
-        "content": "This is your first note in Chronicler. Start capturing your thoughts!",
-    },
-    "2": {
-        "title": "Todo List",
-        "content": "1. Refactor auth system\n2. Write validators\n3. Push to GitHub",
-    },
-    "3": {
-        "title": "Quote of the Day",
-        "content": '"Code is like humor. When you have to explain it, it’s bad." – Cory House',
-    },
-}
 last_note_id = len(mock_notes)
 
 
@@ -32,16 +23,15 @@ def get_notes():
 
 @router.get("/notes/{note_id}", response_model=NoteSchema)
 def get_note_by_id(note_id: str):
-    if note_id not in mock_notes:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
-        )
+    validate_note_exists(note_id)
 
     return mock_notes[note_id]
 
 
 @router.post("/notes", response_model=NoteSchema)
 def create_note(note: NoteSchema):
+    validate_note_title(note.title)
+
     global last_note_id
     last_note_id += 1
 
@@ -51,15 +41,8 @@ def create_note(note: NoteSchema):
 
 @router.patch("/notes/{note_id}")
 def update_note(note_id: str, note: PartialNoteSchema):
-    if note_id not in mock_notes:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
-        )
-
-    if note.title is not None and len(note.title) <= 0:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Title is required"
-        )
+    validate_note_exists(note_id)
+    validate_note_title(note.title)
 
     for key, value in dict(note).items():
         if value is not None:
@@ -70,10 +53,7 @@ def update_note(note_id: str, note: PartialNoteSchema):
 
 @router.delete("/notes/{note_id}")
 def delete_note_by_id(note_id: str):
-    if note_id not in mock_notes:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
-        )
+    validate_note_exists(note_id)
 
     del mock_notes[note_id]
     return {"detail": "Successfully deleted note"}
