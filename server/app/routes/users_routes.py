@@ -24,7 +24,6 @@ async def get_user_info(
         if email is None:
             raise HTTPException(status_code=401, detail="Invalid token")
 
-        user = get_user_by_email(email)
-        return user
+        return get_user_by_email(email)
     except PyJWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
