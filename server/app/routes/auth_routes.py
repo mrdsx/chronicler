@@ -17,8 +17,8 @@ async def signup(signup_data: AuthSchema_SignUp) -> AuthSchema_Tokens:
     validate_signup_data(signup_data)
     user = create_user(signup_data)
 
-    access_token = auth_handler.encode_token(user.email)
-    refresh_token = auth_handler.encode_refresh_token(user.email)
+    access_token = auth_handler.encode_token(user["email"])
+    refresh_token = auth_handler.encode_refresh_token(user["email"])
 
     return {"access_token": access_token, "refresh_token": refresh_token}
 
