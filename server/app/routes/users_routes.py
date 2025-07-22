@@ -13,10 +13,8 @@ security = HTTPBearer()
 router = APIRouter(prefix=endpoints.API)
 
 
-@router.get("/users/me")
-async def get_user_info(
-    credentials: HTTPAuthorizationCredentials = Security(security),
-) -> Optional[UserSchemaWithId]:
+@router.get("/users/me", response_model=Optional[UserSchemaWithId])
+async def get_user_info(credentials: HTTPAuthorizationCredentials = Security(security)):
     try:
         token = credentials.credentials
         payload = auth_handler.decode_token(token)
