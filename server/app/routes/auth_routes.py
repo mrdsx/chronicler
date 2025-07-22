@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
+from app import routes
 from auth import Auth
-from constants import routes
 from schemas.auth_schemas import AuthSchema_SignUp, AuthSchema_Login, AuthSchema_Tokens
 from services.users_services import create_user
 from utils.auth_utils.auth_data import validate_login_data, validate_signup_data

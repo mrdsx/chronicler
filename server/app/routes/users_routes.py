@@ -3,8 +3,8 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWTError
 from typing import Optional
 
+from app import routes
 from auth import Auth
-from constants import routes
 from db.users_db import get_user_by_email
 from schemas.user_schemas import UserSchemaWithId
 
