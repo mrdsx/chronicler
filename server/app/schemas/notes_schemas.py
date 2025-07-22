@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-# from utils.models_utils import partial_model
+from utils.models_utils import partial_model
 
 
 class NoteSchema(BaseModel):
@@ -8,6 +8,6 @@ class NoteSchema(BaseModel):
     content: str
 
 
-# @partial_model
-# class PartialNoteSchema(NoteSchema):
-#     pass
+@partial_model
+class PartialNoteSchema(NoteSchema):
+    pass

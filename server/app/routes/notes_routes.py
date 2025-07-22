@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status
 
 import endpoints
 from auth import Auth
-from schemas.notes_schemas import NoteSchema
+from schemas.notes_schemas import NoteSchema, PartialNoteSchema
 
 auth_handler = Auth()
 router = APIRouter(prefix=endpoints.API)
@@ -47,6 +47,25 @@ def create_note(note: NoteSchema):
 
     mock_notes[str(last_note_id)] = note
     return note
+
+
+@router.patch("/notes/{note_id}")
+def update_note(note_id: str, note: PartialNoteSchema):
+    if note_id not in mock_notes:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
+        )
+
+    if note.title is not None and len(note.title) <= 0:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Title is required"
+        )
+
+    for key, value in dict(note).items():
+        if value is not None:
+            mock_notes[note_id][key] = value
+
+    return mock_notes[note_id]
 
 
 @router.delete("/notes/{note_id}")
