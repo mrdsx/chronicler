@@ -57,24 +57,43 @@ npm install
 npm run dev
 ```
 
-### 5. Install Dependencies for Server
+OR
 
-Open another console and go to server folder.
+Run script run_client.bat in folder 'scripts'
+
+### 5. Setup virtual environment for Server
+
+Open another console, go to server folder and run following commands:
 
 ```bash
 cd server
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 6. Install Dependencies for Server
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 6. Run Server
+### 7. Run Server
 
 ```bash
 python app/main.py
 ```
 
-### 7. Open project in your browser.
+OR
+
+Run script run_server.bat in folder 'scripts'
+
+### 8. Open project in your browser.
 
 Open [http://localhost:3000](http://localhost:3000/).
+
+### Additional note
+
+As you could notice, folder 'scripts' also contains script `run_app.bat` for running both client and server simultaneously.
 
 ## Tech Stack
 
