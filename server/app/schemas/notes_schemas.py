@@ -4,7 +4,7 @@ from utils.models_utils import partial_model
 
 
 class NoteSchema(BaseModel):
-    title: str = Field(description="Untitled")
+    title: str
     content: str
 
 
