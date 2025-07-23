@@ -2,6 +2,7 @@ from fastapi import HTTPException, status
 
 from db.users.users_db import get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
+from utils.auth_utils.errors import raise_exception_wrong_login_data
 from .email import validate_email_address
 from .password import (
     validate_password,
@@ -15,16 +16,12 @@ from .validators import get_is_login_data_valid
 def validate_login_data(login_data: AuthSchema_Login) -> None:
     db_user = get_user_by_email(login_data.email)
     if db_user is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Wrong email or password"
-        )
+        raise_exception_wrong_login_data()
 
     email = login_data.email
     password = login_data.password
     if not get_is_login_data_valid(email, password, db_user["hashed_password"]):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Wrong email or password"
-        )
+        raise_exception_wrong_login_data()
 
 
 def validate_signup_data(signup_data: AuthSchema_SignUp) -> None:
