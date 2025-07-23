@@ -14,7 +14,7 @@ Session = sessionmaker(engine)
 session = Session()
 
 
-def save_user(user: DB_User_Model) -> None:
+def save_user(user: DB_User_Model) -> UserSchemaWithId:
     new_user = DB_User_Model(
         username=user["username"],
         email=user["email"],
@@ -22,6 +22,8 @@ def save_user(user: DB_User_Model) -> None:
     )
     session.add(new_user)
     session.commit()
+
+    return get_user_by_email(user["email"])
 
 
 def get_user_by_username(username: str) -> Optional[UserSchemaWithId]:
