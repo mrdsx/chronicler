@@ -1,4 +1,3 @@
-from typing import Optional
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -26,7 +25,7 @@ def save_user(user: DB_User_Model) -> UserSchemaWithId:
     return get_user_by_email(user["email"])
 
 
-def get_user_by_username(username: str) -> Optional[UserSchemaWithId]:
+def get_user_by_username(username: str) -> UserSchemaWithId | None:
     try:
         db_user = (
             session.query(DB_User_Model)
@@ -38,7 +37,7 @@ def get_user_by_username(username: str) -> Optional[UserSchemaWithId]:
         return None
 
 
-def get_user_by_email(email: str) -> Optional[UserSchemaWithId]:
+def get_user_by_email(email: str) -> UserSchemaWithId | None:
     try:
         db_user = (
             session.query(DB_User_Model).filter(DB_User_Model.email == email).first()
