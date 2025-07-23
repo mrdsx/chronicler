@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from models.users_models import DB_User_Model, Base
 from schemas.users_schemas import UserSchema
 
-DATABASE_URL = "sqlite:///app/db/users.db"
+DATABASE_URL = "sqlite:///app/db/users/users.db"
 engine = create_engine(DATABASE_URL)
 
 Base.metadata.create_all(engine)

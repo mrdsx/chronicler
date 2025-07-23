@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 
-from db.users_db import get_user_by_email
+from db.users.users_db import get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
 from .email import validate_email_address
 from .password import (
