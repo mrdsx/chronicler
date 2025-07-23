@@ -8,8 +8,7 @@ auth_handler = Auth()
 
 
 def validate_email_address(email: str) -> None:
-    is_email_valid, _msg = get_is_email_valid(email)
-    if not is_email_valid:
+    if not get_is_email_valid(email):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Invalid email"
         )
