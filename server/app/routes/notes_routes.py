@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Security, status
+from fastapi import APIRouter, Security
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWTError
 
