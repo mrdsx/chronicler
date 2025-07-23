@@ -24,8 +24,8 @@ def validate_note_exists(note_id: str) -> None:
         )
 
 
-def validate_note_title(title: str) -> None:
-    if title is not None and len(title) <= 0:
+def validate_note_title(title: str | None) -> None:
+    if title is not None and len(title) == 0:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="Title must not be empty string",
