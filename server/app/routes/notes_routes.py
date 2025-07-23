@@ -1,7 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException, Security, status
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
+from db.notes.notes_db import save_note
+from db.users.users_db import get_user_by_email
 from schemas.notes_schemas import NoteSchema, PartialNoteSchema
 from utils.notes_utils.notes import (
     mock_notes,
@@ -11,7 +15,7 @@ from utils.notes_utils.notes import (
 
 auth_handler = Auth()
 router = APIRouter(prefix=endpoints.API)
-
+security = HTTPBearer()
 
 last_note_id = len(mock_notes)
 
@@ -29,14 +33,26 @@ def get_note_by_id(note_id: str):
 
 
 @router.post("/notes", response_model=NoteSchema)
-def create_note(note: NoteSchema):
-    validate_note_title(note.title)
+async def create_note(
+    note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
+):
+    try:
+        token = credentials.credentials
+        payload = auth_handler.decode_token(token)
+        email = payload["sub"]
+        if email is None:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
+            )
 
-    global last_note_id
-    last_note_id += 1
+        validate_note_title(note.title)
 
-    mock_notes[str(last_note_id)] = note
-    return note
+        user = get_user_by_email(email)
+        note = save_note(note=note, user_id=user["id"])
+
+        return note
+    except PyJWTError:
+        pass
 
 
 @router.patch("/notes/{note_id}", response_model=NoteSchema)
