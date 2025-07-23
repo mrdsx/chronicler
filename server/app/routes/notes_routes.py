@@ -7,6 +7,7 @@ from auth import Auth
 from db.notes.notes_db import save_note
 from db.users.users_db import get_user_by_email
 from schemas.notes_schemas import NoteSchema, PartialNoteSchema
+from utils.auth_utils.email import get_email_from_auth_credentials
 from utils.errors import raise_exception_invalid_token
 from utils.notes_utils.notes import (
     mock_notes,
@@ -38,18 +39,16 @@ async def create_note(
     note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
 ):
     try:
-        token = credentials.credentials
-        payload = auth_handler.decode_token(token)
-        email = payload["sub"]
+        email = get_email_from_auth_credentials(credentials)
         if email is None:
             raise_exception_invalid_token()
 
         validate_note_title(note.title)
 
         user = get_user_by_email(email)
-        note = save_note(note=note, user_id=user["id"])
+        new_note = save_note(note=note, user_id=user["id"])
 
-        return note
+        return new_note
     except PyJWTError:
         raise_exception_invalid_token()
 
