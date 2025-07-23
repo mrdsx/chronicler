@@ -6,6 +6,7 @@ import endpoints
 from auth import Auth
 from db.users.users_db import get_user_by_email
 from schemas.users_schemas import PublicUserSchema
+from utils.errors import raise_exception_invalid_token
 
 auth_handler = Auth()
 security = HTTPBearer()
@@ -19,12 +20,8 @@ async def get_user_info(credentials: HTTPAuthorizationCredentials = Security(sec
         payload = auth_handler.decode_token(token)
         email = payload["sub"]
         if email is None:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
-            )
+            raise_exception_invalid_token()
 
         return get_user_by_email(email)
     except PyJWTError:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
-        )
+        raise_exception_invalid_token()

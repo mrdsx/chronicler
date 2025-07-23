@@ -7,6 +7,7 @@ from auth import Auth
 from db.notes.notes_db import save_note
 from db.users.users_db import get_user_by_email
 from schemas.notes_schemas import NoteSchema, PartialNoteSchema
+from utils.errors import raise_exception_invalid_token
 from utils.notes_utils.notes import (
     mock_notes,
     validate_note_exists,
@@ -41,9 +42,7 @@ async def create_note(
         payload = auth_handler.decode_token(token)
         email = payload["sub"]
         if email is None:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
-            )
+            raise_exception_invalid_token()
 
         validate_note_title(note.title)
 
@@ -52,7 +51,7 @@ async def create_note(
 
         return note
     except PyJWTError:
-        pass
+        raise_exception_invalid_token()
 
 
 @router.patch("/notes/{note_id}", response_model=NoteSchema)
