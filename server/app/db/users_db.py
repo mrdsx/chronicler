@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from models.users_models import DB_User_Model, Base
-from schemas.user_schemas import UserSchemaWithId
+from schemas.users_schemas import UserSchemaWithId
 
 DATABASE_URL = "sqlite:///app/db/users.db"
 engine = create_engine(DATABASE_URL)

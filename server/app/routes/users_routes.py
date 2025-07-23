@@ -5,7 +5,7 @@ from jwt import PyJWTError
 import endpoints
 from auth import Auth
 from db.users_db import get_user_by_email
-from schemas.user_schemas import PublicUserSchema
+from schemas.users_schemas import PublicUserSchema
 
 auth_handler = Auth()
 security = HTTPBearer()
