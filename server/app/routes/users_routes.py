@@ -1,19 +1,18 @@
 from fastapi import APIRouter, HTTPException, Security, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWTError
-from typing import Optional
 
 import endpoints
 from auth import Auth
 from db.users_db import get_user_by_email
-from schemas.user_schemas import UserSchemaWithId
+from schemas.user_schemas import PublicUserSchema
 
 auth_handler = Auth()
 security = HTTPBearer()
 router = APIRouter(prefix=endpoints.API)
 
 
-@router.get("/users/me", response_model=Optional[UserSchemaWithId])
+@router.get("/users/me", response_model=PublicUserSchema)
 async def get_user_info(credentials: HTTPAuthorizationCredentials = Security(security)):
     try:
         token = credentials.credentials

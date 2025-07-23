@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class UserSchema(BaseModel):
@@ -12,3 +12,7 @@ class UserSchemaWithId(UserSchema):
 
     class Config:
         from_attributes = True
+
+
+class PublicUserSchema(UserSchemaWithId):
+    hashed_password: str = Field(exclude=True)
