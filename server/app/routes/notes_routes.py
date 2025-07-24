@@ -4,7 +4,7 @@ from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
-from db.notes import get_notes_by_user_id, save_note
+from db.notes import delete_note_by_id, get_notes_by_user_id, save_note
 from db.users import get_user_by_email
 from schemas.notes_schemas import Input_NoteSchema, Input_PartialNoteSchema, NoteSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
@@ -55,8 +55,8 @@ def update_note(note_id: int, note: Input_PartialNoteSchema):
 
 
 @router.delete("/notes/{note_id}")
-def delete_note_by_id(note_id: str):
+def delete_note(note_id: int):
     validate_note_exists(note_id)
+    delete_note_by_id(note_id)
 
-    del mock_notes[note_id]
     return {"detail": "Successfully deleted note"}
