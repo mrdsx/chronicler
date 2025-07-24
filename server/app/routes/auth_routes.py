@@ -11,7 +11,7 @@ router = APIRouter(prefix=endpoints.AUTH)
 
 
 @router.post("/register", response_model=AuthSchema_Tokens)
-async def signup(signup_data: AuthSchema_SignUp):
+def signup(signup_data: AuthSchema_SignUp):
     validate_signup_data(signup_data)
     user = create_user(signup_data)
 
@@ -22,7 +22,7 @@ async def signup(signup_data: AuthSchema_SignUp):
 
 
 @router.post("/login", response_model=AuthSchema_Tokens)
-async def login(login_data: AuthSchema_Login):
+def login(login_data: AuthSchema_Login):
     validate_login_data(login_data)
 
     access_token = auth_handler.encode_token(login_data.email)

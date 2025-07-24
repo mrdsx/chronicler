@@ -31,7 +31,7 @@ def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
 
 
 @router.post("/notes", response_model=NoteSchema)
-async def create_note(
+def create_note(
     note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
 ):
     try:

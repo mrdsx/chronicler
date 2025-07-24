@@ -14,7 +14,7 @@ router = APIRouter(prefix=endpoints.API)
 
 
 @router.get("/users/me", response_model=PublicUserSchema)
-async def get_user_info(credentials: HTTPAuthorizationCredentials = Security(security)):
+def get_user_info(credentials: HTTPAuthorizationCredentials = Security(security)):
     try:
         email = get_email_from_auth_credentials(credentials)
         return get_user_by_email(email)
