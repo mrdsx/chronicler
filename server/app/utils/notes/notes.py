@@ -18,7 +18,7 @@ mock_notes = {
 }
 
 
-def validate_note_exists(note_id: str) -> None:
+def validate_note_exists(note_id: int) -> None:
     if get_note_by_id(note_id) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
