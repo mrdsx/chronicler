@@ -4,7 +4,7 @@ import endpoints
 from auth import Auth
 from schemas.auth_schemas import AuthSchema_SignUp, AuthSchema_Login, AuthSchema_Tokens
 from services.users_services import create_user
-from utils.auth_utils.auth_data import validate_login_data, validate_signup_data
+from utils.auth.auth_data import validate_login_data, validate_signup_data
 
 auth_handler = Auth()
 router = APIRouter(prefix=endpoints.AUTH)
