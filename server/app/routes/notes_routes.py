@@ -6,7 +6,7 @@ import endpoints
 from auth import Auth
 from db.notes import get_notes_by_user_id, save_note
 from db.users import get_user_by_email
-from schemas.notes_schemas import NoteSchema, PartialNoteSchema
+from schemas.notes_schemas import Input_NoteSchema, NoteSchema, PartialNoteSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 from utils.notes import (
     mock_notes,
@@ -32,14 +32,15 @@ def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
 
 @router.post("/notes", response_model=NoteSchema)
 def create_note(
-    note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
+    note: Input_NoteSchema,
+    credentials: HTTPAuthorizationCredentials = Security(security),
 ):
     try:
         validate_note_title(note.title)
 
         email = get_email_from_auth_credentials(credentials)
         user = get_user_by_email(email)
-        new_note = save_note(note=note, user_id=user["id"])
+        new_note = save_note(note=note, user_id=user.id)
 
         return new_note
     except PyJWTError:
