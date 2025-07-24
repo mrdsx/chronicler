@@ -25,23 +25,23 @@ def save_user(user: DB_User_Model) -> UserSchema:
     return get_user_by_email(user["email"])
 
 
-def get_user_by_username(username: str) -> UserSchema | None:
+def get_user_by_username(username: str) -> DB_User_Model | None:
     try:
         db_user = (
             session.query(DB_User_Model)
             .filter(DB_User_Model.username == username)
             .first()
         )
-        return UserSchema.model_validate(db_user).model_dump()
+        return db_user
     except BaseException:
         return None
 
 
-def get_user_by_email(email: str) -> UserSchema | None:
+def get_user_by_email(email: str) -> DB_User_Model | None:
     try:
         db_user = (
             session.query(DB_User_Model).filter(DB_User_Model.email == email).first()
         )
-        return UserSchema.model_validate(db_user).model_dump()
+        return db_user
     except BaseException:
         return None

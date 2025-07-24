@@ -18,7 +18,7 @@ def validate_login_data(login_data: AuthSchema_Login) -> None:
 
     email = login_data.email
     password = login_data.password
-    if not get_is_login_data_valid(email, password, db_user["hashed_password"]):
+    if not get_is_login_data_valid(email, password, db_user.hashed_password):
         raise_exception_wrong_login_data()
 
 
