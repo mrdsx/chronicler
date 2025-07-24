@@ -1,5 +1,6 @@
 from fastapi import HTTPException, status
 
+from db.notes import get_note_by_id
 
 mock_notes = {
     "1": {
@@ -18,7 +19,7 @@ mock_notes = {
 
 
 def validate_note_exists(note_id: str) -> None:
-    if note_id not in mock_notes:
+    if get_note_by_id(note_id) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
         )

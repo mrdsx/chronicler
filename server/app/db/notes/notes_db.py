@@ -12,6 +12,16 @@ Session = sessionmaker(engine)
 session = Session()
 
 
+def get_note_by_id(note_id: int):
+    try:
+        db_note = (
+            session.query(DB_Note_Model).filter(DB_Note_Model.id == note_id).first()
+        )
+        return db_note
+    except BaseException:
+        return None
+
+
 def get_notes_by_user_id(user_id: int) -> list[DB_Note_Model]:
     try:
         db_notes = session.query(DB_Note_Model).filter(DB_Note_Model.user_id == user_id)
