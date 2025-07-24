@@ -6,7 +6,7 @@ import endpoints
 from auth import Auth
 from db.notes import get_notes_by_user_id, save_note
 from db.users import get_user_by_email
-from schemas.notes_schemas import Input_NoteSchema, NoteSchema, PartialNoteSchema
+from schemas.notes_schemas import Input_NoteSchema, Input_PartialNoteSchema, NoteSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 from utils.notes import (
     mock_notes,
@@ -47,16 +47,11 @@ def create_note(
         raise_exception_invalid_token()
 
 
-@router.patch("/notes/{note_id}", response_model=NoteSchema)
-def update_note(note_id: str, note: PartialNoteSchema):
+# TODO: add database data
+@router.patch("/notes/{note_id}")
+def update_note(note_id: str, note: Input_PartialNoteSchema):
     validate_note_exists(note_id)
     validate_note_title(note.title)
-
-    for key, value in dict(note).items():
-        if value is not None:
-            mock_notes[note_id][key] = value
-
-    return mock_notes[note_id]
 
 
 @router.delete("/notes/{note_id}")

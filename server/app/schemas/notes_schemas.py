@@ -8,6 +8,11 @@ class Input_NoteSchema(BaseModel):
     content: str
 
 
+@partial_model
+class Input_PartialNoteSchema(Input_NoteSchema):
+    pass
+
+
 class NoteSchema(BaseModel):
     id: int
     user_id: int
