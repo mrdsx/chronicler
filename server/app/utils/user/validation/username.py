@@ -13,12 +13,12 @@ def validate_username_length(username: str) -> None:
     if len(username) < MIN_USERNAME_LENGTH:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="Username must be at least 3 characters long",
+            detail=f"Username must be at least {MIN_USERNAME_LENGTH} characters long",
         )
     if len(username) > MAX_USERNAME_LENGTH:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="Username must be at most 20 characters long",
+            detail=f"Username must be at most {MAX_USERNAME_LENGTH} characters long",
         )
 
 
