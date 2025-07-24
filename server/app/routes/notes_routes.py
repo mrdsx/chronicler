@@ -30,13 +30,6 @@ def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
     return notes
 
 
-@router.get("/notes/{note_id}", response_model=NoteSchema)
-def get_note_by_id(note_id: str):
-    validate_note_exists(note_id)
-
-    return mock_notes[note_id]
-
-
 @router.post("/notes", response_model=NoteSchema)
 async def create_note(
     note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
