@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 
-from .constants import MIN_PASSWORD_LENGTH
-from .validators import get_is_password_valid
+from ..constants import MIN_PASSWORD_LENGTH
+from ..validators import get_is_password_valid
 
 
 def validate_password(password: str) -> None:
