@@ -49,7 +49,7 @@ def create_note(
 
 # TODO: add database data
 @router.patch("/notes/{note_id}")
-def update_note(note_id: str, note: Input_PartialNoteSchema):
+def update_note(note_id: int, note: Input_PartialNoteSchema):
     validate_note_exists(note_id)
     validate_note_title(note.title)
 
