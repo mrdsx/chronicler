@@ -1,12 +1,12 @@
 from db.users.users_db import get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
-from utils.user.user import validate_user_not_exists
-from utils.user.validation.email import validate_email_address
-from utils.user.validation.password import (
+from utils.user import (
+    validate_user_not_exists,
+    validate_email_address,
     validate_password,
     validate_password_and_confirm_password,
+    validate_username,
 )
-from utils.user.validation.username import validate_username
 from .errors import raise_exception_wrong_login_data
 from .validators import get_is_login_data_valid
 
