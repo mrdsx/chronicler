@@ -4,7 +4,7 @@ from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
-from db.notes import save_note
+from db.notes import get_notes_by_user_id, save_note
 from db.users import get_user_by_email
 from schemas.notes_schemas import NoteSchema, PartialNoteSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
@@ -21,9 +21,13 @@ security = HTTPBearer()
 last_note_id = len(mock_notes)
 
 
-@router.get("/notes", response_model=dict[str, NoteSchema])
-def get_notes():
-    return mock_notes
+@router.get("/notes", response_model=list[NoteSchema])
+def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
+    email = get_email_from_auth_credentials(credentials)
+    user = get_user_by_email(email)
+    notes = get_notes_by_user_id(user["id"])
+
+    return notes
 
 
 @router.get("/notes/{note_id}", response_model=NoteSchema)
