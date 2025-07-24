@@ -6,8 +6,7 @@ import endpoints
 from auth import Auth
 from db.users.users_db import get_user_by_email
 from schemas.users_schemas import PublicUserSchema
-from utils.auth.email import get_email_from_auth_credentials
-from utils.auth.errors import raise_exception_invalid_token
+from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 
 auth_handler = Auth()
 security = HTTPBearer()
