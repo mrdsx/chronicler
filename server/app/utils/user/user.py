@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 
-from db.users.users_db import get_user_by_email, get_user_by_username
+from db.users import get_user_by_email, get_user_by_username
 
 
 def validate_user_not_exists(username: str, email: str) -> None:

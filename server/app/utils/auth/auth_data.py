@@ -1,4 +1,4 @@
-from db.users.users_db import get_user_by_email
+from db.users import get_user_by_email
 from schemas.auth_schemas import AuthSchema_Login, AuthSchema_SignUp
 from utils.user import (
     validate_user_not_exists,

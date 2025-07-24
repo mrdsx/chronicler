@@ -1,5 +1,5 @@
 from auth import Auth
-from db.users.users_db import save_user
+from db.users import save_user
 from schemas.auth_schemas import AuthSchema_SignUp
 from schemas.users_schemas import UserSchema
 

@@ -4,7 +4,7 @@ from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
-from db.users.users_db import get_user_by_email
+from db.users import get_user_by_email
 from schemas.users_schemas import PublicUserSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 
