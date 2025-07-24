@@ -38,12 +38,9 @@ async def create_note(
     note: NoteSchema, credentials: HTTPAuthorizationCredentials = Security(security)
 ):
     try:
-        email = get_email_from_auth_credentials(credentials)
-        if email is None:
-            raise_exception_invalid_token()
-
         validate_note_title(note.title)
 
+        email = get_email_from_auth_credentials(credentials)
         user = get_user_by_email(email)
         new_note = save_note(note=note, user_id=user["id"])
 

@@ -17,9 +17,6 @@ router = APIRouter(prefix=endpoints.API)
 async def get_user_info(credentials: HTTPAuthorizationCredentials = Security(security)):
     try:
         email = get_email_from_auth_credentials(credentials)
-        if email is None:
-            raise_exception_invalid_token()
-
         return get_user_by_email(email)
     except PyJWTError:
         raise_exception_invalid_token()
