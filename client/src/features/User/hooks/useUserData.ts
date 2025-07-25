@@ -1,4 +1,4 @@
-import { apiClient, ENDPOINTS } from "@/api";
+import { apiClient, ENDPOINTS, TOKEN_ERRORS } from "@/api";
 import type { User, UserData } from "../types";
 import {
   deleteUserAccessToken,
@@ -25,7 +25,7 @@ export function useUserData(): UserData {
         "Failed to fetch user",
       );
     } catch (error) {
-      if (error instanceof APIError && error.code === "token_expired") {
+      if (error instanceof APIError && TOKEN_ERRORS.includes(error.code)) {
         deleteUserAccessToken();
       }
       console.error(error);

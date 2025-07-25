@@ -11,3 +11,5 @@ export const ENDPOINTS = {
     me: "/users/me",
   },
 } satisfies Endpoints;
+
+export const TOKEN_ERRORS = ["token_expired", "invalid_token"];
