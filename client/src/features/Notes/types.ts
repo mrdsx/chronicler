@@ -9,11 +9,11 @@ export interface Note {
   content: string;
 }
 
-export type NotesActions = {
+export interface NotesActions {
   selectNoteTitleInput(): void;
   createNote(title: string, content?: string): Note;
   deleteNote(targetId: string): void;
-};
+}
 
 export type NoteEditorRefsContextType = {
   noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
