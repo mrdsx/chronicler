@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home, Login, SignUp, Notes, NotFoundPage } from "@/pages";
 import { ROUTES } from "@/app/routes";
 import { ThemeContextProvider } from "@/features/Theme/providers/ThemeProvider";
-import "./App.css";
+import "./styles/App.css";
 import { Toaster } from "sonner";
 
 export default function App() {
