@@ -3,7 +3,7 @@ import { loginUser, registerUser, type AccessTokensResponse } from "../api";
 import type { LoginFormInputInt, SignUpFormInputInt } from "../types";
 import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 import { toast } from "sonner";
 
 export function useSignUpFormMutation() {

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 import { Link } from "react-router-dom";
 
 export function NotFoundPage() {

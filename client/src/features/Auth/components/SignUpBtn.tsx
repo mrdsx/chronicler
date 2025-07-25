@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 import { Button, buttonVariants } from "@/components/ui";
 import type { VariantProps } from "class-variance-authority";
 

@@ -1,5 +1,5 @@
 import { CircleUserRound } from "lucide-react";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

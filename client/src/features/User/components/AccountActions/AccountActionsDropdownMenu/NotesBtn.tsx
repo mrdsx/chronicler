@@ -1,5 +1,5 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 import { NotepadText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

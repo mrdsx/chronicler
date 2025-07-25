@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/app/routes";
 
 export function Logo({ className, ...props }: React.ComponentProps<"span">) {
   return (
