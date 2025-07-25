@@ -1,14 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
-import type { Note } from "../types";
+import type { Note, NotesActions } from "../types";
 import { useNoteEditorRefsContext, useNotesContext } from "../hooks/context";
 
-type NotesActionsReturnType = {
-  selectNoteTitleInput(): void;
-  createNote(title: string, content?: string): Note;
-  deleteNote(targetId: string): void;
-};
-
-export function useNotes(): NotesActionsReturnType {
+export function useNotes(): NotesActions {
   const { notes, setNotes } = useNotesContext();
   const { noteTitleInputRef } = useNoteEditorRefsContext();
 

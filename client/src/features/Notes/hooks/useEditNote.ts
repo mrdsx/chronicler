@@ -1,12 +1,7 @@
-import type { Note } from "../types";
+import type { EditNoteActions, Note } from "../types";
 import { useNotesContext } from "./context";
 
-interface EditNoteReturnType {
-  editNoteTitle(targetNote: Note, newNoteTitle: string): void;
-  editNoteContent(targetNote: Note, newNoteContent: string): void;
-}
-
-export function useEditNote(): EditNoteReturnType {
+export function useEditNote(): EditNoteActions {
   const { notes, setNotes } = useNotesContext();
 
   function editNoteTitle(targetNote: Note, newNoteTitle: string): void {
