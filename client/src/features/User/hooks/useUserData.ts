@@ -1,4 +1,10 @@
-import { apiClient, APIError, ENDPOINTS, TOKEN_ERRORS } from "@/api";
+import {
+  apiClient,
+  APIError,
+  ENDPOINTS,
+  getBearerAuthRequestOptions,
+  TOKEN_ERRORS,
+} from "@/api";
 import type { User, UserData } from "../types";
 import {
   deleteUserAccessToken,
@@ -11,12 +17,7 @@ export function useUserData(): UserData {
       const accessToken = getUserAccessToken();
       if (accessToken === null) return null;
 
-      const options = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
+      const options = getBearerAuthRequestOptions(accessToken, "GET");
 
       return await apiClient<User>(
         ENDPOINTS.users.me,

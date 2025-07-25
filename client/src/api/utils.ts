@@ -1,5 +1,19 @@
 import type { ErrorResponse } from "./types";
 
+export function getBearerAuthRequestOptions(
+  token: string,
+  method?: string,
+  data?: string,
+): RequestInit {
+  return {
+    method,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  };
+}
+
 export function getRequestOptions(data: any, method?: string): RequestInit {
   return {
     method,
