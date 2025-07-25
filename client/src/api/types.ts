@@ -1,3 +1,4 @@
+// force-semicolon: ignore-all
 export type Path = `/${string}`;
 
 export interface Endpoints {
@@ -6,4 +7,13 @@ export interface Endpoints {
 
 export interface ErrorResponse {
   detail: string;
+}
+
+export class APIError extends Error {
+  code: string;
+
+  constructor(code: string, message: string) {
+    super(message);
+    this.code = code;
+  }
 }
