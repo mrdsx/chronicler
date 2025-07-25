@@ -2,9 +2,8 @@ import type {
   LoginFormInputInt,
   SignUpFormInputInt,
 } from "@/features/Auth/types";
-import { apiClient, ENDPOINTS } from "@/api";
+import { apiClient, ENDPOINTS, getRequestOptions } from "@/api";
 import type { AccessTokensResponse } from "./types";
-import { getRequestOptions } from "../utils/requestOptions";
 
 export async function loginUser(loginFormData: LoginFormInputInt) {
   const requestOptions = getRequestOptions(loginFormData, "POST");
