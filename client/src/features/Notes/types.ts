@@ -1,45 +1,35 @@
-interface EditNoteActions {
+export interface EditNoteActions {
   editNoteTitle(targetNote: Note, newNoteTitle: string): void;
   editNoteContent(targetNote: Note, newNoteContent: string): void;
 }
 
-interface Note {
+export interface Note {
   id: string;
   title: string;
   content: string;
 }
 
-type NotesActions = {
+export type NotesActions = {
   selectNoteTitleInput(): void;
   createNote(title: string, content?: string): Note;
   deleteNote(targetId: string): void;
 };
 
-type NoteEditorRefsContextType = {
+export type NoteEditorRefsContextType = {
   noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
 };
 
-type NotesContextType = {
+export type NotesContextType = {
   notes: Note[];
   setNotes(arg0: Note[]): void;
 };
 
-type SelectedNoteContextType = {
+export type SelectedNoteContextType = {
   selectedNote: Note | null;
   setSelectedNote(note: Note | null): void;
 };
 
-type SearchNotesContextType = {
+export type SearchNotesContextType = {
   searchQuery: string;
   setSearchQuery(query: string): void;
-};
-
-export type {
-  EditNoteActions,
-  Note,
-  NotesActions,
-  NoteEditorRefsContextType,
-  NotesContextType,
-  SelectedNoteContextType,
-  SearchNotesContextType,
 };
