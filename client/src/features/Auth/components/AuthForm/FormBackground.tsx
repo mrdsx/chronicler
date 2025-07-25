@@ -1,4 +1,4 @@
-import AuthFormImage from "../../../../assets/auth_background.jpg";
+import AuthFormImage from "../../../../app/assets/auth_background.jpg";
 
 export function FormBackground() {
   return (
