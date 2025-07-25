@@ -1,6 +1,10 @@
 import { apiClient, ENDPOINTS } from "@/api";
 import type { User, UserData } from "../types";
-import { getUserAccessToken } from "../utils/userAccessTokenUtils";
+import {
+  deleteUserAccessToken,
+  getUserAccessToken,
+} from "../utils/userAccessTokenUtils";
+import { APIError } from "@/api/types";
 
 export function useUserData(): UserData {
   async function getUserData(): Promise<User | null> {
@@ -21,9 +25,10 @@ export function useUserData(): UserData {
         "Failed to fetch user",
       );
     } catch (error) {
-      if (error instanceof Error) {
-        console.error(error);
+      if (error instanceof APIError && error.code === "token_expired") {
+        deleteUserAccessToken();
       }
+      console.error(error);
       throw error;
     }
   }
