@@ -1,10 +1,9 @@
-import { apiClient, ENDPOINTS, TOKEN_ERRORS } from "@/api";
+import { apiClient, APIError, ENDPOINTS, TOKEN_ERRORS } from "@/api";
 import type { User, UserData } from "../types";
 import {
   deleteUserAccessToken,
   getUserAccessToken,
 } from "../utils/userAccessTokenUtils";
-import { APIError } from "@/api/types";
 
 export function useUserData(): UserData {
   async function getUserData(): Promise<User | null> {
