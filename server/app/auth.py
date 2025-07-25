@@ -49,9 +49,15 @@ class Auth:
             # print(decoded)
             return decoded
         except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail="Token expired")
+            raise HTTPException(
+                status_code=401,
+                detail={"error": "token_expired", "message": "Token expired"},
+            )
         except jwt.InvalidTokenError:
-            raise HTTPException(status_code=401, detail="Invalid token")
+            raise HTTPException(
+                status_code=401,
+                detail={"error": "invalid_token", "message": "Invalid token"},
+            )
 
     def encode_refresh_token(self, email: str) -> str:
         payload = {
