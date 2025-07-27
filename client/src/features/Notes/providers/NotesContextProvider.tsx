@@ -1,15 +1,14 @@
-import {
-  useState,
-  useEffect,
-  createContext,
-  type PropsWithChildren,
-} from "react";
+import { useState, useEffect, createContext } from "react";
 import type { Note, NotesContextType } from "../types";
 import { LOCAL_STORAGE_KEYS } from "../constants";
 
 export const NotesContext = createContext<NotesContextType | null>(null);
 
-export function NotesContextProvider({ children }: PropsWithChildren) {
+export function NotesContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const localStorageNotes = JSON.parse(
     localStorage.getItem(LOCAL_STORAGE_KEYS.notes) || "[]",
   );
