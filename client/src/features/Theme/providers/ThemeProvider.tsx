@@ -3,7 +3,11 @@ import { createContext } from "react";
 
 export const ThemeContext = createContext<ThemeState | null>(null);
 
-export function ThemeContextProvider({ children }: React.PropsWithChildren) {
+export function ThemeContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const theme = useTheme();
 
   return (
