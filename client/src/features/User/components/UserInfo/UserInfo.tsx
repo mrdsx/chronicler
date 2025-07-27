@@ -9,12 +9,10 @@ import { cn } from "@/lib/utils";
 
 interface UserInfoProps {
   username?: string;
+  className?: string;
 }
 
-export function UserInfo({
-  username,
-  className,
-}: React.ComponentProps<"div"> & UserInfoProps) {
+export function UserInfo({ username, className }: UserInfoProps) {
   const { getUserData } = useUserData();
   const navigate = useNavigate();
 
