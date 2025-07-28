@@ -1,6 +1,6 @@
 import jwt
 from jwt.algorithms import ECAlgorithm
-from fastapi import HTTPException
+from fastapi import HTTPException, status
 from passlib.context import CryptContext
 from datetime import datetime, timedelta, timezone
 from config import settings
@@ -50,12 +50,12 @@ class Auth:
             return decoded
         except jwt.ExpiredSignatureError:
             raise HTTPException(
-                status_code=401,
+                status_code=status.HTTP_401_UNAUTHORIZED,
                 detail={"error": "token_expired", "message": "Token expired"},
             )
         except jwt.InvalidTokenError:
             raise HTTPException(
-                status_code=401,
+                status_code=status.HTTP_401_UNAUTHORIZED,
                 detail={"error": "invalid_token", "message": "Invalid token"},
             )
 
@@ -83,11 +83,18 @@ class Auth:
                 email = payload["sub"]
                 new_token = self.encode_token(email)
                 return new_token
-            raise HTTPException(status_code=401, detail="Invalid scope for token")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid scope for token",
+            )
         except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail="Refresh token expired")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token expired"
+            )
         except jwt.InvalidTokenError:
-            raise HTTPException(status_code=401, detail="Invalid refresh token")
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid refresh token"
+            )
 
     def encode_reset_password_token(self, email: str) -> str:
         payload = {
