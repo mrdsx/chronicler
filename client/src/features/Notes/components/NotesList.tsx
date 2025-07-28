@@ -1,20 +1,53 @@
 import { NoteItem } from "./NoteItem/NoteItem";
 import { useNotesContext, useSearchNotesContext } from "../hooks/context";
+import { useQuery } from "@tanstack/react-query";
+import { useNotesData } from "../hooks/useNotesData";
+import { useEffect } from "react";
+import { Loader } from "lucide-react";
+import { toast } from "sonner";
 
 export function NotesList() {
-  const { notes } = useNotesContext();
+  const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
+  const { fetchNotes } = useNotesData();
 
+  const {
+    data: notesData,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["notes"],
+    queryFn: fetchNotes,
+    retry: false,
+  });
+
+  // TODO: remove any
+  useEffect(() => {
+    if (notesData !== null && notesData !== undefined) {
+      setNotes(notesData as any);
+    }
+  }, [notesData]);
+
+  if (isError) toast.error("Failed to fetch notes");
+
+  // TODO: remove border, add divide-x in NotesArea component
+  // TODO: extract skeleton loader component
   return (
     <div className="w-[30%] border-r-1 border-r-(--border-color)">
       <h2 className="pt-3 pb-2 pl-4 text-xl">Notes</h2>
-      {notes.map((note) => {
-        return (
-          note.title.toLowerCase().includes(searchQuery) && (
-            <NoteItem key={note.id} note={note} />
-          )
-        );
-      })}
+      {isLoading ? (
+        <div className="grid place-content-center">
+          <Loader className="mt-5 animate-spin" />
+        </div>
+      ) : (
+        notes.map((note) => {
+          return (
+            note.title.toLowerCase().includes(searchQuery) && (
+              <NoteItem key={note.id} note={note} />
+            )
+          );
+        })
+      )}
     </div>
   );
 }
