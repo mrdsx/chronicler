@@ -1,3 +1,8 @@
+export interface APINote extends Omit<Note, "id"> {
+  id: number;
+  user_id: number;
+}
+
 export interface EditNoteActions {
   editNoteTitle(targetNote: Note, newNoteTitle: string): void;
   editNoteContent(targetNote: Note, newNoteContent: string): void;
