@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Security
+from fastapi import APIRouter, HTTPException, Security, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
-from db.notes import delete_note_by_id, get_notes_by_user_id, save_note
+from db.notes import delete_note_by_id, get_note_by_id, get_notes_by_user_id, save_note
 from db.users import get_user_by_email
 from schemas.notes_schemas import Input_NoteSchema, Input_PartialNoteSchema, NoteSchema
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
@@ -55,8 +55,19 @@ def update_note(note_id: int, note: Input_PartialNoteSchema):
 
 
 @router.delete("/notes/{note_id}")
-def delete_note(note_id: int):
+def delete_note(
+    note_id: int, credentials: HTTPAuthorizationCredentials = Security(security)
+):
     validate_note_exists(note_id)
-    delete_note_by_id(note_id)
 
+    email = get_email_from_auth_credentials(credentials)
+    user = get_user_by_email(email)
+    target_note = get_note_by_id(note_id)
+
+    if user.id != target_note.user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, detail="Access denied"
+        )
+
+    delete_note_by_id(note_id)
     return {"detail": "Successfully deleted note"}
