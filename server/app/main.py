@@ -9,7 +9,7 @@ from routes.notes_routes import router as notes_router
 
 app = FastAPI()
 
-origins = ["http://localhost:3000", "localhost:3000"]
+origins = ["http://localhost", "http://localhost:3000", "localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,
