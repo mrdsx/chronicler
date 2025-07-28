@@ -1,10 +1,10 @@
-import { NoteItem } from "./NoteItem/NoteItem";
-import { useNotesContext, useSearchNotesContext } from "../hooks/context";
+import { NoteItem } from "../NoteItem/NoteItem";
+import { useNotesContext, useSearchNotesContext } from "../../hooks/context";
 import { useQuery } from "@tanstack/react-query";
-import { useNotesData } from "../hooks/useNotesData";
+import { useNotesData } from "../../hooks/useNotesData";
 import { useEffect } from "react";
-import { Loader } from "lucide-react";
 import { toast } from "sonner";
+import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
@@ -31,14 +31,11 @@ export function NotesList() {
   if (isError) toast.error("Failed to fetch notes");
 
   // TODO: remove border, add divide-x in NotesArea component
-  // TODO: extract skeleton loader component
   return (
     <div className="w-[30%] border-r-1 border-r-(--border-color)">
       <h2 className="pt-3 pb-2 pl-4 text-xl">Notes</h2>
       {isLoading ? (
-        <div className="grid place-content-center">
-          <Loader className="mt-5 animate-spin" />
-        </div>
+        <NotesListSkeletonLoader />
       ) : (
         notes.map((note) => {
           return (
