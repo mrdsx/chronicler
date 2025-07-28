@@ -12,13 +12,13 @@ Session = sessionmaker(engine)
 session = Session()
 
 
-def delete_note_by_id(note_id: int):
+def delete_note_by_id(note_id: int) -> DB_Note_Model | None:
     db_note = session.query(DB_Note_Model).filter(DB_Note_Model.id == note_id).first()
     session.delete(db_note)
     session.commit()
 
 
-def get_note_by_id(note_id: int):
+def get_note_by_id(note_id: int) -> DB_Note_Model | None:
     try:
         db_note = (
             session.query(DB_Note_Model).filter(DB_Note_Model.id == note_id).first()
