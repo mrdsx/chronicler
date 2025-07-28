@@ -7,7 +7,6 @@ import type { AccessTokensResponse } from "./types";
 
 export async function loginUser(loginFormData: LoginFormInputInt) {
   const requestOptions = getRequestOptions(loginFormData, "POST");
-
   return await apiClient<AccessTokensResponse>(
     ENDPOINTS.auth.login,
     requestOptions,
@@ -17,7 +16,6 @@ export async function loginUser(loginFormData: LoginFormInputInt) {
 
 export async function registerUser(signUpFormData: SignUpFormInputInt) {
   const requestOptions = getRequestOptions(signUpFormData, "POST");
-
   return await apiClient<AccessTokensResponse>(
     ENDPOINTS.auth.register,
     requestOptions,

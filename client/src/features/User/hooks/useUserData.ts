@@ -18,7 +18,6 @@ export function useUserData(): UserData {
       if (accessToken === null) return null;
 
       const options = getBearerAuthRequestOptions(accessToken, "GET");
-
       return await apiClient<User>(
         ENDPOINTS.users.me,
         options,
