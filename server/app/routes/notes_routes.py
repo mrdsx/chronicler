@@ -4,9 +4,19 @@ from jwt import PyJWTError
 
 import endpoints
 from auth import Auth
-from db.notes import delete_note_by_id, get_note_by_id, get_notes_by_user_id, save_note
+from db.notes import (
+    delete_note_by_id,
+    get_note_by_id,
+    get_notes_by_user_id,
+    save_note,
+    update_note_by_id,
+)
 from db.users import get_user_by_email
-from schemas.notes_schemas import Input_NoteSchema, Input_PartialNoteSchema, NoteSchema
+from schemas.notes_schemas import (
+    Input_NoteSchema,
+    Input_PartialNoteSchema,
+    NoteSchema,
+)
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 from utils.notes import (
     mock_notes,
@@ -47,11 +57,26 @@ def create_note(
         raise_exception_invalid_token()
 
 
-# TODO: add database data
-@router.patch("/notes/{note_id}")
-def update_note(note_id: int, note: Input_PartialNoteSchema):
+@router.patch("/notes/{note_id}", response_model=NoteSchema)
+def update_note(
+    note_id: int,
+    note: Input_PartialNoteSchema,
+    credentials: HTTPAuthorizationCredentials = Security(security),
+):
     validate_note_exists(note_id)
     validate_note_title(note.title)
+
+    email = get_email_from_auth_credentials(credentials)
+    user = get_user_by_email(email)
+    target_note = get_note_by_id(note_id)
+
+    if user.id != target_note.user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, detail="Access denied"
+        )
+
+    updated_note = update_note_by_id(note_id, note)
+    return updated_note
 
 
 @router.delete("/notes/{note_id}")
