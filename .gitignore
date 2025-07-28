@@ -2,6 +2,7 @@
 .venv
 __pycache__
 *.db
+*.db-journal
 
 .vscode/*
 !.vscode/extensions.json
