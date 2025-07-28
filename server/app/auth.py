@@ -29,7 +29,7 @@ class Auth:
 
     def encode_token(self, email: str) -> str:
         payload = {
-            "exp": datetime.now(timezone.utc) + timedelta(days=0, minutes=30),
+            "exp": datetime.now(timezone.utc) + timedelta(minutes=30),
             "iat": datetime.now(timezone.utc),
             "scope": "access_token",
             "sub": email,
@@ -61,7 +61,7 @@ class Auth:
 
     def encode_refresh_token(self, email: str) -> str:
         payload = {
-            "exp": datetime.now(timezone.utc) + timedelta(days=0, hours=10),
+            "exp": datetime.now(timezone.utc) + timedelta(hours=10),
             "iat": datetime.now(timezone.utc),
             "scope": "refresh_token",
             "sub": email,
@@ -98,7 +98,7 @@ class Auth:
 
     def encode_reset_password_token(self, email: str) -> str:
         payload = {
-            "exp": datetime.now(timezone.utc) + timedelta(days=0, hours=10),
+            "exp": datetime.now(timezone.utc) + timedelta(hours=10),
             "iat": datetime.now(timezone.utc),
             "scope": "reset_password",
             "sub": email,
