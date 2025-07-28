@@ -13,7 +13,10 @@ export async function apiClient<TResponse extends Record<string, any>>(
   if (isErrorResponse(data)) throw new Error(data.detail);
   if (!res.ok) {
     const { error, message } = data.detail;
-    throw new APIError(error, message || errorMsg);
+    if (error !== undefined && message !== undefined) {
+      throw new APIError(error, message);
+    }
+    throw new Error(errorMsg || "An error occurred while fetching data");
   }
 
   return data;
