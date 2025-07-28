@@ -10,6 +10,9 @@ export const ENDPOINTS = {
   users: {
     me: "/users/me",
   },
+  notes: {
+    root: "/notes",
+  },
 } satisfies Endpoints;
 
 export const TOKEN_ERRORS = ["token_expired", "invalid_token"];
