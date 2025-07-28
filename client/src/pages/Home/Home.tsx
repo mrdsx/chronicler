@@ -16,7 +16,7 @@ export function Home() {
     <>
       <Header>
         <div className="flex items-center gap-2">
-          <LogoImage width={"1.5rem"} />
+          <LogoImage width="1.5rem" />
           <Logo className="flex font-semibold text-indigo-600" />
         </div>
         <AccountActions />
