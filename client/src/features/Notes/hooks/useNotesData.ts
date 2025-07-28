@@ -8,10 +8,10 @@ export function useNotesData() {
       const accessToken = getUserAccessToken();
       if (accessToken === null) return null;
 
-      const options = getBearerAuthRequestOptions(accessToken, "GET");
+      const requestOptions = getBearerAuthRequestOptions(accessToken, "GET");
       return await apiClient<APINote[]>(
         ENDPOINTS.notes.root,
-        options,
+        requestOptions,
         "Failed to fetch notes",
       );
     } catch (error) {

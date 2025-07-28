@@ -17,10 +17,10 @@ export function useUserData(): UserData {
       const accessToken = getUserAccessToken();
       if (accessToken === null) return null;
 
-      const options = getBearerAuthRequestOptions(accessToken, "GET");
+      const requestOptions = getBearerAuthRequestOptions(accessToken, "GET");
       return await apiClient<User>(
         ENDPOINTS.users.me,
-        options,
+        requestOptions,
         "Failed to fetch user",
       );
     } catch (error) {
