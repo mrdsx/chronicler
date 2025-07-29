@@ -17,7 +17,7 @@ export function NotesList() {
     isLoading,
   } = useQuery({
     queryKey: ["notes"],
-    queryFn: fetchNotes,
+    queryFn: ({ signal }) => fetchNotes(signal),
     retry: false,
   });
 
