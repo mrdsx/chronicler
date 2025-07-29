@@ -1,5 +1,9 @@
-import { NotesArea, NotesList, Sidebar } from "@/features/notes/components";
-import { NoteEditor } from "@/features/notes/components/NoteEditor/NoteEditor";
+import {
+  NoteEditor,
+  NotesArea,
+  NotesList,
+  Sidebar,
+} from "@/features/notes/components";
 import { NotesProvider } from "@/features/notes/providers/NotesProvider";
 
 export function Notes() {
