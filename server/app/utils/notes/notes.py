@@ -2,21 +2,6 @@ from fastapi import HTTPException, status
 
 from db.notes import get_note_by_id
 
-mock_notes = {
-    "1": {
-        "title": "Welcome Note",
-        "content": "This is your first note in Chronicler. Start capturing your thoughts!",
-    },
-    "2": {
-        "title": "Todo List",
-        "content": "1. Refactor auth system\n2. Write validators\n3. Push to GitHub",
-    },
-    "3": {
-        "title": "Quote of the Day",
-        "content": '"Code is like humor. When you have to explain it, it’s bad." – Cory House',
-    },
-}
-
 
 def validate_note_exists(note_id: int) -> None:
     if get_note_by_id(note_id) is None:

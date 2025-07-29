@@ -19,7 +19,6 @@ from schemas.notes_schemas import (
 )
 from utils.auth import get_email_from_auth_credentials, raise_exception_invalid_token
 from utils.notes import (
-    mock_notes,
     validate_note_exists,
     validate_note_title,
 )
@@ -27,8 +26,6 @@ from utils.notes import (
 auth_handler = Auth()
 router = APIRouter(prefix=endpoints.API)
 security = HTTPBearer()
-
-last_note_id = len(mock_notes)
 
 
 @router.get("/notes", response_model=list[NoteSchema])
