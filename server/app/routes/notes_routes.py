@@ -37,7 +37,7 @@ async def get_notes(credentials: HTTPAuthorizationCredentials = Security(securit
 
 
 @router.post("/notes", response_model=NoteSchema)
-def create_note(
+async def create_note(
     note: Input_NoteSchema,
     credentials: HTTPAuthorizationCredentials = Security(security),
 ):
@@ -45,7 +45,7 @@ def create_note(
         validate_note_title(note.title)
 
         email = get_email_from_auth_credentials(credentials)
-        user = get_user_by_email(email)
+        user = await get_user_by_email(email)
         new_note = save_note(note=note, user_id=user.id)
         return new_note
     except PyJWTError:
@@ -62,7 +62,7 @@ async def update_note(
     validate_note_title(note.title)
 
     email = get_email_from_auth_credentials(credentials)
-    user = get_user_by_email(email)
+    user = await get_user_by_email(email)
     target_note = await get_note_by_id(note_id)
 
     if user.id != target_note.user_id:
@@ -81,7 +81,7 @@ async def delete_note(
     await validate_note_exists(note_id)
 
     email = get_email_from_auth_credentials(credentials)
-    user = get_user_by_email(email)
+    user = await get_user_by_email(email)
     target_note = await get_note_by_id(note_id)
 
     if user.id != target_note.user_id:
