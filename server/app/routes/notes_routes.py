@@ -78,7 +78,7 @@ def update_note(
 
 
 @router.delete("/notes/{note_id}")
-def delete_note(
+async def delete_note(
     note_id: int, credentials: HTTPAuthorizationCredentials = Security(security)
 ):
     validate_note_exists(note_id)
@@ -92,5 +92,5 @@ def delete_note(
             status_code=status.HTTP_403_FORBIDDEN, detail="Access denied"
         )
 
-    delete_note_by_id(note_id)
+    await delete_note_by_id(note_id)
     return {"detail": "Successfully deleted note"}
