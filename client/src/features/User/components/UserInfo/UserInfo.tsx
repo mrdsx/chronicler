@@ -24,7 +24,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
     isPending,
   } = useQuery({
     queryKey: ["user"],
-    queryFn: getUserData,
+    queryFn: ({ signal }) => getUserData(signal),
     retry: false,
     enabled: usernamePropNotProvided,
   });

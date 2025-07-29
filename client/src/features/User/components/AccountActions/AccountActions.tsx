@@ -9,7 +9,7 @@ export function AccountActions() {
 
   const { data: user, isPending } = useQuery({
     queryKey: ["user"],
-    queryFn: getUserData,
+    queryFn: ({ signal }) => getUserData(signal),
     retry: false,
   });
 

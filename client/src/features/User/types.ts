@@ -1,5 +1,5 @@
 export interface UserData {
-  getUserData(): Promise<User | null>;
+  getUserData(signal: AbortSignal): Promise<User | null>;
 }
 
 export interface User {
