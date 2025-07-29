@@ -37,7 +37,7 @@ async def get_notes_by_user_id(user_id: int) -> list[DB_Note_Model]:
         return None
 
 
-def save_note(note: DB_Note_Model, user_id: int) -> DB_Note_Model:
+async def save_note(note: DB_Note_Model, user_id: int) -> DB_Note_Model:
     new_note = DB_Note_Model(user_id=user_id, title=note.title, content=note.content)
     session.add(new_note)
     session.commit()

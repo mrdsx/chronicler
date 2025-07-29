@@ -46,7 +46,7 @@ async def create_note(
 
         email = get_email_from_auth_credentials(credentials)
         user = await get_user_by_email(email)
-        new_note = save_note(note=note, user_id=user.id)
+        new_note = await save_note(note=note, user_id=user.id)
         return new_note
     except PyJWTError:
         raise_exception_invalid_token()
