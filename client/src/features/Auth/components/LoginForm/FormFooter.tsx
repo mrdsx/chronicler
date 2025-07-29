@@ -1,4 +1,4 @@
-import { SignUpBtn } from "../SignUpBtn";
+import { SignUpBtn } from "@/features/auth/components";
 
 export function FormFooter() {
   return (

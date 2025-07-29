@@ -1,7 +1,7 @@
 import type { AuthFormInputInt, LoginFormInputInt } from "../../types";
 import { useForm } from "react-hook-form";
-import { FormHeader } from "./FormHeader";
-import { FormFooter } from "./FormFooter";
+import { FormHeader as LoginFormHeader } from "./FormHeader";
+import { FormFooter as LoginFormFooter } from "./FormFooter";
 import { EmailInput, PasswordInput, SubmitBtn } from "../AuthForm";
 import {
   emailOptions,
@@ -9,7 +9,7 @@ import {
 } from "../../constants/loginFormRegisterOptions";
 import { useLoginFormMutation } from "../../hooks/useAuthMutations";
 
-export function LoginFormInner() {
+export function FormInner() {
   const {
     register,
     handleSubmit: submitHandler,
@@ -27,7 +27,7 @@ export function LoginFormInner() {
   return (
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-6">
-        <FormHeader />
+        <LoginFormHeader />
         <EmailInput
           register={register}
           error={errors.email}
@@ -39,7 +39,7 @@ export function LoginFormInner() {
           registerOptions={passwordOptions}
         />
         <SubmitBtn isPending={isPending}>Login</SubmitBtn>
-        <FormFooter />
+        <LoginFormFooter />
       </div>
     </form>
   );
