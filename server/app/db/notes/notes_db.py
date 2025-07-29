@@ -52,4 +52,5 @@ async def update_note_by_id(
     for key, value in note.model_dump().items():
         if value is not None:
             setattr(db_note, key, value)
+
     return db_note
