@@ -4,9 +4,9 @@ import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useUserData } from "@/features/user/hooks/useUserData";
 import { cn } from "@/lib/utils";
 import { QUERY_KEYS } from "@/api";
+import { getUserData } from "../../api/userData";
 
 interface UserInfoProps {
   username?: string;
@@ -14,7 +14,6 @@ interface UserInfoProps {
 }
 
 export function UserInfo({ username, className }: UserInfoProps) {
-  const { getUserData } = useUserData();
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
