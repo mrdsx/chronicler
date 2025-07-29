@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import type { AuthFormInputInt, SignUpFormInputInt } from "../../types";
-import { FormHeader } from "./FormHeader";
-import { SubmitBtn } from "../AuthForm";
-import { FormFooter } from "./FormFooter";
 import { useSignUpFormMutation } from "../../hooks/useAuthMutations";
-import { SignUpFormFields } from "./SignUpFormFields";
+import { SignUpFormFields, SignUpFormFooter, SignUpFormHeader } from ".";
+import { SubmitBtn } from "../AuthForm";
 
-export function SignUpFormInner() {
+export function FormInner() {
   const {
     register,
     handleSubmit: submitHandler,
@@ -22,10 +20,10 @@ export function SignUpFormInner() {
   return (
     <form className="w-90 p-6 md:p-8" onSubmit={submitHandler(handleSubmit)}>
       <div className="flex flex-col gap-4">
-        <FormHeader />
+        <SignUpFormHeader />
         <SignUpFormFields register={register} errors={errors} watch={watch} />
         <SubmitBtn isPending={isPending}>Create an account</SubmitBtn>
-        <FormFooter />
+        <SignUpFormFooter />
       </div>
     </form>
   );

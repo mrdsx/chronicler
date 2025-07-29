@@ -12,7 +12,7 @@ import {
 } from "../AuthForm";
 import type { AuthFormFieldsProps, SignUpFormInputInt } from "../../types";
 
-export function SignUpFormFields({
+export function FormFields({
   register,
   errors,
   watch,
