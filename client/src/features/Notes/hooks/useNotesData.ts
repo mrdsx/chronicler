@@ -4,7 +4,7 @@ import type { APINote } from "../types";
 
 // TODO: add type NotesData
 export function useNotesData() {
-  async function fetchNotes(signal: AbortSignal) {
+  async function getNotesData(signal: AbortSignal) {
     try {
       const accessToken = getUserAccessToken();
       if (accessToken === null) return null;
@@ -30,5 +30,5 @@ export function useNotesData() {
     }
   }
 
-  return { fetchNotes };
+  return { getNotesData };
 }
