@@ -12,7 +12,6 @@ export function NotesList() {
   const { searchQuery } = useSearchNotesContext();
   const { fetchNotes } = useNotesData();
 
-  // TODO: extract query key in constant
   const {
     data: notesData,
     isError,
