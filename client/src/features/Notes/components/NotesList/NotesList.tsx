@@ -10,16 +10,15 @@ import { QUERY_KEYS } from "@/api";
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
-  const { fetchNotes } = useNotesData();
+  const { getNotesData } = useNotesData();
 
-  // TODO: extract query key in constant
   const {
     data: notesData,
     isError,
     isLoading,
   } = useQuery({
     queryKey: [QUERY_KEYS.NOTES],
-    queryFn: ({ signal }) => fetchNotes(signal),
+    queryFn: ({ signal }) => getNotesData(signal),
     retry: false,
   });
 

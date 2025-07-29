@@ -1,10 +1,10 @@
 import { apiClient, ENDPOINTS, getBearerAuthRequestOptions } from "@/api";
 import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
-import type { APINote } from "../types";
+import type { APINote, NotesData } from "../types";
 
 // TODO: add type NotesData
-export function useNotesData() {
-  async function fetchNotes(signal: AbortSignal) {
+export function useNotesData(): NotesData {
+  async function getNotesData(signal: AbortSignal): Promise<APINote[] | null> {
     try {
       const accessToken = getUserAccessToken();
       if (accessToken === null) return null;
@@ -30,5 +30,5 @@ export function useNotesData() {
     }
   }
 
-  return { fetchNotes };
+  return { getNotesData };
 }
