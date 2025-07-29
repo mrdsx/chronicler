@@ -22,7 +22,7 @@ async def save_user(user: DB_User_Model) -> UserSchema:
     session.add(new_user)
     session.commit()
 
-    return get_user_by_email(user["email"])
+    return await get_user_by_email(user["email"])
 
 
 async def get_user_by_username(username: str) -> DB_User_Model | None:
