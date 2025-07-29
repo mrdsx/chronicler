@@ -1,5 +1,8 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputProps, SignUpFormInputInt } from "../../../types";
+import type {
+  AuthFormInputProps,
+  SignUpFormInputInt,
+} from "@/features/auth/types";
 import "./AuthFormInput.css";
 
 export function UsernameInput({

@@ -1,5 +1,8 @@
 import { Input, Label } from "@/components/ui";
-import type { AuthFormInputInt, AuthFormInputProps } from "../../../types";
+import type {
+  AuthFormInputInt,
+  AuthFormInputProps,
+} from "@/features/auth/types";
 import "./AuthFormInput.css";
 
 export function PasswordInput({
