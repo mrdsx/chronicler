@@ -3,8 +3,8 @@ from fastapi import HTTPException, status
 from db.notes import get_note_by_id
 
 
-def validate_note_exists(note_id: int) -> None:
-    if get_note_by_id(note_id) is None:
+async def validate_note_exists(note_id: int) -> None:
+    if await get_note_by_id(note_id) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
         )

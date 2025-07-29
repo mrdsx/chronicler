@@ -19,7 +19,7 @@ async def delete_note_by_id(note_id: int) -> DB_Note_Model | None:
     session.commit()
 
 
-def get_note_by_id(note_id: int) -> DB_Note_Model | None:
+async def get_note_by_id(note_id: int) -> DB_Note_Model | None:
     try:
         db_note = (
             session.query(DB_Note_Model).filter(DB_Note_Model.id == note_id).first()

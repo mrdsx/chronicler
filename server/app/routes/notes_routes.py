@@ -53,17 +53,17 @@ def create_note(
 
 
 @router.patch("/notes/{note_id}", response_model=NoteSchema)
-def update_note(
+async def update_note(
     note_id: int,
     note: Input_PartialNoteSchema,
     credentials: HTTPAuthorizationCredentials = Security(security),
 ):
-    validate_note_exists(note_id)
+    await validate_note_exists(note_id)
     validate_note_title(note.title)
 
     email = get_email_from_auth_credentials(credentials)
     user = get_user_by_email(email)
-    target_note = get_note_by_id(note_id)
+    target_note = await get_note_by_id(note_id)
 
     if user.id != target_note.user_id:
         raise HTTPException(
@@ -78,11 +78,11 @@ def update_note(
 async def delete_note(
     note_id: int, credentials: HTTPAuthorizationCredentials = Security(security)
 ):
-    validate_note_exists(note_id)
+    await validate_note_exists(note_id)
 
     email = get_email_from_auth_credentials(credentials)
     user = get_user_by_email(email)
-    target_note = get_note_by_id(note_id)
+    target_note = await get_note_by_id(note_id)
 
     if user.id != target_note.user_id:
         raise HTTPException(
