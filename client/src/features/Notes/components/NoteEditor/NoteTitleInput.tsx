@@ -29,7 +29,9 @@ export function NoteTitleInput() {
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>): void {
     if (!selectedNote) return;
 
-    if (e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey))) {
+    const isSaving =
+      e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey));
+    if (isSaving) {
       e.preventDefault();
       editNoteTitle(selectedNote, noteTitleInputVal);
       e.currentTarget.blur();
