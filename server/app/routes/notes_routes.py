@@ -70,7 +70,7 @@ async def update_note(
             status_code=status.HTTP_403_FORBIDDEN, detail="Access denied"
         )
 
-    updated_note = update_note_by_id(note_id, note)
+    updated_note = await update_note_by_id(note_id, note)
     return updated_note
 
 
