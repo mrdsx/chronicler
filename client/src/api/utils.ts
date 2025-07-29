@@ -3,9 +3,11 @@ import type { ErrorResponse } from "./types";
 export function getBearerAuthRequestOptions(
   token: string,
   method?: string,
+  signal?: AbortSignal,
   data?: string,
 ): RequestInit {
   return {
+    signal,
     method,
     headers: {
       Authorization: `Bearer ${token}`,
