@@ -1,7 +1,9 @@
 import { Card, CardContent } from "@/components/ui";
-import { LoginForm } from "@/features/auth/components";
-import { FormBackground } from "@/features/auth/components/AuthForm/FormBackground";
-import { LoginFormInner } from "@/features/auth/components/LoginForm/LoginFormInner";
+import {
+  FormBackground,
+  LoginForm,
+  LoginFormInner,
+} from "@/features/auth/components";
 
 export function Login() {
   return (
