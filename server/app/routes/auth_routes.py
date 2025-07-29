@@ -11,7 +11,7 @@ router = APIRouter(prefix=endpoints.AUTH)
 
 
 @router.post("/register", response_model=AuthSchema_Tokens)
-def signup(signup_data: AuthSchema_SignUp):
+def register(signup_data: AuthSchema_SignUp):
     validate_signup_data(signup_data)
     user = create_user(signup_data)
 
