@@ -1,10 +1,10 @@
-import { AccountActions } from "@/features/user/components/AccountActions/AccountActions";
+import { AccountActions } from "@/features/user/components";
 import {
   Header,
   IntroductionSection,
-  FeaturesSection,
   IntroductionSectionTitle,
   IntroductionSectionActions,
+  FeaturesSection,
   FeaturesSectionTitle,
   FeaturesSectionContent,
 } from "./components";
