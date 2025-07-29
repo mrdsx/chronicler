@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { loginUser, registerUser, type AccessTokensResponse } from "../api";
 import type { LoginFormInputInt, SignUpFormInputInt } from "../types";
-import { setUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { setUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/app/routes";
 import { toast } from "sonner";

@@ -1,8 +1,8 @@
-import { Logo } from "../../../../components/Logo";
+import { Logo } from "@/components/Logo";
 import { Navigation } from "./Navigation";
 import { NoteActions } from "./NoteActions";
-import { ToggleThemeBtn } from "../../../Theme/components/ToggleThemeBtn";
-import { UserInfo } from "../../../User/components/UserInfo/UserInfo";
+import { ToggleThemeBtn } from "@/features/theme/components/ToggleThemeBtn";
+import { UserInfo } from "@/features/user/components/UserInfo/UserInfo";
 
 export function Sidebar() {
   return (

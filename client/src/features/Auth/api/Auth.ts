@@ -1,7 +1,7 @@
 import type {
   LoginFormInputInt,
   SignUpFormInputInt,
-} from "@/features/Auth/types";
+} from "@/features/auth/types";
 import { apiClient, ENDPOINTS, getRequestOptions } from "@/api";
 import type { AccessTokensResponse } from "./types";
 

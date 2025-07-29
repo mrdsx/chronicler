@@ -1,5 +1,5 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { deleteUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { deleteUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import { LogOut } from "lucide-react";
 
 export function LogOutBtn() {

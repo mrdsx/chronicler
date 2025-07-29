@@ -1,5 +1,5 @@
 import { apiClient, ENDPOINTS, getBearerAuthRequestOptions } from "@/api";
-import { getUserAccessToken } from "@/features/User/utils/userAccessTokenUtils";
+import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import type { APINote } from "../types";
 
 export function useNotesData() {

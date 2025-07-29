@@ -1,7 +1,7 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { useSelectedNoteContext } from "@/features/Notes/hooks/context";
-import { useNotes } from "@/features/Notes/hooks/useNotes";
-import type { Note } from "@/features/Notes/types";
+import { useSelectedNoteContext } from "@/features/notes/hooks/context";
+import { useNotes } from "@/features/notes/hooks/useNotes";
+import type { Note } from "@/features/notes/types";
 import { Edit } from "lucide-react";
 
 export function RenameNoteBtn({ targetNote }: { targetNote: Note }) {

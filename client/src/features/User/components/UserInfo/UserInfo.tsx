@@ -4,7 +4,7 @@ import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useUserData } from "@/features/User/hooks/useUserData";
+import { useUserData } from "@/features/user/hooks/useUserData";
 import { cn } from "@/lib/utils";
 
 interface UserInfoProps {

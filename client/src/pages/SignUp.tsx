@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui";
-import { SignUpForm } from "@/features/Auth/components";
-import { FormBackground } from "@/features/Auth/components/AuthForm/FormBackground";
-import { SignUpFormInner } from "@/features/Auth/components/SignUpForm/SignUpFormInner";
+import { SignUpForm } from "@/features/auth/components";
+import { FormBackground } from "@/features/auth/components/AuthForm/FormBackground";
+import { SignUpFormInner } from "@/features/auth/components/SignUpForm/SignUpFormInner";
 
 export function SignUp() {
   return (

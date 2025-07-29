@@ -1,4 +1,4 @@
-import { SignUpBtn } from "@/features/Auth/components";
+import { SignUpBtn } from "@/features/auth/components";
 import { Button } from "@/components/ui";
 
 export function IntroductionSectionActions() {

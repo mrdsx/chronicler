@@ -1,5 +1,5 @@
 import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu/AccountActionsDropdownMenu";
-import { LoginBtn, SignUpBtn } from "@/features/Auth/components";
+import { LoginBtn, SignUpBtn } from "@/features/auth/components";
 import { useQuery } from "@tanstack/react-query";
 import { useUserData } from "../../hooks/useUserData";
 import { AccountActionsSkeletonLoader } from "./AccountActionsSkeletonLoader";
