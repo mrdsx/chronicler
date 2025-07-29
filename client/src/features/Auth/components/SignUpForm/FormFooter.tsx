@@ -1,4 +1,4 @@
-import { LoginBtn } from "../LoginBtn";
+import { LoginBtn } from "@/features/auth/components";
 
 export function FormFooter() {
   return (
