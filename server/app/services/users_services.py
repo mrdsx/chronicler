@@ -6,12 +6,12 @@ from schemas.users_schemas import UserSchema
 auth_handler = Auth()
 
 
-def create_user(signup_data: AuthSchema_SignUp) -> UserSchema:
+async def create_user(signup_data: AuthSchema_SignUp) -> UserSchema:
     hashed_password = auth_handler.encode_password(signup_data.password)
     user_data = {
         "username": signup_data.username,
         "email": signup_data.email,
         "hashed_password": hashed_password,
     }
-    new_user = save_user(user_data)
+    new_user = await save_user(user_data)
     return new_user

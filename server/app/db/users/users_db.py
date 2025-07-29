@@ -13,7 +13,7 @@ Session = sessionmaker(engine)
 session = Session()
 
 
-def save_user(user: DB_User_Model) -> UserSchema:
+async def save_user(user: DB_User_Model) -> UserSchema:
     new_user = DB_User_Model(
         username=user["username"],
         email=user["email"],
