@@ -29,7 +29,7 @@ async def get_note_by_id(note_id: int) -> DB_Note_Model | None:
         return None
 
 
-def get_notes_by_user_id(user_id: int) -> list[DB_Note_Model]:
+async def get_notes_by_user_id(user_id: int) -> list[DB_Note_Model]:
     try:
         db_notes = session.query(DB_Note_Model).filter(DB_Note_Model.user_id == user_id)
         return db_notes

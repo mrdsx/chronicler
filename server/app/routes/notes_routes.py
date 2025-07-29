@@ -32,7 +32,7 @@ security = HTTPBearer()
 async def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
     email = get_email_from_auth_credentials(credentials)
     user = await get_user_by_email(email)
-    notes = get_notes_by_user_id(user.id)
+    notes = await get_notes_by_user_id(user.id)
     return notes
 
 
