@@ -5,18 +5,20 @@ import { useNotesData } from "../../hooks/useNotesData";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
+import { QUERY_KEYS } from "@/api";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
   const { fetchNotes } = useNotesData();
 
+  // TODO: extract query key in constant
   const {
     data: notesData,
     isError,
     isLoading,
   } = useQuery({
-    queryKey: ["notes"],
+    queryKey: [QUERY_KEYS.NOTES],
     queryFn: ({ signal }) => fetchNotes(signal),
     retry: false,
   });

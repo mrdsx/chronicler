@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useUserData } from "@/features/user/hooks/useUserData";
 import { cn } from "@/lib/utils";
+import { QUERY_KEYS } from "@/api";
 
 interface UserInfoProps {
   username?: string;
@@ -23,7 +24,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
     isError,
     isPending,
   } = useQuery({
-    queryKey: ["user"],
+    queryKey: [QUERY_KEYS.USER],
     queryFn: ({ signal }) => getUserData(signal),
     retry: false,
     enabled: usernamePropNotProvided,
