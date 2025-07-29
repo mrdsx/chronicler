@@ -37,7 +37,7 @@ def get_user_by_username(username: str) -> DB_User_Model | None:
         return None
 
 
-def get_user_by_email(email: str) -> DB_User_Model | None:
+async def get_user_by_email(email: str) -> DB_User_Model | None:
     try:
         db_user = (
             session.query(DB_User_Model).filter(DB_User_Model.email == email).first()

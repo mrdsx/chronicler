@@ -32,9 +32,9 @@ last_note_id = len(mock_notes)
 
 
 @router.get("/notes", response_model=list[NoteSchema])
-def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
+async def get_notes(credentials: HTTPAuthorizationCredentials = Security(security)):
     email = get_email_from_auth_credentials(credentials)
-    user = get_user_by_email(email)
+    user = await get_user_by_email(email)
     notes = get_notes_by_user_id(user.id)
     return notes
 
