@@ -1,12 +1,10 @@
 import { CircleUserRound } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { ROUTES } from "@/app/routes";
-import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
-import { QUERY_KEYS } from "@/api";
-import { getUserData } from "../../api/userData";
+import { useUserQuery } from "../../hooks/useUserQuery";
+import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 
 interface UserInfoProps {
   username?: string;
@@ -17,17 +15,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
-
-  const {
-    data: user,
-    isError,
-    isPending,
-  } = useQuery({
-    queryKey: [QUERY_KEYS.USER],
-    queryFn: ({ signal }) => getUserData(signal),
-    retry: false,
-    enabled: usernamePropNotProvided,
-  });
+  const { user, isError, isPending } = useUserQuery(usernamePropNotProvided);
 
   useEffect(() => {
     if (isError) {

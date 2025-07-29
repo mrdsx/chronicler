@@ -1,16 +1,10 @@
 import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu/AccountActionsDropdownMenu";
 import { LoginBtn, SignUpBtn } from "@/features/auth/components";
-import { useQuery } from "@tanstack/react-query";
 import { AccountActionsSkeletonLoader } from "./AccountActionsSkeletonLoader";
-import { QUERY_KEYS } from "@/api";
-import { getUserData } from "@/features/user/api/userData";
+import { useUserQuery } from "../../hooks/useUserQuery";
 
 export function AccountActions() {
-  const { data: user, isPending } = useQuery({
-    queryKey: [QUERY_KEYS.USER],
-    queryFn: ({ signal }) => getUserData(signal),
-    retry: false,
-  });
+  const { user, isPending } = useUserQuery();
 
   if (isPending) {
     return <AccountActionsSkeletonLoader />;
