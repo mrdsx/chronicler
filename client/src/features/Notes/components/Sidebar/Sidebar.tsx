@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo";
+import { Logo } from "@/components";
 import { Navigation } from "./Navigation";
 import { NoteActions } from "./NoteActions";
 import { ToggleThemeBtn } from "@/features/theme/components/ToggleThemeBtn";

@@ -8,8 +8,7 @@ import {
   FeaturesSectionTitle,
   FeaturesSectionContent,
 } from "./components";
-import { Logo } from "@/components/Logo";
-import { LogoImage } from "@/components/LogoImage";
+import { Logo, LogoImage } from "@/components";
 
 export function Home() {
   return (
