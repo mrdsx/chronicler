@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home, Login, SignUp, Notes, NotFoundPage } from "@/pages";
 import { ROUTES } from "@/app/routes";
-import { ThemeContextProvider } from "@/features/Theme/providers/ThemeProvider";
+import { ThemeContextProvider } from "@/features/theme/providers/ThemeProvider";
 import { Toaster } from "sonner";
 import "./styles/App.css";
 
