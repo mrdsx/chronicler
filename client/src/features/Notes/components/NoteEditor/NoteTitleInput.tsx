@@ -25,7 +25,13 @@ export function NoteTitleInput() {
   }
 
   function handleBlur(): void {
-    if (selectedNote) editNoteTitle(selectedNote, noteTitleInputVal);
+    if (!selectedNote) return;
+
+    editNoteTitle(selectedNote, noteTitleInputVal);
+    mutate({
+      noteId: selectedNote.id,
+      note: { title: noteTitleInputVal },
+    });
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>): void {

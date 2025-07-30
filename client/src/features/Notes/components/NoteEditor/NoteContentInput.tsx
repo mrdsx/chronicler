@@ -21,7 +21,10 @@ export function NoteContentInput() {
   }
 
   function handleBlur(): void {
-    if (selectedNote) editNoteContent(selectedNote, noteContentInputVal);
+    if (!selectedNote) return;
+
+    mutate({ noteId: selectedNote.id, note: { content: noteContentInputVal } });
+    editNoteContent(selectedNote, noteContentInputVal);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>): void {
