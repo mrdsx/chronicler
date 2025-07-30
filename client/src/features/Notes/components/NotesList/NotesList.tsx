@@ -1,24 +1,17 @@
 import { NoteItem } from "../NoteItem/NoteItem";
 import { useNotesContext, useSearchNotesContext } from "../../hooks/context";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
-import { QUERY_KEYS } from "@/api";
 import { getNotesData } from "../../api/Notes";
+import { useNotesQuery } from "../../hooks/useNotesQuery";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
 
-  const {
-    data: notesData,
-    isError,
-    isLoading,
-  } = useQuery({
-    queryKey: [QUERY_KEYS.NOTES],
-    queryFn: ({ signal }) => getNotesData(signal),
-    retry: false,
+  const { notesData, isError, isPending } = useNotesQuery({
+    queryFn: getNotesData,
   });
 
   // TODO: remove any
@@ -33,7 +26,7 @@ export function NotesList() {
   return (
     <div className="w-[30%] border-r-1 border-r-(--border-color)">
       <h2 className="pt-3 pb-2 pl-4 text-xl">Notes</h2>
-      {isLoading ? (
+      {isPending ? (
         <NotesListSkeletonLoader />
       ) : (
         notes.map((note) => {
