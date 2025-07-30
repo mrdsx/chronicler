@@ -27,7 +27,7 @@ export function AddNoteBtn() {
     onError: (error) => toast.error(error.message),
   });
 
-  async function handleClick(): Promise<void> {
+  function handleClick(): void {
     mutate({ title: "Untitled", content: "" });
     setTimeout(selectNoteTitleInput, 1);
   }
