@@ -7,4 +7,11 @@ export interface APINote {
 
 export type CreateNoteInput = Pick<APINote, "title" | "content">;
 
+type EditNoteInput = Partial<Pick<APINote, "title" | "content">>;
+
+export interface EditNoteProps {
+  noteId: number;
+  note: EditNoteInput;
+}
+
 export type NotesResponse = APINote[];
