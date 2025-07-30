@@ -1,7 +1,13 @@
-import { apiClient, ENDPOINTS, getRequestOptions } from "@/api";
+import {
+  apiClient,
+  ENDPOINTS,
+  getRequestOptions,
+  type BaseAPIResponse,
+} from "@/api";
 import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import type { APINote, CreateNoteInput, NotesResponse } from "./types";
 
+// TODO: add abort controller
 export async function createNote(
   note: CreateNoteInput,
 ): Promise<APINote | null> {
@@ -18,6 +24,27 @@ export async function createNote(
       ENDPOINTS.notes.root,
       requestOptions,
       "Failed to create note",
+    );
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+// TODO: add abort controller
+export async function deleteNote(noteId: number): Promise<BaseAPIResponse> {
+  try {
+    const accessToken = getUserAccessToken();
+    if (accessToken === null) throw new Error("Access token is not provided");
+
+    const requestOptions = getRequestOptions({
+      method: "DELETE",
+      token: accessToken,
+    });
+    return await apiClient<BaseAPIResponse>(
+      `${ENDPOINTS.notes.root}/${noteId}`,
+      requestOptions,
+      "Failed to delete note",
     );
   } catch (error) {
     console.error(error);
