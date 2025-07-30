@@ -20,11 +20,6 @@ export async function createNote(
       "Failed to create note",
     );
   } catch (error) {
-    if (error instanceof DOMException && error.name === "AbortError") {
-      console.warn("Request was aborted");
-      return null;
-    }
-
     console.error(error);
     throw error;
   }
