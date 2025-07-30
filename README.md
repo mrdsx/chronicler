@@ -10,10 +10,8 @@ Dark mode:
 
 ## Features:
 
-- Create/Edit/Delete notes
-- Search notes
-- Dark mode
-- Integration with DB (In Progress)
+- CRUD operations with notes
+- Dark Mode
 - AI features (TODO)
 
 ## Installation guide
