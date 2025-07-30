@@ -5,10 +5,6 @@ export interface EditNoteActions {
   editNoteContent(targetNote: APINote, newNoteContent: string): void;
 }
 
-export interface NotesActions {
-  selectNoteTitleInput(): void;
-}
-
 export interface NotesQueryProps {
   queryFn: Function;
   enabled?: boolean;

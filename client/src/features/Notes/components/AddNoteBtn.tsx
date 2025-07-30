@@ -1,4 +1,4 @@
-import { useNotes } from "../hooks/useNotes";
+import { useSelectNoteTitleInput } from "../hooks/useSelectNoteTitleInput";
 import { CirclePlus } from "lucide-react";
 import { useNotesContext, useSelectedNoteContext } from "../hooks/context";
 import { Button } from "@/components/ui";
@@ -11,7 +11,7 @@ import { QUERY_KEYS } from "@/api";
 export function AddNoteBtn() {
   const { notes, setNotes } = useNotesContext();
   const { setSelectedNote } = useSelectedNoteContext();
-  const { selectNoteTitleInput } = useNotes();
+  const selectNoteTitleInput = useSelectNoteTitleInput();
 
   const { mutate, isPending } = useMutation<
     APINote | null,
