@@ -7,7 +7,6 @@ export interface EditNoteActions {
 
 export interface NotesActions {
   selectNoteTitleInput(): void;
-  handleCreateNote(title: string, content?: string): APINote;
   deleteNote(targetId: APINote["id"]): void;
 }
 
