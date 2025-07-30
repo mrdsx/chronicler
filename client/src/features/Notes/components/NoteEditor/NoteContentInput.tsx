@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useEditNote } from "../../hooks/useEditNote";
 import { useSelectedNoteContext } from "../../hooks/context";
+import { useEditNoteMutation } from "../../hooks/useEditNoteMutation";
 
 export function NoteContentInput() {
   const { selectedNote } = useSelectedNoteContext();
   const { editNoteContent } = useEditNote();
+  const { mutate } = useEditNoteMutation();
 
   const [noteContentInputVal, setNoteContentInputVal] = useState<string>(
     selectedNote!.content,
@@ -27,10 +29,11 @@ export function NoteContentInput() {
 
     const isSaving =
       e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey));
-    if (isSaving) {
-      e.preventDefault();
-      editNoteContent(selectedNote, noteContentInputVal);
-    }
+    if (!isSaving) return;
+
+    e.preventDefault();
+    editNoteContent(selectedNote, noteContentInputVal);
+    mutate({ noteId: selectedNote.id, note: { content: noteContentInputVal } });
   }
 
   return (
