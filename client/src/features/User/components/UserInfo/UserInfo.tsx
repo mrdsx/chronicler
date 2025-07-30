@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserQuery } from "../../hooks/useUserQuery";
 import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
 import { getUserData } from "../../api/User";
+import type { UserResponse } from "../../api/types";
 
 interface UserInfoProps {
   username?: string;
@@ -16,7 +17,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
-  const { user, isError, isPending } = useUserQuery({
+  const { user, isError, isPending } = useUserQuery<UserResponse>({
     queryFn: getUserData,
     enabled: usernamePropNotProvided,
   });
