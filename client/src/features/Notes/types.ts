@@ -20,10 +20,6 @@ export interface NotesActions {
   deleteNote(targetId: string): void;
 }
 
-export interface NotesData {
-  getNotesData(signal: AbortSignal): Promise<APINote[] | null>;
-}
-
 export type NoteEditorRefsContextType = {
   noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
 };
