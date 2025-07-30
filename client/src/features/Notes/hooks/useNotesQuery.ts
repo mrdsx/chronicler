@@ -1,10 +1,6 @@
 import { QUERY_KEYS } from "@/api";
 import { useQuery } from "@tanstack/react-query";
-
-interface NotesQueryProps {
-  queryFn: Function;
-  enabled?: boolean;
-}
+import type { NotesQueryProps } from "../types";
 
 export function useNotesQuery({ queryFn, enabled }: NotesQueryProps) {
   const {

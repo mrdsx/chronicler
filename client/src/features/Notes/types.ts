@@ -15,6 +15,11 @@ export interface NotesActions {
   deleteNote(targetId: string): void;
 }
 
+export interface NotesQueryProps {
+  queryFn: Function;
+  enabled?: boolean;
+}
+
 export type NoteEditorRefsContextType = {
   noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
 };
