@@ -18,6 +18,8 @@ export const ENDPOINTS = {
 export const TOKEN_ERRORS = ["token_expired", "invalid_token"];
 
 export enum QUERY_KEYS {
-  USER = "user",
+  LOGIN_ACCESS_TOKENS = "login_access_tokens",
   NOTES = "notes",
+  SIGNUP_ACCESS_TOKENS = "signup_access_tokens",
+  USER = "user",
 }

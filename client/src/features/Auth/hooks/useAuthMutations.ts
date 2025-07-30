@@ -5,6 +5,7 @@ import { setUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/app/routes";
 import { toast } from "sonner";
+import { QUERY_KEYS } from "@/api";
 
 export function useSignUpFormMutation() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export function useSignUpFormMutation() {
     Error,
     SignUpFormInputInt
   >({
+    mutationKey: [QUERY_KEYS.SIGNUP_ACCESS_TOKENS],
     mutationFn: registerUser,
     onSuccess: (data) => {
       setUserAccessToken(data.access_token);
@@ -36,6 +38,7 @@ export function useLoginFormMutation() {
     Error,
     LoginFormInputInt
   >({
+    mutationKey: [QUERY_KEYS.SIGNUP_ACCESS_TOKENS],
     mutationFn: loginUser,
     onSuccess: (data) => {
       setUserAccessToken(data.access_token);
