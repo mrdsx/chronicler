@@ -19,6 +19,7 @@ export const TOKEN_ERRORS = ["token_expired", "invalid_token"];
 
 export enum QUERY_KEYS {
   CREATE_NOTE = "create_note",
+  DELETE_NOTE = "delete_note",
   LOGIN_ACCESS_TOKENS = "login_access_tokens",
   NOTES = "notes",
   SIGNUP_ACCESS_TOKENS = "signup_access_tokens",
