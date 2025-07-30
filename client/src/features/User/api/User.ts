@@ -9,9 +9,11 @@ import {
   deleteUserAccessToken,
   getUserAccessToken,
 } from "../utils/userAccessTokenUtils";
-import type { User } from "../types";
+import type { UserResponse } from "./types";
 
-export async function getUserData(signal: AbortSignal): Promise<User | null> {
+export async function getUserData(
+  signal: AbortSignal,
+): Promise<UserResponse | null> {
   try {
     const accessToken = getUserAccessToken();
     if (accessToken === null) return null;
@@ -21,7 +23,7 @@ export async function getUserData(signal: AbortSignal): Promise<User | null> {
       "GET",
       signal,
     );
-    return await apiClient<User>(
+    return await apiClient<UserResponse>(
       ENDPOINTS.users.me,
       requestOptions,
       "Failed to fetch user",
