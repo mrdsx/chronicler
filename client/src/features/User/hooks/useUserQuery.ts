@@ -1,7 +1,12 @@
 import { QUERY_KEYS } from "@/api";
 import { useQuery } from "@tanstack/react-query";
 
-export function useUserQuery(queryFn: Function, enabled?: boolean) {
+interface UserQueryProps {
+  queryFn: Function;
+  enabled?: boolean;
+}
+
+export function useUserQuery({ queryFn, enabled }: UserQueryProps) {
   const {
     data: user,
     isError,

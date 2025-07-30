@@ -5,7 +5,7 @@ import { useUserQuery } from "../../hooks/useUserQuery";
 import { getUserData } from "../../api/userData";
 
 export function AccountActions() {
-  const { user, isPending } = useUserQuery(getUserData);
+  const { user, isPending } = useUserQuery({ queryFn: getUserData });
 
   if (isPending) {
     return <AccountActionsSkeletonLoader />;

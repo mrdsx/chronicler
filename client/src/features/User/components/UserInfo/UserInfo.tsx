@@ -16,10 +16,10 @@ export function UserInfo({ username, className }: UserInfoProps) {
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
-  const { user, isError, isPending } = useUserQuery(
-    getUserData,
-    usernamePropNotProvided,
-  );
+  const { user, isError, isPending } = useUserQuery({
+    queryFn: getUserData,
+    enabled: usernamePropNotProvided,
+  });
 
   useEffect(() => {
     if (isError) {
