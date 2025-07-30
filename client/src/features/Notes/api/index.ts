@@ -1,2 +1,2 @@
-export { getNotes } from "./Notes";
-export type { APINote, NotesResponse } from "./types";
+export { createNote, getNotes } from "./Notes";
+export type { APINote, CreateNoteInput, NotesResponse } from "./types";

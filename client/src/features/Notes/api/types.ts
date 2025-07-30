@@ -5,4 +5,6 @@ export interface APINote {
   content: string;
 }
 
+export type CreateNoteInput = Pick<APINote, "title" | "content">;
+
 export type NotesResponse = APINote[];
