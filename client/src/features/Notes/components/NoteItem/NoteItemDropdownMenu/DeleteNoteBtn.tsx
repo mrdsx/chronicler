@@ -1,10 +1,10 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import type { APINote } from "@/features/notes/api";
 import { useSelectedNoteContext } from "@/features/notes/hooks/context";
 import { useNotes } from "@/features/notes/hooks/useNotes";
-import type { Note } from "@/features/notes/types";
 import { Trash2 } from "lucide-react";
 
-export function DeleteNoteBtn({ targetNote }: { targetNote: Note }) {
+export function DeleteNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { deleteNote } = useNotes();
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
 

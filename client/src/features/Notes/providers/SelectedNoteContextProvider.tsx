@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-import type { Note, SelectedNoteContextType } from "../types";
+import type { SelectedNoteContextType } from "../types";
+import type { APINote } from "../api";
 
 export const SelectedNoteContext =
   createContext<SelectedNoteContextType | null>(null);
@@ -9,7 +10,7 @@ export function SelectedNoteContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [selectedNote, setSelectedNote] = useState<Note | null>(null);
+  const [selectedNote, setSelectedNote] = useState<APINote | null>(null);
 
   return (
     <SelectedNoteContext.Provider value={{ selectedNote, setSelectedNote }}>

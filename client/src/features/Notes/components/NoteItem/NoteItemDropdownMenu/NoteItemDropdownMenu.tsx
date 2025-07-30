@@ -4,13 +4,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
-import type { Note } from "../../../types";
 import { CloneNoteBtn } from "./CloneNoteBtn";
 import { DeleteNoteBtn } from "./DeleteNoteBtn";
 import { RenameNoteBtn } from "./RenameNoteBtn";
+import type { APINote } from "@/features/notes/api";
 
 interface NoteItemDropdownMenuProps {
-  targetNote: Note;
+  targetNote: APINote;
   triggerRef: React.RefObject<HTMLButtonElement | null>;
 }
 

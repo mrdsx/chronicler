@@ -1,10 +1,10 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import type { APINote } from "@/features/notes/api";
 import { useSelectedNoteContext } from "@/features/notes/hooks/context";
 import { useNotes } from "@/features/notes/hooks/useNotes";
-import type { Note } from "@/features/notes/types";
 import { Copy } from "lucide-react";
 
-export function CloneNoteBtn({ targetNote }: { targetNote: Note }) {
+export function CloneNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { setSelectedNote } = useSelectedNoteContext();
   const { createNote, selectNoteTitleInput } = useNotes();
 

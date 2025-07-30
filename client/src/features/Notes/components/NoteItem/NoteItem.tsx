@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { NoteItemDropdownMenu } from "./NoteItemDropdownMenu/NoteItemDropdownMenu";
-import type { Note } from "../../types";
 import { useSelectedNoteContext } from "../../hooks/context";
+import type { APINote } from "../../api";
 
 interface NoteItemProps {
-  note: Note;
+  note: APINote;
 }
 
 export function NoteItem({ note }: NoteItemProps) {

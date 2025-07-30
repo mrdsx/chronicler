@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from "uuid";
-import type { Note, NotesActions } from "../types";
+import type { NotesActions } from "../types";
 import { useNoteEditorRefsContext, useNotesContext } from "../hooks/context";
+import type { APINote } from "../api";
 
 export function useNotes(): NotesActions {
   const { notes, setNotes } = useNotesContext();
@@ -10,9 +10,10 @@ export function useNotes(): NotesActions {
     noteTitleInputRef?.current?.select();
   }
 
-  function createNote(title: string, content: string = ""): Note {
+  function createNote(title: string, content: string = ""): APINote {
     const newNote = {
-      id: uuidv4(),
+      user_id: 1,
+      id: Math.random() * 1000000,
       title,
       content,
     };
@@ -20,7 +21,7 @@ export function useNotes(): NotesActions {
     return newNote;
   }
 
-  function deleteNote(targetId: string): void {
+  function deleteNote(targetId: number): void {
     const newNotes = notes.filter((note) => note.id !== targetId);
     setNotes([...newNotes]);
   }

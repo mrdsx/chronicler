@@ -1,18 +1,14 @@
-export interface EditNoteActions {
-  editNoteTitle(targetNote: Note, newNoteTitle: string): void;
-  editNoteContent(targetNote: Note, newNoteContent: string): void;
-}
+import type { APINote } from "./api";
 
-export interface Note {
-  id: string;
-  title: string;
-  content: string;
+export interface EditNoteActions {
+  editNoteTitle(targetNote: APINote, newNoteTitle: string): void;
+  editNoteContent(targetNote: APINote, newNoteContent: string): void;
 }
 
 export interface NotesActions {
   selectNoteTitleInput(): void;
-  createNote(title: string, content?: string): Note;
-  deleteNote(targetId: string): void;
+  createNote(title: string, content?: string): APINote;
+  deleteNote(targetId: APINote["id"]): void;
 }
 
 export interface NotesQueryProps {
@@ -25,13 +21,13 @@ export type NoteEditorRefsContextType = {
 };
 
 export type NotesContextType = {
-  notes: Note[];
-  setNotes(arg0: Note[]): void;
+  notes: APINote[];
+  setNotes(arg0: APINote[]): void;
 };
 
 export type SelectedNoteContextType = {
-  selectedNote: Note | null;
-  setSelectedNote(note: Note | null): void;
+  selectedNote: APINote | null;
+  setSelectedNote(note: APINote | null): void;
 };
 
 export type SearchNotesContextType = {

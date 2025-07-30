@@ -14,10 +14,9 @@ export function NotesList() {
     queryFn: getNotesData,
   });
 
-  // TODO: remove any
   useEffect(() => {
     if (notesData !== null && notesData !== undefined) {
-      setNotes(notesData as any);
+      setNotes(notesData);
     }
   }, [notesData]);
 
