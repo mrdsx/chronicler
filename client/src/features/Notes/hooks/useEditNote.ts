@@ -12,7 +12,7 @@ export function useEditNote(): EditNoteActions {
       }
       return note;
     });
-    setNotes(newNotes);
+    setNotes([...newNotes]);
   }
 
   function editNoteContent(targetNote: APINote, newNoteContent: string): void {
@@ -22,7 +22,7 @@ export function useEditNote(): EditNoteActions {
       }
       return note;
     });
-    setNotes(newNotes);
+    setNotes([...newNotes]);
   }
 
   return { editNoteTitle, editNoteContent };
