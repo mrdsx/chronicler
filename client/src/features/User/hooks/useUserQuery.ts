@@ -1,10 +1,6 @@
 import { QUERY_KEYS } from "@/api";
 import { useQuery } from "@tanstack/react-query";
-
-interface UserQueryProps {
-  queryFn: Function;
-  enabled?: boolean;
-}
+import type { UserQueryProps } from "../types";
 
 export function useUserQuery({ queryFn, enabled }: UserQueryProps) {
   const {
