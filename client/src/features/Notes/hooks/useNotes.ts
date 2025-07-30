@@ -10,10 +10,11 @@ export function useNotes(): NotesActions {
     noteTitleInputRef?.current?.select();
   }
 
-  function createNote(title: string, content: string = ""): APINote {
+  // TODO: add actual sending request
+  function handleCreateNote(title: string, content: string = ""): APINote {
     const newNote = {
       user_id: 1,
-      id: Math.random() * 1000000,
+      id: Math.floor(Math.random() * 1000000),
       title,
       content,
     };
@@ -21,10 +22,11 @@ export function useNotes(): NotesActions {
     return newNote;
   }
 
+  // TODO: add actual deleting with sending request
   function deleteNote(targetId: number): void {
     const newNotes = notes.filter((note) => note.id !== targetId);
     setNotes([...newNotes]);
   }
 
-  return { selectNoteTitleInput, createNote, deleteNote };
+  return { selectNoteTitleInput, handleCreateNote, deleteNote };
 }

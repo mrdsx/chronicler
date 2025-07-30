@@ -5,10 +5,10 @@ import { Button } from "@/components/ui";
 
 export function AddNoteBtn() {
   const { setSelectedNote } = useSelectedNoteContext();
-  const { createNote, selectNoteTitleInput } = useNotes();
+  const { handleCreateNote, selectNoteTitleInput } = useNotes();
 
   function handleClick(): void {
-    const newNote = createNote("Untitled");
+    const newNote = handleCreateNote("Untitled");
     setSelectedNote(newNote);
     setTimeout(selectNoteTitleInput, 1);
   }

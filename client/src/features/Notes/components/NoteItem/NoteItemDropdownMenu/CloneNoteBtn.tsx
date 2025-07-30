@@ -6,11 +6,11 @@ import { Copy } from "lucide-react";
 
 export function CloneNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { setSelectedNote } = useSelectedNoteContext();
-  const { createNote, selectNoteTitleInput } = useNotes();
+  const { handleCreateNote, selectNoteTitleInput } = useNotes();
 
   function handleClick(): void {
     const newNoteTitle = targetNote.title + " - Clone";
-    const newNote = createNote(newNoteTitle, targetNote.content);
+    const newNote = handleCreateNote(newNoteTitle, targetNote.content);
     setTimeout(() => setSelectedNote(newNote), 1);
     setTimeout(selectNoteTitleInput, 220);
   }
