@@ -18,7 +18,7 @@ export function getBearerAuthRequestOptions(
 
 export function getRequestOptions({
   data,
-  method,
+  method = "GET",
   token,
   signal,
 }: {
