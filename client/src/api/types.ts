@@ -1,4 +1,6 @@
 // force-semicolon: ignore-all
+export type RestAPIMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+
 export type Path = `/${string}`;
 
 export interface Endpoints {
