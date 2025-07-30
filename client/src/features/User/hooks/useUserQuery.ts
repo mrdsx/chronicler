@@ -1,16 +1,14 @@
 import { QUERY_KEYS } from "@/api";
 import { useQuery } from "@tanstack/react-query";
-import { getUserData } from "@/features/user/api/userData";
 
-// TODO: add type UserQuery
-export function useUserQuery(enabled?: boolean) {
+export function useUserQuery(queryFn: Function, enabled?: boolean) {
   const {
     data: user,
     isError,
     isPending,
   } = useQuery({
     queryKey: [QUERY_KEYS.USER],
-    queryFn: ({ signal }) => getUserData(signal),
+    queryFn: ({ signal }) => queryFn(signal),
     retry: false,
     enabled,
   });
