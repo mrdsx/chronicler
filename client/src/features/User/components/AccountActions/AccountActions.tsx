@@ -2,8 +2,7 @@ import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu/Account
 import { LoginBtn, SignUpBtn } from "@/features/auth/components";
 import { AccountActionsSkeletonLoader } from "./AccountActionsSkeletonLoader";
 import { useUserQuery } from "../../hooks/useUserQuery";
-import { getUserData } from "../../api/User";
-import type { UserResponse } from "../../api/types";
+import { getUserData, type UserResponse } from "../../api";
 
 export function AccountActions() {
   const { user, isPending } = useUserQuery<UserResponse>({
