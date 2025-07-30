@@ -1,10 +1,10 @@
 import { apiClient, ENDPOINTS, getBearerAuthRequestOptions } from "@/api";
 import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
-import type { APINote } from "../types";
+import type { NotesResponse } from "./types";
 
 export async function getNotesData(
   signal: AbortSignal,
-): Promise<APINote[] | null> {
+): Promise<NotesResponse | null> {
   try {
     const accessToken = getUserAccessToken();
     if (accessToken === null) return null;
@@ -14,7 +14,7 @@ export async function getNotesData(
       "GET",
       signal,
     );
-    return await apiClient<APINote[]>(
+    return await apiClient<NotesResponse>(
       ENDPOINTS.notes.root,
       requestOptions,
       "Failed to fetch notes",
