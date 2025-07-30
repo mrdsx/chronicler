@@ -7,7 +7,6 @@ export interface EditNoteActions {
 
 export interface NotesActions {
   selectNoteTitleInput(): void;
-  deleteNote(targetId: APINote["id"]): void;
 }
 
 export interface NotesQueryProps {
