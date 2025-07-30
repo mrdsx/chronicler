@@ -1,16 +1,15 @@
 import { NoteItem } from "../NoteItem/NoteItem";
 import { useNotesContext, useSearchNotesContext } from "../../hooks/context";
 import { useQuery } from "@tanstack/react-query";
-import { useNotesData } from "../../hooks/useNotesData";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
 import { QUERY_KEYS } from "@/api";
+import { getNotesData } from "../../api/Notes";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
-  const { getNotesData } = useNotesData();
 
   const {
     data: notesData,
