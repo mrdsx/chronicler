@@ -2,7 +2,7 @@ import { apiClient, ENDPOINTS, getRequestOptions } from "@/api";
 import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import type { NotesResponse } from "./types";
 
-export async function getNotesData(
+export async function getNotes(
   signal: AbortSignal,
 ): Promise<NotesResponse | null> {
   try {

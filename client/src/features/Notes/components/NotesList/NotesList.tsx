@@ -3,7 +3,7 @@ import { useNotesContext, useSearchNotesContext } from "../../hooks/context";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
-import { getNotesData, type NotesResponse } from "../../api";
+import { getNotes, type NotesResponse } from "../../api";
 import { useNotesQuery } from "../../hooks/useNotesQuery";
 
 export function NotesList() {
@@ -11,7 +11,7 @@ export function NotesList() {
   const { searchQuery } = useSearchNotesContext();
 
   const { notesData, isError, isPending } = useNotesQuery<NotesResponse>({
-    queryFn: getNotesData,
+    queryFn: getNotes,
   });
 
   useEffect(() => {
