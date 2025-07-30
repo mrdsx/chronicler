@@ -1,21 +1,5 @@
 import type { ErrorResponse, RestAPIMethod } from "./types";
 
-export function getBearerAuthRequestOptions(
-  token: string,
-  method?: string,
-  signal?: AbortSignal,
-  data?: string,
-): RequestInit {
-  return {
-    signal,
-    method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(data),
-  };
-}
-
 export function getRequestOptions({
   data,
   method = "GET",
