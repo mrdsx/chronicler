@@ -2,7 +2,7 @@ import {
   apiClient,
   APIError,
   ENDPOINTS,
-  getBearerAuthRequestOptions,
+  getRequestOptions,
   TOKEN_ERRORS,
 } from "@/api";
 import {
@@ -18,11 +18,7 @@ export async function getUserData(
     const accessToken = getUserAccessToken();
     if (accessToken === null) return null;
 
-    const requestOptions = getBearerAuthRequestOptions(
-      accessToken,
-      "GET",
-      signal,
-    );
+    const requestOptions = getRequestOptions({ token: accessToken, signal });
     return await apiClient<UserResponse>(
       ENDPOINTS.users.me,
       requestOptions,

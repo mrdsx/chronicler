@@ -1,4 +1,4 @@
-import { apiClient, ENDPOINTS, getBearerAuthRequestOptions } from "@/api";
+import { apiClient, ENDPOINTS, getRequestOptions } from "@/api";
 import { getUserAccessToken } from "@/features/user/utils/userAccessTokenUtils";
 import type { NotesResponse } from "./types";
 
@@ -9,11 +9,7 @@ export async function getNotesData(
     const accessToken = getUserAccessToken();
     if (accessToken === null) return null;
 
-    const requestOptions = getBearerAuthRequestOptions(
-      accessToken,
-      "GET",
-      signal,
-    );
+    const requestOptions = getRequestOptions({ token: accessToken, signal });
     return await apiClient<NotesResponse>(
       ENDPOINTS.notes.root,
       requestOptions,
