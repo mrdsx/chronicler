@@ -2,20 +2,16 @@ import { NoteItem } from "../NoteItem/NoteItem";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
-import { getNotes, type NotesResponse } from "../../api";
 import {
   useNotesContext,
-  useNotesQuery,
+  useGetNotesQuery,
   useSearchNotesContext,
 } from "@/features/notes/hooks";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();
   const { searchQuery } = useSearchNotesContext();
-
-  const { notesData, isError, isPending } = useNotesQuery<NotesResponse>({
-    queryFn: getNotes,
-  });
+  const { notesData, isError, isPending } = useGetNotesQuery();
 
   useEffect(() => {
     if (notesData !== null && notesData !== undefined) {

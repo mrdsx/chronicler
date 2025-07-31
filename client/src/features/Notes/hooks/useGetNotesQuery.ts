@@ -1,20 +1,16 @@
 import { QUERY_KEYS } from "@/api";
 import { useQuery } from "@tanstack/react-query";
-import type { NotesQueryProps } from "../types";
+import { getNotes } from "../api";
 
-export function useNotesQuery<TResponse>({
-  queryFn,
-  enabled,
-}: NotesQueryProps) {
+export function useGetNotesQuery() {
   const {
     data: notesData,
     isError,
     isPending,
-  } = useQuery<TResponse>({
+  } = useQuery({
     queryKey: [QUERY_KEYS.NOTES],
-    queryFn: ({ signal }) => queryFn(signal),
+    queryFn: ({ signal }) => getNotes(signal),
     retry: false,
-    enabled,
   });
 
   return { notesData, isError, isPending };
