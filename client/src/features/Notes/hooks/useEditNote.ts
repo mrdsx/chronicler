@@ -1,10 +1,12 @@
 import type { APINote } from "../api";
 import type { EditNoteActions } from "../types";
 import { useNotesContext, useSelectedNoteContext } from "./context";
+import { useEditNoteMutation } from "./useEditNoteMutation";
 
 export function useEditNote(): EditNoteActions {
   const { notes, setNotes } = useNotesContext();
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
+  const { mutate } = useEditNoteMutation();
 
   function editNoteTitle(targetNote: APINote, newNoteTitle: string): void {
     if (newNoteTitle.trim().length === 0) return;
@@ -29,5 +31,20 @@ export function useEditNote(): EditNoteActions {
     setNotes([...newNotes]);
   }
 
-  return { editNoteTitle, editNoteContent };
+  function handleEditNoteTitle(title: string, setTitle: Function): void {
+    if (selectedNote === null) return;
+
+    if (title.length === 0) {
+      setTitle(selectedNote.title);
+      return;
+    }
+
+    editNoteTitle(selectedNote, title);
+    mutate({
+      noteId: selectedNote.id,
+      note: { title },
+    });
+  }
+
+  return { editNoteContent, handleEditNoteTitle };
 }

@@ -1,8 +1,8 @@
 import type { APINote } from "./api";
 
 export interface EditNoteActions {
-  editNoteTitle(targetNote: APINote, newNoteTitle: string): void;
   editNoteContent(targetNote: APINote, newNoteContent: string): void;
+  handleEditNoteTitle(title: string, setTitle: Function): void;
 }
 
 export interface NotesQueryProps {

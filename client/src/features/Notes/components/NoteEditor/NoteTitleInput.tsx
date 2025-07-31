@@ -4,13 +4,11 @@ import {
   useNoteEditorRefsContext,
   useSelectedNoteContext,
 } from "../../hooks/context";
-import { useEditNoteMutation } from "../../hooks/useEditNoteMutation";
 
 export function NoteTitleInput() {
   const { noteTitleInputRef } = useNoteEditorRefsContext();
   const { selectedNote } = useSelectedNoteContext();
-  const { editNoteTitle } = useEditNote();
-  const { mutate } = useEditNoteMutation();
+  const { handleEditNoteTitle } = useEditNote();
 
   const [noteTitleInputVal, setNoteTitleInputVal] = useState<string>(
     selectedNote!.title,
@@ -25,28 +23,16 @@ export function NoteTitleInput() {
   }
 
   function handleBlur(): void {
-    if (!selectedNote) return;
-
-    editNoteTitle(selectedNote, noteTitleInputVal);
-    mutate({
-      noteId: selectedNote.id,
-      note: { title: noteTitleInputVal },
-    });
+    handleEditNoteTitle(noteTitleInputVal, setNoteTitleInputVal);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>): void {
-    if (!selectedNote) return;
-
     const isSaving =
       e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey));
     if (!isSaving) return;
 
     e.preventDefault();
-    editNoteTitle(selectedNote, noteTitleInputVal);
-    mutate({
-      noteId: selectedNote.id,
-      note: { title: noteTitleInputVal },
-    });
+    handleEditNoteTitle(noteTitleInputVal, setNoteTitleInputVal);
     e.currentTarget.blur();
   }
 
