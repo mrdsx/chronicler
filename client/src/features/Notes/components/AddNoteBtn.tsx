@@ -1,33 +1,14 @@
 import { CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui";
-import { useMutation } from "@tanstack/react-query";
-import { createNote, type APINote, type CreateNoteInput } from "../api";
-import { toast } from "sonner";
-import { QUERY_KEYS } from "@/api";
 import {
+  useCreateNoteMutation,
   useNoteTitleInputRef,
-  useNotesContext,
-  useSelectedNoteContext,
 } from "@/features/notes/hooks";
 
 export function AddNoteBtn() {
-  const { notes, setNotes } = useNotesContext();
-  const { setSelectedNote } = useSelectedNoteContext();
   const noteTitleInputRef = useNoteTitleInputRef();
 
-  const { mutate, isPending } = useMutation<
-    APINote | null,
-    Error,
-    CreateNoteInput
-  >({
-    mutationKey: [QUERY_KEYS.CREATE_NOTE],
-    mutationFn: createNote,
-    onSuccess: (note) => {
-      setNotes([...notes, note as APINote]);
-      setSelectedNote(note);
-    },
-    onError: (error) => toast.error(error.message),
-  });
+  const { mutate, isPending } = useCreateNoteMutation();
 
   function handleClick(): void {
     mutate({ title: "Untitled", content: "" });
