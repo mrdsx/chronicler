@@ -1,8 +1,8 @@
-import { useNoteEditorRefsContext } from "../../hooks/context";
+import { useNoteTitleInputRef } from "../../hooks/useNoteTitleInputRef";
 import { useNoteTitleInputActions } from "./useNoteTitleInputActions";
 
 export function NoteTitleInput() {
-  const { noteTitleInputRef } = useNoteEditorRefsContext();
+  const noteTitleInputRef = useNoteTitleInputRef();
   const { handleBlur, handleChange, handleKeyDown, noteTitleInputVal } =
     useNoteTitleInputActions();
 

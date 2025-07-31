@@ -10,10 +10,6 @@ export interface NotesQueryProps {
   enabled?: boolean;
 }
 
-export type NoteEditorRefsContextType = {
-  noteTitleInputRef: React.RefObject<HTMLInputElement | null>;
-};
-
 export type NotesContextType = {
   notes: APINote[];
   setNotes(arg0: APINote[]): void;

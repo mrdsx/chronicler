@@ -1,5 +1,4 @@
 import {
-  NoteEditorRefsContextProvider,
   NotesContextProvider,
   SearchNotesContextProvider,
   SelectedNoteContextProvider,
@@ -7,12 +6,10 @@ import {
 
 export function NotesProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NoteEditorRefsContextProvider>
-      <SearchNotesContextProvider>
-        <SelectedNoteContextProvider>
-          <NotesContextProvider>{children}</NotesContextProvider>
-        </SelectedNoteContextProvider>
-      </SearchNotesContextProvider>
-    </NoteEditorRefsContextProvider>
+    <SearchNotesContextProvider>
+      <SelectedNoteContextProvider>
+        <NotesContextProvider>{children}</NotesContextProvider>
+      </SelectedNoteContextProvider>
+    </SearchNotesContextProvider>
   );
 }

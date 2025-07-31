@@ -1,7 +1,3 @@
-import {
-  NoteEditorRefsContext,
-  NoteEditorRefsContextProvider,
-} from "./NoteEditorRefsContextProvider";
 import { NotesContext, NotesContextProvider } from "./NotesContextProvider";
 import {
   SearchNotesContext,
@@ -13,8 +9,6 @@ import {
 } from "./SelectedNoteContextProvider";
 
 export {
-  NoteEditorRefsContext,
-  NoteEditorRefsContextProvider,
   NotesContext,
   NotesContextProvider,
   SearchNotesContext,

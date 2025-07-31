@@ -1,16 +1,16 @@
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import type { APINote } from "@/features/notes/api";
 import { useSelectedNoteContext } from "@/features/notes/hooks/context";
-import { useSelectNoteTitleInput } from "@/features/notes/hooks/useSelectNoteTitleInput";
+import { useNoteTitleInputRef } from "@/features/notes/hooks/useNoteTitleInputRef";
 import { Edit } from "lucide-react";
 
 export function RenameNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { setSelectedNote } = useSelectedNoteContext();
-  const selectNoteTitleInput = useSelectNoteTitleInput();
+  const noteTitleInputRef = useNoteTitleInputRef();
 
   function handleClick(): void {
     setSelectedNote(targetNote);
-    setTimeout(selectNoteTitleInput, 210);
+    setTimeout(() => noteTitleInputRef.current?.select(), 210);
   }
 
   return (

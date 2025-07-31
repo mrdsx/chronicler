@@ -9,7 +9,7 @@ import {
   useNotesContext,
   useSelectedNoteContext,
 } from "@/features/notes/hooks/context";
-import { useSelectNoteTitleInput } from "@/features/notes/hooks/useSelectNoteTitleInput";
+import { useNoteTitleInputRef } from "@/features/notes/hooks/useNoteTitleInputRef";
 import { useMutation } from "@tanstack/react-query";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
@@ -17,7 +17,7 @@ import { toast } from "sonner";
 export function CloneNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { notes, setNotes } = useNotesContext();
   const { setSelectedNote } = useSelectedNoteContext();
-  const selectNoteTitleInput = useSelectNoteTitleInput();
+  const noteTitleInputRef = useNoteTitleInputRef();
 
   const { mutate } = useMutation<APINote | null, Error, CreateNoteInput>({
     mutationKey: [QUERY_KEYS.CREATE_NOTE],
@@ -32,7 +32,7 @@ export function CloneNoteBtn({ targetNote }: { targetNote: APINote }) {
   function handleClick(): void {
     const newNoteTitle = targetNote.title + " - Clone";
     mutate({ title: newNoteTitle, content: targetNote.content });
-    setTimeout(selectNoteTitleInput, 220);
+    setTimeout(() => noteTitleInputRef.current?.select(), 220);
   }
 
   return (
