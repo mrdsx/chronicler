@@ -31,6 +31,13 @@ export function useEditNote(): EditNoteActions {
     setNotes([...newNotes]);
   }
 
+  function handleEditNoteContent(content: string): void {
+    if (!selectedNote) return;
+
+    mutate({ noteId: selectedNote.id, note: { content } });
+    editNoteContent(selectedNote, content);
+  }
+
   function handleEditNoteTitle(title: string, setTitle: Function): void {
     if (selectedNote === null) return;
 
@@ -46,5 +53,5 @@ export function useEditNote(): EditNoteActions {
     });
   }
 
-  return { editNoteContent, handleEditNoteTitle };
+  return { handleEditNoteContent, handleEditNoteTitle };
 }

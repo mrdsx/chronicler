@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useEditNote } from "../../hooks/useEditNote";
 import { useSelectedNoteContext } from "../../hooks/context";
-import { useEditNoteMutation } from "../../hooks/useEditNoteMutation";
 
 // TODO: extract duplicated code from NoteContentInput and NoteTitleInput
 export function NoteContentInput() {
   const { selectedNote } = useSelectedNoteContext();
-  const { editNoteContent } = useEditNote();
-  const { mutate } = useEditNoteMutation();
+  const { handleEditNoteContent } = useEditNote();
 
   const [noteContentInputVal, setNoteContentInputVal] = useState<string>(
     selectedNote!.content,
@@ -22,22 +20,16 @@ export function NoteContentInput() {
   }
 
   function handleBlur(): void {
-    if (!selectedNote) return;
-
-    mutate({ noteId: selectedNote.id, note: { content: noteContentInputVal } });
-    editNoteContent(selectedNote, noteContentInputVal);
+    handleEditNoteContent(noteContentInputVal);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>): void {
-    if (!selectedNote) return;
-
     const isSaving =
       e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey));
     if (!isSaving) return;
 
     e.preventDefault();
-    editNoteContent(selectedNote, noteContentInputVal);
-    mutate({ noteId: selectedNote.id, note: { content: noteContentInputVal } });
+    handleEditNoteContent(noteContentInputVal);
   }
 
   return (
