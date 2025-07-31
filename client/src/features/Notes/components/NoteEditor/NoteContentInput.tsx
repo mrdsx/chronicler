@@ -13,6 +13,8 @@ export function NoteContentInput() {
 
   useEffect(() => {
     if (selectedNote) setNoteContentInputVal(selectedNote.content);
+
+    return () => handleEditNoteContent(noteContentInputVal);
   }, [selectedNote?.id]);
 
   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
@@ -24,8 +26,7 @@ export function NoteContentInput() {
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>): void {
-    const isSaving =
-      e.key === "Enter" || (e.key === "s" && (e.ctrlKey || e.metaKey));
+    const isSaving = e.key === "s" && (e.ctrlKey || e.metaKey);
     if (!isSaving) return;
 
     e.preventDefault();
