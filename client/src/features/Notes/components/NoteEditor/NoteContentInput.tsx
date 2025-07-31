@@ -3,6 +3,7 @@ import { useEditNote } from "../../hooks/useEditNote";
 import { useSelectedNoteContext } from "../../hooks/context";
 import { useEditNoteMutation } from "../../hooks/useEditNoteMutation";
 
+// TODO: extract duplicated code from NoteContentInput and NoteTitleInput
 export function NoteContentInput() {
   const { selectedNote } = useSelectedNoteContext();
   const { editNoteContent } = useEditNote();
