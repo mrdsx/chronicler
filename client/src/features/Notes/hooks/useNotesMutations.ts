@@ -15,7 +15,6 @@ export function useCreateNoteMutation() {
   const { notes, setNotes } = useNotesContext();
   const { setSelectedNote } = useSelectedNoteContext();
 
-  // TODO: remove null
   const mutation = useMutation<APINote, Error, CreateNoteInput>({
     mutationKey: [QUERY_KEYS.CREATE_NOTE],
     mutationFn: createNote,
