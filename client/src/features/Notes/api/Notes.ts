@@ -13,9 +13,7 @@ import type {
 } from "./types";
 
 // TODO: add abort controller
-export async function createNote(
-  note: CreateNoteInput,
-): Promise<APINote | null> {
+export async function createNote(note: CreateNoteInput): Promise<APINote> {
   try {
     const accessToken = getUserAccessToken();
     if (accessToken === null) throw new Error("Access token is not provided");

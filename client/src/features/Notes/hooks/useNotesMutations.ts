@@ -16,11 +16,11 @@ export function useCreateNoteMutation() {
   const { setSelectedNote } = useSelectedNoteContext();
 
   // TODO: remove null
-  const mutation = useMutation<APINote | null, Error, CreateNoteInput>({
+  const mutation = useMutation<APINote, Error, CreateNoteInput>({
     mutationKey: [QUERY_KEYS.CREATE_NOTE],
     mutationFn: createNote,
     onSuccess: (note) => {
-      setNotes([...notes, note as APINote]);
+      setNotes([...notes, note]);
       setSelectedNote(note);
     },
     onError: (error) => toast.error(error.message),
