@@ -1,7 +1,7 @@
 import type { APINote } from "../api";
 import type { EditNoteActions } from "../types";
 import { useNotesContext, useSelectedNoteContext } from "./context";
-import { useEditNoteMutation } from "./useEditNoteMutation";
+import { useEditNoteMutation } from "./useNotesMutations";
 
 export function useEditNote(): EditNoteActions {
   const { notes, setNotes } = useNotesContext();
