@@ -1,58 +1,24 @@
-import { useEffect, useState } from "react";
-import { useEditNote } from "../../hooks/useEditNote";
-import { useSelectedNoteContext } from "../../hooks/context";
+import { useNoteContentInputActions } from "./useNoteContentInputActions";
 
-// TODO: extract duplicated code from NoteContentInput and NoteTitleInput
 export function NoteContentInput() {
-  let timer: NodeJS.Timeout;
-
-  const { selectedNote } = useSelectedNoteContext();
-  const { handleEditNoteContent } = useEditNote();
-
-  const [noteContentInputVal, setNoteContentInputVal] = useState<string>(
-    selectedNote!.content,
-  );
-
-  useEffect(() => {
-    if (selectedNote) setNoteContentInputVal(selectedNote.content);
-
-    return () => handleEditNoteContent(noteContentInputVal);
-  }, [selectedNote?.id]);
-
-  function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    setNoteContentInputVal(e.target.value);
-  }
-
-  function handleBlur(): void {
-    handleEditNoteContent(noteContentInputVal);
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>): void {
-    const isSaving = e.key === "s" && (e.ctrlKey || e.metaKey);
-    if (!isSaving) return;
-
-    e.preventDefault();
-    handleEditNoteContent(noteContentInputVal);
-  }
-
-  function handleKeyPress(): void {
-    clearTimeout(timer);
-  }
-
-  function handleKeyUp(): void {
-    clearTimeout(timer);
-    timer = setTimeout(() => handleEditNoteContent(noteContentInputVal), 1000);
-  }
+  const {
+    handleBlur,
+    handleChange,
+    handleKeyDown,
+    handleKeyPress,
+    handleKeyUp,
+    noteContentInputVal,
+  } = useNoteContentInputActions();
 
   return (
     <textarea
       className="h-full resize-none scroll-smooth outline-0"
-      value={noteContentInputVal}
-      onChange={handleChange}
       onBlur={handleBlur}
+      onChange={handleChange}
       onKeyDown={handleKeyDown}
       onKeyPress={handleKeyPress}
       onKeyUp={handleKeyUp}
+      value={noteContentInputVal}
     />
   );
 }
