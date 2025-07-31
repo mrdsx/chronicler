@@ -4,6 +4,8 @@ import { useSelectedNoteContext } from "../../hooks/context";
 
 // TODO: extract duplicated code from NoteContentInput and NoteTitleInput
 export function NoteContentInput() {
+  let timer: NodeJS.Timeout;
+
   const { selectedNote } = useSelectedNoteContext();
   const { handleEditNoteContent } = useEditNote();
 
@@ -33,6 +35,15 @@ export function NoteContentInput() {
     handleEditNoteContent(noteContentInputVal);
   }
 
+  function handleKeyPress(): void {
+    clearTimeout(timer);
+  }
+
+  function handleKeyUp(): void {
+    clearTimeout(timer);
+    timer = setTimeout(() => handleEditNoteContent(noteContentInputVal), 1000);
+  }
+
   return (
     <textarea
       className="h-full resize-none scroll-smooth outline-0"
@@ -40,6 +51,8 @@ export function NoteContentInput() {
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
+      onKeyPress={handleKeyPress}
+      onKeyUp={handleKeyUp}
     />
   );
 }
