@@ -8,6 +8,16 @@ export function useEditNote(): EditNoteActions {
   const { selectedNote, setSelectedNote } = useSelectedNoteContext();
   const { mutate } = useEditNoteMutation();
 
+  function editNoteContent(targetNote: APINote, newNoteContent: string): void {
+    const newNotes = notes.map((note) => {
+      if (note.id === targetNote.id) {
+        return { ...note, content: newNoteContent };
+      }
+      return note;
+    });
+    setNotes([...newNotes]);
+  }
+
   function editNoteTitle(targetNote: APINote, newNoteTitle: string): void {
     if (newNoteTitle.trim().length === 0) return;
 
@@ -15,16 +25,6 @@ export function useEditNote(): EditNoteActions {
     const newNotes = notes.map((note) => {
       if (note.id === targetNote.id) {
         return { ...note, title: newNoteTitle };
-      }
-      return note;
-    });
-    setNotes([...newNotes]);
-  }
-
-  function editNoteContent(targetNote: APINote, newNoteContent: string): void {
-    const newNotes = notes.map((note) => {
-      if (note.id === targetNote.id) {
-        return { ...note, content: newNoteContent };
       }
       return note;
     });
