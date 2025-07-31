@@ -1,4 +1,4 @@
-import { useNoteTitleInputRef } from "../../hooks/useNoteTitleInputRef";
+import { useNoteTitleInputRef } from "@/features/notes/hooks";
 import { useNoteTitleInputActions } from "./useNoteTitleInputActions";
 
 export function NoteTitleInput() {

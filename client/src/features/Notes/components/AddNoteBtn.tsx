@@ -1,11 +1,14 @@
 import { CirclePlus } from "lucide-react";
-import { useNotesContext, useSelectedNoteContext } from "../hooks/context";
 import { Button } from "@/components/ui";
 import { useMutation } from "@tanstack/react-query";
 import { createNote, type APINote, type CreateNoteInput } from "../api";
 import { toast } from "sonner";
 import { QUERY_KEYS } from "@/api";
-import { useNoteTitleInputRef } from "../hooks/useNoteTitleInputRef";
+import {
+  useNoteTitleInputRef,
+  useNotesContext,
+  useSelectedNoteContext,
+} from "@/features/notes/hooks";
 
 export function AddNoteBtn() {
   const { notes, setNotes } = useNotesContext();

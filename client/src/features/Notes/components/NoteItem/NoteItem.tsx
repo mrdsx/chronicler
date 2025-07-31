@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { NoteItemDropdownMenu } from "./NoteItemDropdownMenu/NoteItemDropdownMenu";
-import { useSelectedNoteContext } from "../../hooks/context";
+import { useSelectedNoteContext } from "@/features/notes/hooks";
 import type { APINote } from "../../api";
 
 interface NoteItemProps {

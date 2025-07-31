@@ -6,10 +6,10 @@ import {
   type CreateNoteInput,
 } from "@/features/notes/api";
 import {
+  useNoteTitleInputRef,
   useNotesContext,
   useSelectedNoteContext,
-} from "@/features/notes/hooks/context";
-import { useNoteTitleInputRef } from "@/features/notes/hooks/useNoteTitleInputRef";
+} from "@/features/notes/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";

@@ -1,10 +1,13 @@
 import { NoteItem } from "../NoteItem/NoteItem";
-import { useNotesContext, useSearchNotesContext } from "../../hooks/context";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { NotesListSkeletonLoader } from "./NotesListSkeletonLoader";
 import { getNotes, type NotesResponse } from "../../api";
-import { useNotesQuery } from "../../hooks/useNotesQuery";
+import {
+  useNotesContext,
+  useNotesQuery,
+  useSearchNotesContext,
+} from "@/features/notes/hooks";
 
 export function NotesList() {
   const { notes, setNotes } = useNotesContext();

@@ -4,7 +4,7 @@ import { deleteNote, type APINote } from "@/features/notes/api";
 import {
   useNotesContext,
   useSelectedNoteContext,
-} from "@/features/notes/hooks/context";
+} from "@/features/notes/hooks";
 import { useMutation } from "@tanstack/react-query";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";

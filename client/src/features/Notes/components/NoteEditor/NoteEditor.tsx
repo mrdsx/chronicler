@@ -1,6 +1,6 @@
 import { NoteTitleInput } from "./NoteTitleInput";
 import { NoteContentInput } from "./NoteContentInput";
-import { useSelectedNoteContext } from "../../hooks/context";
+import { useSelectedNoteContext } from "@/features/notes/hooks";
 
 export function NoteEditor() {
   const { selectedNote } = useSelectedNoteContext();
