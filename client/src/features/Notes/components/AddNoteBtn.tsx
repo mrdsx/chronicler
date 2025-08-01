@@ -2,11 +2,11 @@ import { CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui";
 import {
   useCreateNoteMutation,
-  useNoteTitleInputRef,
+  useNoteTitleInputRefContext,
 } from "@/features/notes/hooks";
 
 export function AddNoteBtn() {
-  const noteTitleInputRef = useNoteTitleInputRef();
+  const noteTitleInputRef = useNoteTitleInputRefContext();
 
   const { mutate, isPending } = useCreateNoteMutation();
 

@@ -2,13 +2,13 @@ import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { type APINote } from "@/features/notes/api";
 import {
   useCreateNoteMutation,
-  useNoteTitleInputRef,
+  useNoteTitleInputRefContext,
 } from "@/features/notes/hooks";
 import { Copy } from "lucide-react";
 
 export function CloneNoteBtn({ targetNote }: { targetNote: APINote }) {
   const { mutate } = useCreateNoteMutation();
-  const noteTitleInputRef = useNoteTitleInputRef();
+  const noteTitleInputRef = useNoteTitleInputRefContext();
 
   function handleClick(): void {
     const newNoteTitle = targetNote.title + " - Clone";
