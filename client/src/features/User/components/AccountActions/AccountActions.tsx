@@ -1,13 +1,10 @@
 import { AccountActionsDropdownMenu } from "./AccountActionsDropdownMenu/AccountActionsDropdownMenu";
 import { LoginBtn, SignUpBtn } from "@/features/auth/components";
 import { AccountActionsSkeletonLoader } from "./AccountActionsSkeletonLoader";
-import { useUserQuery } from "../../hooks/useUserQuery";
-import { getUser, type UserResponse } from "../../api";
+import { useGetUserQuery } from "../../hooks/useGetUserQuery";
 
 export function AccountActions() {
-  const { user, isPending } = useUserQuery<UserResponse>({
-    queryFn: getUser,
-  });
+  const { user, isPending } = useGetUserQuery({ enabled: true });
 
   if (isPending) {
     return <AccountActionsSkeletonLoader />;

@@ -3,9 +3,8 @@ import { cn } from "@/lib/utils";
 import { ROUTES } from "@/app/routes";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserQuery } from "../../hooks/useUserQuery";
 import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
-import { getUser, type UserResponse } from "../../api";
+import { useGetUserQuery } from "../../hooks/useGetUserQuery";
 
 interface UserInfoProps {
   username?: string;
@@ -16,8 +15,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
   const navigate = useNavigate();
 
   const usernamePropNotProvided = username === undefined;
-  const { user, isError, isPending } = useUserQuery<UserResponse>({
-    queryFn: getUser,
+  const { user, isError, isPending } = useGetUserQuery({
     enabled: usernamePropNotProvided,
   });
 
