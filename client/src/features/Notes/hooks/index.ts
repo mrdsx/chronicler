@@ -5,4 +5,3 @@ export {
   useCreateNoteMutation,
   useEditNoteMutation,
 } from "./useNotesMutations";
-export { useNoteTitleInputRef } from "./useNoteTitleInputRef";
