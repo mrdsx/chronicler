@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserQuery } from "../../hooks/useUserQuery";
 import { UserInfoSkeletonLoader } from "./UserInfoSkeletonLoader";
-import { getUserData, type UserResponse } from "../../api";
+import { getUser, type UserResponse } from "../../api";
 
 interface UserInfoProps {
   username?: string;
@@ -17,7 +17,7 @@ export function UserInfo({ username, className }: UserInfoProps) {
 
   const usernamePropNotProvided = username === undefined;
   const { user, isError, isPending } = useUserQuery<UserResponse>({
-    queryFn: getUserData,
+    queryFn: getUser,
     enabled: usernamePropNotProvided,
   });
 

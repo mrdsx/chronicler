@@ -11,7 +11,7 @@ import {
 } from "../utils/userAccessTokenUtils";
 import type { UserResponse } from "./types";
 
-export async function getUserData(
+export async function getUser(
   signal: AbortSignal,
 ): Promise<UserResponse | null> {
   try {
