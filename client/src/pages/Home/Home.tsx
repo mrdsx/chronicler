@@ -9,6 +9,7 @@ import {
   FeaturesSectionContent,
 } from "./components";
 import { Logo, LogoImage } from "@/components";
+import { ChevronDown } from "lucide-react";
 
 export function Home() {
   return (
@@ -18,7 +19,12 @@ export function Home() {
           <LogoImage width="1.5rem" />
           <Logo className="flex font-semibold text-indigo-600" />
         </div>
-        <AccountActions />
+        <div className="flex items-center gap-4">
+          <AccountActions />
+          <button>
+            <ChevronDown />
+          </button>
+        </div>
       </Header>
       <IntroductionSection>
         <IntroductionSectionTitle />
