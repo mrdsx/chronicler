@@ -1,5 +1,9 @@
 import { NotesContext, NotesContextProvider } from "./NotesContextProvider";
 import {
+  NoteTitleInputRefContext,
+  NoteTitleInputRefContextProvider,
+} from "./NoteTitleInputRefProvider";
+import {
   SearchNotesContext,
   SearchNotesContextProvider,
 } from "./SearchNotesContextProvider";
@@ -11,6 +15,8 @@ import {
 export {
   NotesContext,
   NotesContextProvider,
+  NoteTitleInputRefContext,
+  NoteTitleInputRefContextProvider,
   SearchNotesContext,
   SearchNotesContextProvider,
   SelectedNoteContext,

@@ -15,6 +15,9 @@ export type NotesContextType = {
   setNotes(arg0: APINote[]): void;
 };
 
+export type NoteTitleInputRefContextType =
+  React.RefObject<HTMLInputElement | null>;
+
 export type SelectedNoteContextType = {
   selectedNote: APINote | null;
   setSelectedNote(note: APINote | null): void;
