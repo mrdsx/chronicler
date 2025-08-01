@@ -32,7 +32,7 @@ export function useEditNote(): EditNoteActions {
   }
 
   function handleEditNoteContent(content: string): void {
-    if (!selectedNote) return;
+    if (selectedNote === null) return;
 
     mutate({ noteId: selectedNote.id, note: { content } });
     editNoteContent(selectedNote, content);
