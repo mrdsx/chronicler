@@ -13,8 +13,6 @@ export function useNoteContentInputActions() {
 
   useEffect(() => {
     if (selectedNote) setNoteContentInputVal(selectedNote.content);
-
-    return () => handleEditNoteContent(noteContentInputVal);
   }, [selectedNote?.id]);
 
   function handleBlur(): void {
