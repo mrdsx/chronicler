@@ -16,6 +16,7 @@ export function useNoteTitleInputActions() {
   function handleBlur(): void {
     handleEditNoteTitle(noteTitleInputVal, setNoteTitleInputVal);
   }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     setNoteTitleInputVal(e.target.value);
   }
